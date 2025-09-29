@@ -38,6 +38,7 @@ func load_scene_from_xml(xml_path: String) -> Error:
 
 func _parse_scene_xml(parser: XMLParser) -> Dictionary:
     var scene_data = {
+        "name": "",
         "characters": {},
         "dialogue": [],
         "background": {}
@@ -74,12 +75,19 @@ func _parse_scene_xml(parser: XMLParser) -> Dictionary:
                         }
                     
                     "message":
+                        # 메시지 속성들 읽기
+                        var speaker = parser.get_named_attribute_value("speaker")
+                        var emotion = parser.get_named_attribute_value("emotion") if parser.has_attribute("emotion") else "normal"
                         var message = {
                             "type": "message",
-                            "speaker": parser.get_named_attribute_value("speaker"),
-                            "emotion": parser.get_named_attribute_value("emotion"),
-                            "text": parser.read_string()
+                            "speaker": speaker,
+                            "emotion": emotion,
+                            "text": ""
                         }
+                        # 텍스트 내용 읽기
+                        if parser.read() == OK:
+                            if parser.get_node_type() == XMLParser.NODE_TEXT:
+                                message.text = parser.get_node_data().strip_edges()
                         scene_data.dialogue.append(message)
                     
                     "choice":
