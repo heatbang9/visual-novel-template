@@ -16,7 +16,7 @@ func set_name(text:String, enable_delete = true) -> void:
 	# load the thumbnail (if possible)
 	var file = File.new()
 	if file.open("user://dialogic/"+text+"/thumbnail.png", File.READ) == OK:
-		var buffer = file.get_buffer(file.get_len())
+		var buffer = file.get_buffer(file.get_length())
 		file.close()
 
 		var image = Image.new()
@@ -37,7 +37,7 @@ func set_name(text:String, enable_delete = true) -> void:
 
 # manages left and right click -> emits signals
 func _on_SaveSlot_gui_input(event:InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("pressed", $Label.text)
 
 

@@ -4,8 +4,8 @@ var save_name = ""
 var save_idx = 0
 var SaveSlot = preload("res://dialogic/Menus/DialogicMenu_SaveSlot.tscn")
 
-onready var SaveSlotContainer = $Scroll/SaveSlots
-onready var MenusContainer = get_parent().get_parent().get_parent()
+@onready var SaveSlotContainer = $Scroll/SaveSlots
+@onready var MenusContainer = get_parent().get_parent().get_parent()
 
 ################################################################################
 ##								PUBLIC
@@ -22,18 +22,18 @@ func update_saves() -> void:
 	save_name = ""
 	save_idx = 0
 	for save in Dialogic.get_slot_names():
-		var x = SaveSlot.instance()
+		var x = SaveSlot.instantiate()
 		x.set_name(save, false)
 		SaveSlotContainer.add_child(x)
 		save_name = save.trim_prefix("Save ")
-		if save_name.is_valid_integer() and save_idx <= int(save_name):
+		if save_name.is_valid_int() and save_idx <= int(save_name):
 			save_idx = int(save_name) +1
-		x.connect("pressed", self, "on_save_slot_pressed")
+		x.connect("pressed", Callable(self, "on_save_slot_pressed"))
 	if Dialogic.has_current_dialog_node():
-		var x = SaveSlot.instance()
+		var x = SaveSlot.instantiate()
 		x.set_name("NEW SAVE SLOT", false)
 		SaveSlotContainer.add_child(x)
-		x.connect("pressed", self, "new_save_slot")
+		x.connect("pressed", Callable(self, "new_save_slot"))
 
 # will save the current state to a new save slot
 func new_save_slot(slot_name:String) -> void:
