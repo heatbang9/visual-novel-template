@@ -1,9 +1,9 @@
 extends Control
 
 ## references
-onready var LooseWarning = $LooseProgressWarning
-onready var LooseSaveWarning = $LooseSaveWarning
-export (NodePath) var Game
+@onready var LooseWarning = $LooseProgressWarning
+@onready var LooseSaveWarning = $LooseSaveWarning
+@export var Game: NodePath
 
 # saved before pausing the game, used in case a save is created
 var saved_image
@@ -19,8 +19,8 @@ func add_game_node(node):
 	$InGameMenu.hide()
 	$MenuAnimations.play("Fade")
 	get_node(Game).add_child(node)
-	node.connect("timeline_end", self, "_on_game_ended")
-	yield($MenuAnimations, "animation_finished")
+	node.connect("timeline_end", Callable(self, "_on_game_ended"))
+	await $MenuAnimations.animation_finished
 	$InGameMenu.show()
 	$MainMenu.hide()
 	$SubMenus.hide()
@@ -54,7 +54,7 @@ func _ready():
 
 # look for right click input to show the SAVE MENU
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		if not ($MainMenu.visible or $SubMenus.visible):
 			# Retrieve the save screenshot
 			saved_image = get_tree().get_root().get_texture().get_data()
@@ -71,11 +71,11 @@ func _on_game_ended(_something):
 	$MainMenu.open()
 	$MenuMusic.play()
 	$MenuAnimations.play_backwards("Fade")
-	yield(get_tree().create_timer(0.2), "timeout")
+	await get_tree().create_timer(0.2).timeout
 	show()
 
 func _on_Ingame_Save_Button_pressed():
-	get_tree().set_input_as_handled()
+	get_viewport().set_input_as_handled()
 	# Retrieve the save screenshot
 	saved_image = get_tree().get_root().get_texture().get_data()
 	saved_image.flip_y()
@@ -85,7 +85,7 @@ func _on_Ingame_Save_Button_pressed():
 
 
 func _on_Ingame_Load_Button_pressed():
-	get_tree().set_input_as_handled()
+	get_viewport().set_input_as_handled()
 	# Retrieve the save screenshot
 	saved_image = get_tree().get_root().get_texture().get_data()
 	saved_image.flip_y()
@@ -95,7 +95,7 @@ func _on_Ingame_Load_Button_pressed():
 
 
 func _on_Ingame_Settings_Button_pressed():
-	get_tree().set_input_as_handled()
+	get_viewport().set_input_as_handled()
 	# Retrieve the save screenshot
 	saved_image = get_tree().get_root().get_texture().get_data()
 	saved_image.flip_y()
@@ -105,5 +105,5 @@ func _on_Ingame_Settings_Button_pressed():
 
 
 func _on_Ingame_History_Button_pressed():
-	get_tree().set_input_as_handled()
+	get_viewport().set_input_as_handled()
 	Dialogic.toggle_history()
