@@ -15,10 +15,13 @@ const WORKING_DIR: String = "user://dialogic" # Readwrite, used for saves
 ## *****************************************************************************
 static func load_json(path: String, default: Dictionary={}) -> Dictionary:
 	# An easy function to load json files and handle common errors.
-	var file := File.new()
-	if file.open(path, File.READ) != OK:
-		file.close()
+	if not FileAccess.file_exists(path):
 		return default
+	
+	var file = FileAccess.open(path, FileAccess.READ)
+	if not file:
+		return default
+	
 	var data_text: String = file.get_as_text()
 	file.close()
 	if data_text.is_empty():
@@ -37,13 +40,14 @@ static func load_json(path: String, default: Dictionary={}) -> Dictionary:
 	return default
 
 
-static func set_json(path: String, data: Dictionary):
-	var file = File.new()
-	var err = file.open(path, File.WRITE)
-	if err == OK:
-		file.store_line(JSON.stringify(data, '\t', true))
-		file.close()
-	return err
+static func set_json(path: String, data: Dictionary) -> Error:
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	if not file:
+		return Error.FAILED
+	
+	file.store_line(JSON.stringify(data, '\t', true))
+	file.close()
+	return OK
 
 
 ## *****************************************************************************
@@ -127,11 +131,11 @@ static func listdir(path: String) -> Array:
 	return files
 
 
-static func create_empty_file(path):
-	var file = File.new()
-	file.open(path, File.WRITE)
-	file.store_string('')
-	file.close()
+static func create_empty_file(path: String) -> void:
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	if file:
+		file.store_string('')
+		file.close()
 
 
 static func remove_file(path: String):
