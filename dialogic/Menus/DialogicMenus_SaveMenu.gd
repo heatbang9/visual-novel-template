@@ -2,7 +2,7 @@ extends Control
 
 var save_name = ""
 var save_idx = 0
-var SaveSlot = preload("res://dialogic/Menus/DialogicMenu_SaveSlot.tscn")
+const SaveSlot = preload("res://dialogic/Menus/DialogicMenu_SaveSlot.tscn") as PackedScene
 
 @onready var SaveSlotContainer = $Scroll/SaveSlots
 @onready var MenusContainer = get_parent().get_parent().get_parent()
@@ -21,9 +21,9 @@ func update_saves() -> void:
 		child.queue_free()
 	save_name = ""
 	save_idx = 0
-	for save in Dialogic.get_slot_names():
+for save in DialogicSaveManager.get_slot_names():
 		var x = SaveSlot.instantiate()
-		x.set_name(save, false)
+		x.set_slot_name(save, "false")
 		SaveSlotContainer.add_child(x)
 		save_name = save.trim_prefix("Save ")
 		if save_name.is_valid_int() and save_idx <= int(save_name):
