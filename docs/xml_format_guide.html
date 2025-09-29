@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Novel XML 포맷 가이드</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Consolas', monospace;
+        }
+        .todo-list {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .todo-item {
+            margin-bottom: 10px;
+        }
+        .todo-category {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Visual Novel XML 포맷 가이드</h1>
+
+    <h2>개요</h2>
+    <p>이 문서는 비주얼 노벨 템플릿의 XML 파일 포맷을 설명합니다. 두 가지 주요 XML 타입이 있습니다:</p>
+    <ol>
+        <li>씬 시퀀스 XML (게임의 전체 흐름 정의)</li>
+        <li>대화 씬 XML (개별 씬의 내용 정의)</li>
+    </ol>
+
+    <h2>씬 시퀀스 XML</h2>
+    <p>시퀀스 XML은 게임의 전체적인 흐름을 정의합니다.</p>
+
+    <h3>기본 구조</h3>
+    <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;sequence name="시퀀스_이름"&gt;
+    &lt;scenes&gt;
+        &lt;scene path="씬_파일_경로.xml"&gt;
+            &lt;condition type="조건_타입" variable="변수_이름" value="값"/&gt;
+            &lt;on_complete&gt;
+                &lt;set_variable name="변수_이름" value="값"/&gt;
+                &lt;trigger_event name="이벤트_이름"/&gt;
+            &lt;/on_complete&gt;
+        &lt;/scene&gt;
+    &lt;/scenes&gt;
+&lt;/sequence&gt;</code></pre>
+
+    <h3>주요 요소</h3>
+    <ul>
+        <li><code>sequence</code>: 최상위 요소, <code>name</code> 속성으로 시퀀스 이름 지정</li>
+        <li><code>scenes</code>: 모든 씬을 포함하는 컨테이너</li>
+        <li><code>scene</code>: 개별 씬, <code>path</code> 속성으로 씬 파일 경로 지정
+            <ul>
+                <li><code>condition</code>: 씬 진입 조건 (<code>variable</code>, <code>requirement</code> 타입)</li>
+                <li><code>on_complete</code>: 씬 완료 시 실행할 액션</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>대화 씬 XML</h2>
+    <p>대화 씬 XML은 개별 씬의 내용을 정의합니다.</p>
+
+    <h3>기본 구조</h3>
+    <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;scene name="씬_이름"&gt;
+    &lt;background type="이미지_타입" path="배경_이미지_경로"/&gt;
+    &lt;characters&gt;
+        &lt;character id="캐릭터_ID" name="캐릭터_이름" default_position="위치"&gt;
+            &lt;portrait path="초상화_경로"/&gt;
+        &lt;/character&gt;
+    &lt;/characters&gt;
+    &lt;dialogue&gt;
+        &lt;message speaker="화자_ID" emotion="감정_상태"&gt;대사 내용&lt;/message&gt;
+        &lt;choice text="선택지_설명"&gt;
+            &lt;option text="옵션_텍스트"&gt;
+                &lt;message speaker="화자_ID"&gt;대사 내용&lt;/message&gt;
+            &lt;/option&gt;
+        &lt;/choice&gt;
+    &lt;/dialogue&gt;
+&lt;/scene&gt;</code></pre>
+
+    <h2>예정된 기능</h2>
+    <div class="todo-list">
+        <div class="todo-category">1. 배경 효과</div>
+        <ul>
+            <li class="todo-item">페이드 인/아웃</li>
+            <li class="todo-item">날씨 효과</li>
+            <li class="todo-item">시간 변화 효과</li>
+        </ul>
+
+        <div class="todo-category">2. 캐릭터 기능</div>
+        <ul>
+            <li class="todo-item">다중 포즈/표정</li>
+            <li class="todo-item">애니메이션 효과</li>
+            <li class="todo-item">음성 지원</li>
+        </ul>
+
+        <div class="todo-category">3. 대화 시스템</div>
+        <ul>
+            <li class="todo-item">자동 진행</li>
+            <li class="todo-item">대화 속도 조절</li>
+            <li class="todo-item">대화 이력 조회</li>
+        </ul>
+
+        <div class="todo-category">4. 게임 시스템</div>
+        <ul>
+            <li class="todo-item">세이브/로드</li>
+            <li class="todo-item">환경 설정</li>
+            <li class="todo-item">실적 시스템</li>
+        </ul>
+
+        <div class="todo-category">5. UI/UX</div>
+        <ul>
+            <li class="todo-item">커스텀 테마</li>
+            <li class="todo-item">다국어 지원</li>
+            <li class="todo-item">접근성 향상</li>
+        </ul>
+    </div>
+</body>
+</html>
