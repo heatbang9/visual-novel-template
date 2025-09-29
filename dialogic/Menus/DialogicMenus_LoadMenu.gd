@@ -2,8 +2,8 @@ extends Control
 
 var SaveSlot = preload("res://dialogic/Menus/DialogicMenu_SaveSlot.tscn")
 
-onready var SaveSlotContainer = $Scroll/SaveSlots
-onready var MenusContainer = get_parent().get_parent().get_parent()
+@onready var SaveSlotContainer = $Scroll/SaveSlots
+@onready var MenusContainer = get_parent().get_parent().get_parent()
 
 var current_selected_slot
 
@@ -20,11 +20,11 @@ func update_saves() -> void:
 	for child in SaveSlotContainer.get_children():
 		child.queue_free()
 	for slot_name in Dialogic.get_slot_names():
-		var x = SaveSlot.instance()
+		var x = SaveSlot.instantiate()
 		x.set_name(slot_name)
 		SaveSlotContainer.add_child(x)
-		x.connect("pressed", self, "save_slot_pressed")
-		x.connect("delete_requested", self , "save_slot_delete_request")
+		x.connect("pressed", Callable(self, "save_slot_pressed"))
+		x.connect("delete_requested", Callable(self, "save_slot_delete_request"))
 
 
 # will load the currently selected slot

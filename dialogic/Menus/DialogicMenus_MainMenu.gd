@@ -1,6 +1,6 @@
 extends Control
 
-export(String) var starting_timeline = "1. Introduction"
+@export var starting_timeline: String = "1. Introduction"
 
 ################################################################################
 ##								PUBLIC
@@ -8,7 +8,7 @@ export(String) var starting_timeline = "1. Introduction"
 
 func open():
 	show()
-	yield(get_tree().create_timer(0.2), "timeout")
+	await get_tree().create_timer(0.2).timeout
 	$Buttons/NewGame_Button.grab_focus()
 
 ################################################################################
