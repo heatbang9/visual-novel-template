@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="going_home">
+    <background type="image" path="res://assets/backgrounds/street.png"/>
+    <characters>
+        <character id="chulsoo" name="철수" default_position="left">
+            <portrait path="res://assets/characters/chulsoo/normal.png"/>
+        </character>
+        <character id="younghee" name="영희" default_position="right">
+            <portrait path="res://assets/characters/younghee/normal.png"/>
+        </character>
+    </characters>
+    <dialogue>
+        <message speaker="narrator">하교 시간, 노을이 지고 있습니다.</message>
+        <message speaker="younghee">오늘 하루 즐거웠어요.</message>
+        <message speaker="chulsoo" emotion="smile">네, 저도요!</message>
+        <choice text="내일은...">
+            <option text="같이 공부하자고 하기">
+                <message speaker="chulsoo" emotion="normal">내일도 같이 공부할까요?</message>
+                <message speaker="younghee" emotion="happy">좋아요! 도서관에서 만나요.</message>
+            </option>
+            <option text="조용히 인사하기">
+                <message speaker="chulsoo" emotion="smile">그럼 내일 봐요.</message>
+                <message speaker="younghee" emotion="smile">네, 조심히 가세요.</message>
+            </option>
+        </choice>
+    </dialogue>
+</scene>

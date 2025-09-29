@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg6p8tkcv2m3p"]
+
+[ext_resource type="Script" path="res://scripts/background/background_controller.gd" id="1_3k4p2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rain"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(400, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 500.0
+initial_velocity_max = 700.0
+scale_min = 0.5
+scale_max = 1.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_snow"]
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(400, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+scale_min = 0.5
+scale_max = 1.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fog"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(400, 300, 1)
+direction = Vector3(1, 0, 0)
+spread = 10.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -5.0
+angular_velocity_max = 5.0
+scale_min = 5.0
+scale_max = 10.0
+
+[sub_resource type="Gradient" id="Gradient_overlay"]
+interpolation_mode = 1
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_overlay"]
+gradient = SubResource("Gradient_overlay")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="BackgroundScene" type="Node2D"]
+script = ExtResource("1_3k4p2")
+
+[node name="Background" type="Sprite2D" parent="."]
+centered = false
+
+[node name="EffectLayer" type="Node2D" parent="."]
+
+[node name="RainParticles" type="GPUParticles2D" parent="EffectLayer"]
+emitting = false
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_rain")
+lifetime = 2.0
+preprocess = 1.0
+fixed_fps = 60
+visibility_rect = Rect2(-400, -300, 800, 600)
+
+[node name="SnowParticles" type="GPUParticles2D" parent="EffectLayer"]
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_snow")
+lifetime = 5.0
+preprocess = 2.0
+fixed_fps = 60
+visibility_rect = Rect2(-400, -300, 800, 600)
+
+[node name="FogParticles" type="GPUParticles2D" parent="EffectLayer"]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_fog")
+lifetime = 10.0
+preprocess = 5.0
+fixed_fps = 30
+visibility_rect = Rect2(-400, -300, 800, 600)
+
+[node name="TimeOverlay" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("GradientTexture2D_overlay")
+centered = false
+
+[node name="TweenManager" type="Node" parent="."]

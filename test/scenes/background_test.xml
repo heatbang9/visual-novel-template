@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="배경_효과_테스트">
+    <!-- 낮 시간 학교 배경 -->
+    <background path="res://assets/backgrounds/school.jpg" transition="fade" duration="2.0">
+        <time value="day" duration="1.0"/>
+        <weather type="clear"/>
+    </background>
+
+    <dialogue>
+        <message speaker="나레이터">화창한 날씨의 학교 전경이 보입니다.</message>
+    </dialogue>
+
+    <!-- 비가 내리기 시작 -->
+    <background path="res://assets/backgrounds/school.jpg">
+        <weather type="rain" duration="3.0"/>
+    </background>
+
+    <dialogue>
+        <message speaker="나레이터">갑자기 하늘에서 비가 내리기 시작합니다.</message>
+    </dialogue>
+
+    <!-- 밤이 되고 비가 눈으로 바뀜 -->
+    <background path="res://assets/backgrounds/school.jpg">
+        <time value="night" duration="5.0"/>
+        <weather type="snow" duration="2.0"/>
+    </background>
+
+    <dialogue>
+        <message speaker="나레이터">밤이 되자 비가 눈으로 바뀌었습니다.</message>
+    </dialogue>
+
+    <!-- 안개 낀 새벽 -->
+    <background path="res://assets/backgrounds/school.jpg" transition="crossfade" duration="3.0">
+        <time value="sunrise" duration="4.0"/>
+        <weather type="fog" duration="3.0"/>
+    </background>
+
+    <dialogue>
+        <message speaker="나레이터">새벽이 되자 안개가 자욱하게 깔립니다.</message>
+    </dialogue>
+</scene>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="main_story">
+    <scenes>
+        <!-- 장면 1: 학교 첫 만남 -->
+        <scene path="res://scenes/dialogue/scene1.xml">
+            <condition type="variable" variable="first_meeting_complete" value="false"/>
+            <on_complete>
+                <set_variable name="first_meeting_complete" value="true"/>
+            </on_complete>
+        </scene>
+        
+        <!-- 장면 2: 점심 시간 -->
+        <scene path="res://scenes/dialogue/scene2.xml">
+            <condition type="variable" variable="lunch_time_complete" value="false"/>
+            <condition type="requirement" requires="first_meeting_complete" value="true"/>
+            <on_complete>
+                <set_variable name="lunch_time_complete" value="true"/>
+            </on_complete>
+        </scene>
+        
+        <!-- 장면 3: 수업 시간 -->
+        <scene path="res://scenes/dialogue/scene3.xml">
+            <condition type="variable" variable="class_time_complete" value="false"/>
+            <condition type="requirement" requires="lunch_time_complete" value="true"/>
+            <on_complete>
+                <set_variable name="class_time_complete" value="true"/>
+            </on_complete>
+        </scene>
+        
+        <!-- 장면 4: 하교 길 -->
+        <scene path="res://scenes/dialogue/scene4.xml">
+            <condition type="variable" variable="going_home_complete" value="false"/>
+            <condition type="requirement" requires="class_time_complete" value="true"/>
+            <on_complete>
+                <set_variable name="going_home_complete" value="true"/>
+                <trigger_event name="story_complete"/>
+            </on_complete>
+        </scene>
+    </scenes>
+</sequence>

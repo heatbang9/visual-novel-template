@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="캐릭터_기능_테스트">
+    <!-- 캐릭터 정의 -->
+    <characters>
+        <character id="철수" name="철수" default_position="left">
+            <emotion name="normal" path="res://assets/characters/cheolsu/normal.png"/>
+            <emotion name="happy" path="res://assets/characters/cheolsu/happy.png"/>
+            <emotion name="sad" path="res://assets/characters/cheolsu/sad.png"/>
+            <pose name="default" path="res://assets/characters/cheolsu/pose_default.png"/>
+            <pose name="thinking" path="res://assets/characters/cheolsu/pose_thinking.png"/>
+            <voice name="greeting" path="res://assets/voices/cheolsu/greeting.ogg"/>
+        </character>
+
+        <character id="영희" name="영희" default_position="right">
+            <emotion name="normal" path="res://assets/characters/younghee/normal.png"/>
+            <emotion name="happy" path="res://assets/characters/younghee/happy.png"/>
+            <emotion name="surprised" path="res://assets/characters/younghee/surprised.png"/>
+            <pose name="default" path="res://assets/characters/younghee/pose_default.png"/>
+            <pose name="greeting" path="res://assets/characters/younghee/pose_greeting.png"/>
+            <voice name="hello" path="res://assets/voices/younghee/hello.ogg"/>
+        </character>
+    </characters>
+
+    <!-- 씬 시작 -->
+    <background path="res://assets/backgrounds/classroom.jpg" transition="fade" duration="2.0"/>
+
+    <!-- 캐릭터 등장 -->
+    <action type="appear" character="철수" duration="1.0"/>
+    
+    <dialogue>
+        <message speaker="나레이터">교실 안에 철수가 들어옵니다.</message>
+    </dialogue>
+
+    <action type="speak" character="철수" voice="greeting"/>
+    <dialogue>
+        <message speaker="철수" emotion="happy">안녕하세요!</message>
+    </dialogue>
+    <action type="stop" character="철수"/>
+
+    <!-- 영희 등장 -->
+    <action type="appear" character="영희" duration="1.0"/>
+    <action type="speak" character="영희" voice="hello"/>
+    
+    <dialogue>
+        <message speaker="영희" emotion="happy">어, 철수야!</message>
+    </dialogue>
+    <action type="stop" character="영희"/>
+
+    <!-- 캐릭터 이동 및 포즈 변경 -->
+    <action type="move" character="철수" position="center" duration="1.0"/>
+    <action type="pose" character="철수" name="thinking"/>
+    
+    <dialogue>
+        <message speaker="철수" emotion="normal">영희야, 숙제는 다 했어?</message>
+    </dialogue>
+
+    <!-- 영희의 반응 -->
+    <action type="emotion" character="영희" name="surprised"/>
+    <action type="move" character="영희" position="far_right" duration="0.5" ease="out"/>
+    
+    <dialogue>
+        <message speaker="영희" emotion="surprised">앗, 숙제!</message>
+    </dialogue>
+
+    <!-- 씬 종료 -->
+    <action type="disappear" character="영희" duration="1.0"/>
+    <action type="emotion" character="철수" name="sad"/>
+    
+    <dialogue>
+        <message speaker="철수" emotion="sad">또 안 했구나...</message>
+    </dialogue>
+
+    <action type="disappear" character="철수" duration="1.0"/>
+</scene>

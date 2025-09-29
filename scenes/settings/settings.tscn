@@ -1,0 +1,173 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8c7x6y5n2p4q"]
+
+[ext_resource type="Script" path="res://scripts/settings/settings_ui.gd" id="1_xk4p3"]
+
+[node name="SettingsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xk4p3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "설정"
+horizontal_alignment = 1
+
+[node name="TextSpeedSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/TextSpeedSection"]
+layout_mode = 2
+text = "텍스트 속도"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/TextSpeedSection"]
+layout_mode = 2
+min_value = 0.5
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="AutoDelaySection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/AutoDelaySection"]
+layout_mode = 2
+text = "자동 진행 대기 시간"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/AutoDelaySection"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+step = 0.5
+value = 2.0
+
+[node name="VolumeSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/VolumeSection"]
+layout_mode = 2
+text = "볼륨"
+
+[node name="MasterVolume" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/VolumeSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VolumeSection/MasterVolume"]
+layout_mode = 2
+text = "전체 볼륨"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/VolumeSection/MasterVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="BGMVolume" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/VolumeSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VolumeSection/BGMVolume"]
+layout_mode = 2
+text = "배경음악"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/VolumeSection/BGMVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="SFXVolume" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/VolumeSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VolumeSection/SFXVolume"]
+layout_mode = 2
+text = "효과음"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/VolumeSection/SFXVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="VoiceVolume" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/VolumeSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VolumeSection/VoiceVolume"]
+layout_mode = 2
+text = "음성"
+
+[node name="HSlider" type="HSlider" parent="ScrollContainer/VBoxContainer/VolumeSection/VoiceVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="DisplaySection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/DisplaySection"]
+layout_mode = 2
+text = "화면"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="ScrollContainer/VBoxContainer/DisplaySection"]
+layout_mode = 2
+text = "전체 화면"
+
+[node name="OtherSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer/OtherSection"]
+layout_mode = 2
+text = "기타"
+
+[node name="SkipReadCheckBox" type="CheckBox" parent="ScrollContainer/VBoxContainer/OtherSection"]
+layout_mode = 2
+text = "읽은 대사 스킵"
+
+[node name="Buttons" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "저장"
+
+[node name="CancelButton" type="Button" parent="ScrollContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "취소"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4q8x6y2n1p5m"]
+
+[ext_resource type="Script" path="res://scripts/character/character_controller.gd" id="1_xk4p2"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_xk4p2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TweenManager" type="Node" parent="."]
