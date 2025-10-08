@@ -1,2 +1,2 @@
-﻿50170
+﻿54180
 C:/Users/kthgo/OneDrive/문서/Godot_v4.5-stable_mono_windows_arm64/Godot_v4.5-stable_mono_windows_arm64/Godot_v4.5-stable_mono_windows_arm64.exe
