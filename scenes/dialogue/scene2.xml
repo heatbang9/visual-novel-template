@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scene name="lunch_time">
-    <background type="image" path="res://assets/backgrounds/cafeteria.png"/>
+<scene>
+    <background>res://assets/backgrounds/classroom.png</background>
     <characters>
-        <character id="chulsoo" name="철수" default_position="left">
-            <portrait path="res://assets/characters/chulsoo/normal.png"/>
+        <character id="chulsoo" position="left">
+            <sprite>res://assets/characters/chulsoo/default.png</sprite>
+            <name>철수</name>
         </character>
-        <character id="younghee" name="영희" default_position="right">
-            <portrait path="res://assets/characters/younghee/normal.png"/>
+        <character id="younghee" position="right">
+            <sprite>res://assets/characters/younghee/default.png</sprite>
+            <name>영희</name>
         </character>
     </characters>
     <dialogue>
-        <message speaker="narrator">점심시간이 되었습니다...</message>
-        <message speaker="younghee" emotion="happy">아까 말씀하신 대로 점심 같이 먹을까요?</message>
-        <message speaker="chulsoo" emotion="smile">네, 좋아요!</message>
-        <choice text="무슨 얘기를 할까?">
-            <option text="급식 맛있다고 하기">
-                <message speaker="chulsoo" emotion="happy">오늘 급식 정말 맛있네요!</message>
-                <message speaker="younghee" emotion="smile">네, 특히 국이 맛있어요.</message>
+        <message speaker="chulsoo" emotion="default">안녕하세요!</message>
+        <message speaker="younghee" emotion="happy">안녕하세요, 철수님!</message>
+        <choice>
+            <option text="반갑게 인사한다">
+                <message speaker="chulsoo" emotion="happy">정말 반가워요!</message>
             </option>
-            <option text="취미 얘기하기">
-                <message speaker="chulsoo" emotion="normal">영희님은 취미가 뭐예요?</message>
-                <message speaker="younghee" emotion="happy">전 독서를 좋아해요.</message>
+            <option text="조용히 인사한다">
+                <message speaker="chulsoo" emotion="default">네...</message>
             </option>
         </choice>
     </dialogue>

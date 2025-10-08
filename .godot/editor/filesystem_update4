@@ -1,1 +1,2 @@
-res://default_env.tres
+res://addons/resource_validator/auto_validator.gd
+res://tools/generate_dummy_resources.gd

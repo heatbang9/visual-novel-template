@@ -1,15 +1,21 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759152644
+::res://::1759911211
+.gutconfig.json::JSON::-1::1759155096::0::1::::<><><>0<>0<><>::
 default_bus_layout.tres::AudioBusLayout::-1::1759152044::0::1::::<><><>0<>0<><>::
-default_env.tres::Environment::7134706751799554641::1759152069::0::1::::<><><>0<>0<><>::
+default_env.tres::Environment::7134706751799554641::1759153470::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::8644639824987117622::1759151948::1759152062::1::::<><><>0<>0<>aacfc19953e1aecd82ea44ab0c7a6768<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 README.md::TextFile::-1::1759151947::0::1::::<><><>0<>0<><>::
-WARP.md::TextFile::-1::1759152278::0::1::::<><><>0<>0<><>::
-::res://addons/::1759151980
-::res://addons/dialogic/::1759152062
-Dialog.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Plugin/placeholder.png<>res://addons/dialogic/Nodes/DialogProxy.gd
+required_resources.json::JSON::-1::1759911091::0::1::::<><><>0<>0<><>::
+WARP.md::TextFile::-1::1759154592::0::1::::<><><>0<>0<><>::
+::res://addons/::1759909360
+::res://addons/character_system/::1759909541
+character_base.gd::GDScript::2472657097268555928::1759154592::0::1::::CharacterBase<>Node<><>0<>0<><>::
+character_manager.gd::GDScript::3858801536954080780::1759154592::0::1::::CharacterManager<>Node<><>0<>0<><>::
+::res://addons/character_system/characters/::1759154083
+::res://addons/dialogic/::1759153470
+Dialog.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Plugin/placeholder.png<>res://addons/dialogic/Nodes/DialogProxy.gd
 plugin.cfg::TextFile::-1::1759151948::0::1::::<><><>0<>0<><>::
-plugin.gd::GDScript::7447228009642304900::1759152044::0::1::::<>EditorPlugin<><>0<>1<><>::
+plugin.gd::GDScript::7447228009642304900::1759153470::0::1::::<>EditorPlugin<><>0<>1<><>::
 ::res://addons/dialogic/Documentation/::1759151981
 ::res://addons/dialogic/Documentation/Content/::1759151981
 Changelog.md::TextFile::-1::1759151947::0::1::::<><><>0<>0<><>::
@@ -109,173 +115,173 @@ Toolbar.PNG::CompressedTexture2D::9006761701224601533::1759151947::1759152063::1
 ValueInUse.PNG::CompressedTexture2D::2076443559918407681::1759151947::1759152063::1::::<><><>0<>0<>1cddc6725c665a8be1d4f542e16259e0<>res://.godot/imported/ValueInUse.PNG-b73ec239496719f3ef4c2c5e92505090.ctex::
 Value_Example1.PNG::CompressedTexture2D::2397954071899281249::1759151947::1759152063::1::::<><><>0<>0<>c4f047f892afee8f023d12310732340a<>res://.godot/imported/Value_Example1.PNG-c634010ced69a9a3f06bd3f936197066.ctex::
 Value_ExampleTimeline.PNG::CompressedTexture2D::1240774616925007074::1759151947::1759152063::1::::<><><>0<>0<>177158ed1a60fa83c0cab2367e8b1220<>res://.godot/imported/Value_ExampleTimeline.PNG-6bfa8a46f616569450bd2d9b8ad27fe3.ctex::
-::res://addons/dialogic/Documentation/Nodes/::1759152061
+::res://addons/dialogic/Documentation/Nodes/::1759153470
 DocsMarkdownParser.gd::GDScript::3225902700317425409::1759152045::0::1::::<>Node<><>0<>0<><>::
-DocsPageViewer.gd::GDScript::7898374096708165669::1759152045::0::1::::<>Control<><>0<>1<><>::
-DocsPageViewer.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf<>res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf<>res://addons/dialogic/Documentation/Theme/Font/NotoSans-Italic.ttf<>res://addons/dialogic/Documentation/Nodes/DocsPageViewer.gd
-DocsTreeHelper.gd::GDScript::6463736959781046527::1759152045::0::1::::<>Control<><>0<>1<><>::
-DocsTreeHelper.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Nodes/DocsTreeHelper.gd
-DocumentationTree.gd::GDScript::2727623007694022020::1759152045::0::1::::<>Tree<><>0<>1<><>::
-DocumentationTree.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Nodes/DocumentationTree.gd
-DocumentationViewer.gd::GDScript::1102110742298921073::1759152045::0::1::::<>Control<><>0<>1<><>::
-DocumentationViewer.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Nodes/DocsPageViewer.tscn<>res://addons/dialogic/Documentation/Nodes/DocumentationTree.tscn<>res://addons/dialogic/Documentation/Nodes/DocumentationViewer.gd
-::res://addons/dialogic/Documentation/Theme/::1759151981
-DocumentationH1.tres::FontFile::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf
-DocumentationH2.tres::FontFile::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf
-DocumentationH3.tres::FontFile::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf
-DocumentationH4.tres::FontFile::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-BoldItalic.ttf
-DocumentationH5.tres::FontFile::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Italic.ttf
+DocsPageViewer.gd::GDScript::7898374096708165669::1759153470::0::1::::<>Control<><>0<>1<><>::
+DocsPageViewer.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf<>res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf<>res://addons/dialogic/Documentation/Theme/Font/NotoSans-Italic.ttf<>res://addons/dialogic/Documentation/Nodes/DocsPageViewer.gd
+DocsTreeHelper.gd::GDScript::6463736959781046527::1759153470::0::1::::<>Control<><>0<>1<><>::
+DocsTreeHelper.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Nodes/DocsTreeHelper.gd
+DocumentationTree.gd::GDScript::2727623007694022020::1759153470::0::1::::<>Tree<><>0<>1<><>::
+DocumentationTree.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Nodes/DocumentationTree.gd
+DocumentationViewer.gd::GDScript::1102110742298921073::1759153470::0::1::::<>Control<><>0<>1<><>::
+DocumentationViewer.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Nodes/DocsPageViewer.tscn<>res://addons/dialogic/Documentation/Nodes/DocumentationTree.tscn<>res://addons/dialogic/Documentation/Nodes/DocumentationViewer.gd
+::res://addons/dialogic/Documentation/Theme/::1759153470
+DocumentationH1.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf
+DocumentationH2.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf
+DocumentationH3.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Bold.ttf
+DocumentationH4.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-BoldItalic.ttf
+DocumentationH5.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Documentation/Theme/Font/NotoSans-Italic.ttf
 ::res://addons/dialogic/Documentation/Theme/Font/::1759152062
 LICENSE.txt::TextFile::-1::1759151947::0::1::::<><><>0<>0<><>::
 NotoSans-Bold.ttf::FontFile::7155286621250613524::1759151947::1759152062::1::::<><><>0<>0<>3890892f65c177005c653ead12b0530a<>res://.godot/imported/NotoSans-Bold.ttf-ea511786a56ac30f4b4c85b7431fedff.fontdata::
 NotoSans-BoldItalic.ttf::FontFile::6905450669217996276::1759151947::1759152062::1::::<><><>0<>0<>2c198c841e941ef34aba69b8e078af7b<>res://.godot/imported/NotoSans-BoldItalic.ttf-67827065122217b040c010f611bf9ee6.fontdata::
 NotoSans-Italic.ttf::FontFile::1881715769736710018::1759151947::1759152062::1::::<><><>0<>0<>0370d7a4358e704bb2fda0f128382bc7<>res://.godot/imported/NotoSans-Italic.ttf-cb099699cbe809c7d00a50126604cec8.fontdata::
 NotoSans-Regular.ttf::FontFile::8997954496487917731::1759151947::1759152062::1::::<><><>0<>0<>2494fbe5b1b84a224bff9954bc1b9034<>res://.godot/imported/NotoSans-Regular.ttf-cd210db7206862c5ddad57cccf951917.fontdata::
-::res://addons/dialogic/Editor/::1759152062
-EditorView.gd::GDScript::2078229314929357844::1759152044::0::1::::<>Control<><>0<>1<><>::
-EditorView.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/EditorView.gd<>res://addons/dialogic/Editor/TimelineEditor/TimelineEditor.tscn<>res://addons/dialogic/Images/Toolbar/add-character.svg<>res://addons/dialogic/Images/Toolbar/add-timeline.svg<>res://addons/dialogic/Images/Toolbar/add-definition.svg<>res://addons/dialogic/Editor/SettingsEditor/SettingsEditor.tscn<>res://addons/dialogic/Editor/CharacterEditor/CharacterEditor.tscn<>res://addons/dialogic/Editor/ThemeEditor/ThemeEditor.tscn<>res://addons/dialogic/Editor/GlossaryEntryEditor/GlossaryEntryEditor.tscn<>res://addons/dialogic/Images/Toolbar/add-glossary.svg<>res://addons/dialogic/Editor/DocumentationViewer/DocumentationViewer.tscn<>res://addons/dialogic/Editor/ValueEditor/ValueEditor.tscn<>res://addons/dialogic/Images/Toolbar/add-theme.svg<>res://addons/dialogic/Editor/MasterTree/MasterTree.tscn
-::res://addons/dialogic/Editor/CharacterEditor/::1759152061
-CharacterEditor.gd::GDScript::7451797442059287543::1759152045::0::1::::<>Control<><>0<>1<><>::
-CharacterEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/CharacterEditor/PortraitEntry.tscn<>res://addons/dialogic/Editor/CharacterEditor/CharacterEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Example Assets/portraits/df-3.png<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
-PortraitEntry.gd::GDScript::5942999006662310515::1759152045::0::1::::<>HBoxContainer<><>0<>1<><>::
-PortraitEntry.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/CharacterEditor/PortraitEntry.gd
-::res://addons/dialogic/Editor/Common/::1759152061
-SectionTitle.gd::GDScript::3010803657266608275::1759152045::0::1::::<>Label<><>0<>1<><>::
-SectionTitle.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Common/SectionTitle.gd
-TLabel.gd::GDScript::8250540732405583406::1759152045::0::1::::<>Label<><>0<>1<><>::
+::res://addons/dialogic/Editor/::1759153470
+EditorView.gd::GDScript::2078229314929357844::1759153470::0::1::::<>Control<><>0<>1<><>::
+EditorView.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/EditorView.gd<>res://addons/dialogic/Editor/TimelineEditor/TimelineEditor.tscn<>res://addons/dialogic/Images/Toolbar/add-character.svg<>res://addons/dialogic/Images/Toolbar/add-timeline.svg<>res://addons/dialogic/Images/Toolbar/add-definition.svg<>res://addons/dialogic/Editor/SettingsEditor/SettingsEditor.tscn<>res://addons/dialogic/Editor/CharacterEditor/CharacterEditor.tscn<>res://addons/dialogic/Editor/ThemeEditor/ThemeEditor.tscn<>res://addons/dialogic/Editor/GlossaryEntryEditor/GlossaryEntryEditor.tscn<>res://addons/dialogic/Images/Toolbar/add-glossary.svg<>res://addons/dialogic/Editor/DocumentationViewer/DocumentationViewer.tscn<>res://addons/dialogic/Editor/ValueEditor/ValueEditor.tscn<>res://addons/dialogic/Images/Toolbar/add-theme.svg<>res://addons/dialogic/Editor/MasterTree/MasterTree.tscn
+::res://addons/dialogic/Editor/CharacterEditor/::1759153470
+CharacterEditor.gd::GDScript::7451797442059287543::1759153470::0::1::::<>Control<><>0<>1<><>::
+CharacterEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/CharacterEditor/PortraitEntry.tscn<>res://addons/dialogic/Editor/CharacterEditor/CharacterEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Example Assets/portraits/df-3.png<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
+PortraitEntry.gd::GDScript::5942999006662310515::1759153470::0::1::::<>HBoxContainer<><>0<>1<><>::
+PortraitEntry.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/CharacterEditor/PortraitEntry.gd
+::res://addons/dialogic/Editor/Common/::1759153470
+SectionTitle.gd::GDScript::3010803657266608275::1759153470::0::1::::<>Label<><>0<>1<><>::
+SectionTitle.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Common/SectionTitle.gd
+TLabel.gd::GDScript::8250540732405583406::1759153470::0::1::::<>Label<><>0<>1<><>::
 TLabel.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Common/TLabel.gd
-::res://addons/dialogic/Editor/DocumentationViewer/::1759152061
-DocumentationViewer.gd::GDScript::886659178460672031::1759152045::0::1::::<>Control<><>0<>1<><>::
-DocumentationViewer.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/DocumentationViewer/DocumentationViewer.gd<>res://addons/dialogic/Documentation/Nodes/DocsPageViewer.tscn
-::res://addons/dialogic/Editor/Events/::1759151981
-AudioEvent.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioFilePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioPicker.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/audio-event.svg
-BackgroundMusic.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/AudioPickerComplex.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/background-music.svg<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioFilePicker.tscn
-CallNode.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/call-node.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/CallNode/CallNodePicker.tscn
-ChangeBackground.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Images/BackgroundPreview.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/change-background.svg<>res://addons/dialogic/Editor/Events/Parts/Images/BackgroundPicker.tscn
-ChangeScene.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/change-scene.svg<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Scenes/ScenePicker.tscn
-ChangeTimeline.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/change-timeline.svg<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Timelines/TimelinePicker.tscn
-Character.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/CharacterAction.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/CharacterActionSettings.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/character.svg
-Choice.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/choice.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/ChoicePicker.tscn
-CloseDialog.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/close-dialog.svg<>res://addons/dialogic/Editor/Events/Parts/Numbers/TransitonLengthPicker.tscn
-Condition.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/condition.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/ConditionPicker.tscn
-DummyEvent.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/DummyEventDataShower.tscn
-EmitSignal.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/emit-signal.svg<>res://addons/dialogic/Editor/Events/Parts/Text/SignalArgumentPicker.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
-EndBranch.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/end-branch.svg
-GoTo Event.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/GoTo Selector.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/go-to.svg
-LabelEvent.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/LabelSetter.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/label.svg
-NoSkipEvent.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/NoSkip/NoSkipPart.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/close-dialog.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
-Question.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/question.svg<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/TextAndVoiceEditor.tscn
-SaveEvent.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/save-icon.svg<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_Save.tscn
-SetGlossary.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/SetGlossary.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/GlossaryPicker.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/set-glossary.svg
-SetTheme.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/set-theme.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Themes/ThemePicker.tscn
-SetValue.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/set-value.svg<>res://addons/dialogic/Editor/Events/Parts/Logic/SetValuePicker.tscn
-TextEvent.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/TextAndVoiceEditor.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/text-event.svg
-WaitSeconds.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/wait-seconds.svg<>res://addons/dialogic/Editor/Events/Parts/WaitSeconds/WaitSeconds.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
-::res://addons/dialogic/Editor/Events/Parts/::1759152061
-DummyEventDataShower.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/EventPart_DummyEventDataShower.gd
-EventPart.gd::GDScript::2498513816909148440::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_DummyEventDataShower.gd::GDScript::657765837868589545::1759152045::0::1::::<>Control<><>0<>1<><>::
-ExampleEventPartScript.gd::GDScript::1367240047667788346::1759152045::0::1::::<>Control<><>0<>1<><>::
-SpinBoxPreventDnD.gd::GDScript::5980558469708137353::1759152045::0::1::::<>SpinBox<><>0<>1<><>::
-::res://addons/dialogic/Editor/Events/Parts/Audio/::1759152061
-AudioFilePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_AudioFilePicker.gd<>res://addons/dialogic/Editor/Events/styles/SimpleButtonHover.tres<>res://addons/dialogic/Editor/Events/styles/SimpleButtonNormal.tres
-AudioPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_AudioPicker.gd<>res://addons/dialogic/Editor/Events/styles/SectionPanel.tres<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioFilePicker.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-AudioPickerComplex.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_AudioPickerComplex.gd<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioPicker.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-EventPart_AudioFilePicker.gd::GDScript::1267707864240917067::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_AudioPicker.gd::GDScript::7166991946413326205::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_AudioPickerComplex.gd::GDScript::4195031131552566489::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_VoiceEditor.gd::GDScript::4301974351404242456::1759152045::0::1::::<>Control<><>0<>1<><>::
-VoiceEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_VoiceEditor.gd<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioPicker.tscn
-::res://addons/dialogic/Editor/Events/Parts/CallNode/::1759152061
-CallNodePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/CallNode/EventPart_CallNodePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-EventPart_CallNodePicker.gd::GDScript::3326894157562962764::1759152045::0::1::::<>Control<><>0<>1<><>::
-::res://addons/dialogic/Editor/Events/Parts/Character/::1759152061
-CharacterAction.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/EventPart_CharacterAction.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/PositionPicker.tscn
-CharacterActionSettings.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Character/EventPart_CharacterActionSettings.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-CharacterJoining.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Character/EventPart_CharacterJoining.gd<>res://addons/dialogic/Editor/Events/Parts/Character/PositionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn
-EventPart_CharacterAction.gd::GDScript::2398522848803068638::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_CharacterActionSettings.gd::GDScript::4492485471183344926::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_CharacterJoining.gd::GDScript::3404479035594026917::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_PositionPicker.gd::GDScript::3665941217082993529::1759152045::0::1::::<>Control<><>0<>1<><>::
-PositionPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Character/EventPart_PositionPicker.gd<>res://addons/dialogic/Images/Event Icons/character.svg<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-::res://addons/dialogic/Editor/Events/Parts/EventBlock/::1759152061
-ExpandControl.gd::GDScript::4515843103818051877::1759152045::0::1::::<>HBoxContainer<><>0<>1<><>::
-ExpandControl.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/EventBlock/ExpandControl.gd<>res://addons/dialogic/Editor/Events/Parts/EventBlock/VisibleToggle.tscn
-PopupMenu.gd::GDScript::5098132568672206692::1759152045::0::1::::<>PopupMenu<><>0<>1<><>::
-VisibleToggle.gd::GDScript::3722457472943443345::1759152045::0::1::::<>CheckBox<><>0<>1<><>::
-VisibleToggle.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Pieces/open-icon.svg<>res://addons/dialogic/Images/Pieces/closed-icon.svg<>res://addons/dialogic/Editor/Events/Parts/EventBlock/VisibleToggle.gd
-::res://addons/dialogic/Editor/Events/Parts/Images/::1759152061
-BackgroundPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Images/EventPart_BackgroundPicker.gd<>res://addons/dialogic/Editor/Events/Parts/SpinBoxPreventDnD.gd<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-BackgroundPreview.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Images/EventPart_BackgroundPreview.gd
-EventPart_BackgroundPicker.gd::GDScript::7124710103921608347::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_BackgroundPreview.gd::GDScript::2861468518552390815::1759152045::0::1::::<>Control<><>0<>1<><>::
-::res://addons/dialogic/Editor/Events/Parts/Logic/::1759152061
-ChoicePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/ConditionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ChoicePicker.gd
-ConditionPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/DefinitionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/ConditionTypePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ConditionPicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-ConditionPickerOld.gd::GDScript::4068651023462360367::1759152045::0::1::::<>MenuButton<><>0<>1<><>::
-ConditionTypePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ConditionTypePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
-EventPart_ChoicePicker.gd::GDScript::8979294084160052068::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_ConditionPicker.gd::GDScript::435303328057157439::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_ConditionTypePicker.gd::GDScript::6703240935545376817::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_GoToSelector.gd::GDScript::4992451416815904994::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_LabelSetter.gd::GDScript::1059991673975559878::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_OperationPicker.gd::GDScript::2082513902305954229::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_Save.gd::GDScript::1479355030613078246::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_Save.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_Save.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-EventPart_SetValuePicker.gd::GDScript::5202259229311408578::1759152045::0::1::::<>Control<><>0<>1<><>::
-GoTo Selector.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_GoToSelector.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-LabelSetter.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_LabelSetter.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-OperationPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_OperationPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
-SetValuePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/OperationPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/DefinitionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_SetValuePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-::res://addons/dialogic/Editor/Events/Parts/NoSkip/::1759152061
-EventPart_NoSkip.gd::GDScript::2434331679326521206::1759152045::0::1::::<>Control<><>0<>1<><>::
-NoSkipPart.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/NoSkip/EventPart_NoSkip.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-::res://addons/dialogic/Editor/Events/Parts/Numbers/::1759152061
-EventPart_TransitonLengthPicker.gd::GDScript::7523762784125098738::1759152045::0::1::::<>Control<><>0<>1<><>::
-TransitonLengthPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/SpinBoxPreventDnD.gd<>res://addons/dialogic/Editor/Events/Parts/Numbers/EventPart_TransitonLengthPicker.gd
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/::1759152061
-ResourcePickerMenu.gd::GDScript::4131816798957940422::1759152045::0::1::::<>MenuButton<><>0<>1<><>::
-ResourcePickerMenu.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/styles/SettingsFieldBackground.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.gd
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/::1759152061
-CharacterAndPortraitPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/PortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/EventPart_CharacterAndPortraitPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/DefinitionPicker.tscn
-CharacterPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/EventPart_CharacterPicker.gd<>res://addons/dialogic/Editor/Theme/PickerTheme.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
-EventPart_CharacterAndPortraitPicker.gd::GDScript::1529237637804668641::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_CharacterPicker.gd::GDScript::3088009182888231772::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_PortraitPicker.gd::GDScript::4969193507438253030::1759152045::0::1::::<>Control<><>0<>1<><>::
-PortraitPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/EventPart_PortraitPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/::1759152061
-DefinitionPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/EventPart_DefinitionPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
-EventPart_DefinitionPicker.gd::GDScript::7064221921821183126::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_GlossaryPicker.gd::GDScript::8027253573310473805::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_SetGlossary.gd::GDScript::2602794347973772767::1759152045::0::1::::<>Control<><>0<>1<><>::
-GlossaryPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/EventPart_GlossaryPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-SetGlossary.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/EventPart_SetGlossary.gd
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/::1759152061
-EventPart_FilePicker.gd::GDScript::5385686900301790759::1759152045::0::1::::<>Control<><>0<>1<><>::
-FilePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/styles/SimpleButtonHover.tres<>res://addons/dialogic/Editor/Events/styles/SettingsFieldBackground.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/EventPart_FilePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/styles/SimpleButtonNormal.tres
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Scenes/::1759152061
-EventPart_ScenePicker.gd::GDScript::2644785007922391715::1759152045::0::1::::<>Control<><>0<>1<><>::
-ScenePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Scenes/EventPart_ScenePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Themes/::1759152061
-EventPart_ThemePicker.gd::GDScript::8573717252626052913::1759152045::0::1::::<>Control<><>0<>1<><>::
-ThemePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Themes/EventPart_ThemePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Timelines/::1759152061
-EventPart_TimelinePicker.gd::GDScript::7517039121437370686::1759152045::0::1::::<>Control<><>0<>1<><>::
-TimelinePicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Timelines/EventPart_TimelinePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-::res://addons/dialogic/Editor/Events/Parts/Text/::1759152061
+::res://addons/dialogic/Editor/DocumentationViewer/::1759153470
+DocumentationViewer.gd::GDScript::886659178460672031::1759153470::0::1::::<>Control<><>0<>1<><>::
+DocumentationViewer.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/DocumentationViewer/DocumentationViewer.gd<>res://addons/dialogic/Documentation/Nodes/DocsPageViewer.tscn
+::res://addons/dialogic/Editor/Events/::1759153470
+AudioEvent.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioFilePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioPicker.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/audio-event.svg
+BackgroundMusic.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/AudioPickerComplex.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/background-music.svg<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioFilePicker.tscn
+CallNode.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/call-node.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/CallNode/CallNodePicker.tscn
+ChangeBackground.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Images/BackgroundPreview.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/change-background.svg<>res://addons/dialogic/Editor/Events/Parts/Images/BackgroundPicker.tscn
+ChangeScene.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/change-scene.svg<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Scenes/ScenePicker.tscn
+ChangeTimeline.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/change-timeline.svg<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Timelines/TimelinePicker.tscn
+Character.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/CharacterAction.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/CharacterActionSettings.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/character.svg
+Choice.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/choice.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/ChoicePicker.tscn
+CloseDialog.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/close-dialog.svg<>res://addons/dialogic/Editor/Events/Parts/Numbers/TransitonLengthPicker.tscn
+Condition.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/condition.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/ConditionPicker.tscn
+DummyEvent.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/DummyEventDataShower.tscn
+EmitSignal.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/emit-signal.svg<>res://addons/dialogic/Editor/Events/Parts/Text/SignalArgumentPicker.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
+EndBranch.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/end-branch.svg
+GoTo Event.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/GoTo Selector.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/go-to.svg
+LabelEvent.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/LabelSetter.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/label.svg
+NoSkipEvent.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/NoSkip/NoSkipPart.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/close-dialog.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
+Question.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/question.svg<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/TextAndVoiceEditor.tscn
+SaveEvent.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/save-icon.svg<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_Save.tscn
+SetGlossary.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/SetGlossary.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/GlossaryPicker.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/set-glossary.svg
+SetTheme.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/set-theme.svg<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Themes/ThemePicker.tscn
+SetValue.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/set-value.svg<>res://addons/dialogic/Editor/Events/Parts/Logic/SetValuePicker.tscn
+TextEvent.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/TextAndVoiceEditor.tscn<>res://addons/dialogic/Images/Event Icons/Main Icons/text-event.svg
+WaitSeconds.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Event Icons/Main Icons/wait-seconds.svg<>res://addons/dialogic/Editor/Events/Parts/WaitSeconds/WaitSeconds.tscn<>res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
+::res://addons/dialogic/Editor/Events/Parts/::1759153470
+DummyEventDataShower.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/EventPart_DummyEventDataShower.gd
+EventPart.gd::GDScript::2498513816909148440::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_DummyEventDataShower.gd::GDScript::657765837868589545::1759153470::0::1::::<>Control<><>0<>1<><>::
+ExampleEventPartScript.gd::GDScript::1367240047667788346::1759153470::0::1::::<>Control<><>0<>1<><>::
+SpinBoxPreventDnD.gd::GDScript::5980558469708137353::1759153470::0::1::::<>SpinBox<><>0<>1<><>::
+::res://addons/dialogic/Editor/Events/Parts/Audio/::1759153470
+AudioFilePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_AudioFilePicker.gd<>res://addons/dialogic/Editor/Events/styles/SimpleButtonHover.tres<>res://addons/dialogic/Editor/Events/styles/SimpleButtonNormal.tres
+AudioPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_AudioPicker.gd<>res://addons/dialogic/Editor/Events/styles/SectionPanel.tres<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioFilePicker.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+AudioPickerComplex.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_AudioPickerComplex.gd<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioPicker.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+EventPart_AudioFilePicker.gd::GDScript::1267707864240917067::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_AudioPicker.gd::GDScript::7166991946413326205::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_AudioPickerComplex.gd::GDScript::4195031131552566489::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_VoiceEditor.gd::GDScript::4301974351404242456::1759153470::0::1::::<>Control<><>0<>1<><>::
+VoiceEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Audio/EventPart_VoiceEditor.gd<>res://addons/dialogic/Editor/Events/Parts/Audio/AudioPicker.tscn
+::res://addons/dialogic/Editor/Events/Parts/CallNode/::1759153470
+CallNodePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/CallNode/EventPart_CallNodePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+EventPart_CallNodePicker.gd::GDScript::3326894157562962764::1759153470::0::1::::<>Control<><>0<>1<><>::
+::res://addons/dialogic/Editor/Events/Parts/Character/::1759153470
+CharacterAction.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/EventPart_CharacterAction.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Character/PositionPicker.tscn
+CharacterActionSettings.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Character/EventPart_CharacterActionSettings.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+CharacterJoining.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Character/EventPart_CharacterJoining.gd<>res://addons/dialogic/Editor/Events/Parts/Character/PositionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterAndPortraitPicker.tscn
+EventPart_CharacterAction.gd::GDScript::2398522848803068638::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_CharacterActionSettings.gd::GDScript::4492485471183344926::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_CharacterJoining.gd::GDScript::3404479035594026917::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_PositionPicker.gd::GDScript::3665941217082993529::1759153470::0::1::::<>Control<><>0<>1<><>::
+PositionPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Character/EventPart_PositionPicker.gd<>res://addons/dialogic/Images/Event Icons/character.svg<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+::res://addons/dialogic/Editor/Events/Parts/EventBlock/::1759153470
+ExpandControl.gd::GDScript::4515843103818051877::1759153470::0::1::::<>HBoxContainer<><>0<>1<><>::
+ExpandControl.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/EventBlock/ExpandControl.gd<>res://addons/dialogic/Editor/Events/Parts/EventBlock/VisibleToggle.tscn
+PopupMenu.gd::GDScript::5098132568672206692::1759153470::0::1::::<>PopupMenu<><>0<>1<><>::
+VisibleToggle.gd::GDScript::3722457472943443345::1759153470::0::1::::<>CheckBox<><>0<>1<><>::
+VisibleToggle.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Pieces/open-icon.svg<>res://addons/dialogic/Images/Pieces/closed-icon.svg<>res://addons/dialogic/Editor/Events/Parts/EventBlock/VisibleToggle.gd
+::res://addons/dialogic/Editor/Events/Parts/Images/::1759153470
+BackgroundPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Images/EventPart_BackgroundPicker.gd<>res://addons/dialogic/Editor/Events/Parts/SpinBoxPreventDnD.gd<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+BackgroundPreview.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Images/EventPart_BackgroundPreview.gd
+EventPart_BackgroundPicker.gd::GDScript::7124710103921608347::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_BackgroundPreview.gd::GDScript::2861468518552390815::1759153470::0::1::::<>Control<><>0<>1<><>::
+::res://addons/dialogic/Editor/Events/Parts/Logic/::1759153470
+ChoicePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/ConditionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ChoicePicker.gd
+ConditionPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/DefinitionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/ConditionTypePicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ConditionPicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+ConditionPickerOld.gd::GDScript::4068651023462360367::1759153470::0::1::::<>MenuButton<><>0<>1<><>::
+ConditionTypePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_ConditionTypePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
+EventPart_ChoicePicker.gd::GDScript::8979294084160052068::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_ConditionPicker.gd::GDScript::435303328057157439::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_ConditionTypePicker.gd::GDScript::6703240935545376817::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_GoToSelector.gd::GDScript::4992451416815904994::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_LabelSetter.gd::GDScript::1059991673975559878::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_OperationPicker.gd::GDScript::2082513902305954229::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_Save.gd::GDScript::1479355030613078246::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_Save.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_Save.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+EventPart_SetValuePicker.gd::GDScript::5202259229311408578::1759153470::0::1::::<>Control<><>0<>1<><>::
+GoTo Selector.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_GoToSelector.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+LabelSetter.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_LabelSetter.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+OperationPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_OperationPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
+SetValuePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Logic/OperationPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/DefinitionPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/Logic/EventPart_SetValuePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+::res://addons/dialogic/Editor/Events/Parts/NoSkip/::1759153470
+EventPart_NoSkip.gd::GDScript::2434331679326521206::1759153470::0::1::::<>Control<><>0<>1<><>::
+NoSkipPart.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/NoSkip/EventPart_NoSkip.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+::res://addons/dialogic/Editor/Events/Parts/Numbers/::1759153470
+EventPart_TransitonLengthPicker.gd::GDScript::7523762784125098738::1759153470::0::1::::<>Control<><>0<>1<><>::
+TransitonLengthPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/SpinBoxPreventDnD.gd<>res://addons/dialogic/Editor/Events/Parts/Numbers/EventPart_TransitonLengthPicker.gd
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/::1759153470
+ResourcePickerMenu.gd::GDScript::4131816798957940422::1759153470::0::1::::<>MenuButton<><>0<>1<><>::
+ResourcePickerMenu.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/styles/SettingsFieldBackground.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.gd
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/::1759153470
+CharacterAndPortraitPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/PortraitPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/CharacterPicker.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/EventPart_CharacterAndPortraitPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/DefinitionPicker.tscn
+CharacterPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/EventPart_CharacterPicker.gd<>res://addons/dialogic/Editor/Theme/PickerTheme.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
+EventPart_CharacterAndPortraitPicker.gd::GDScript::1529237637804668641::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_CharacterPicker.gd::GDScript::3088009182888231772::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_PortraitPicker.gd::GDScript::4969193507438253030::1759153470::0::1::::<>Control<><>0<>1<><>::
+PortraitPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Characters/EventPart_PortraitPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/::1759153470
+DefinitionPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/EventPart_DefinitionPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn
+EventPart_DefinitionPicker.gd::GDScript::7064221921821183126::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_GlossaryPicker.gd::GDScript::8027253573310473805::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_SetGlossary.gd::GDScript::2602794347973772767::1759153470::0::1::::<>Control<><>0<>1<><>::
+GlossaryPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/EventPart_GlossaryPicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+SetGlossary.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Definitions/EventPart_SetGlossary.gd
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/::1759153470
+EventPart_FilePicker.gd::GDScript::5385686900301790759::1759153470::0::1::::<>Control<><>0<>1<><>::
+FilePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/styles/SimpleButtonHover.tres<>res://addons/dialogic/Editor/Events/styles/SettingsFieldBackground.tres<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/EventPart_FilePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/styles/SimpleButtonNormal.tres
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Scenes/::1759153470
+EventPart_ScenePicker.gd::GDScript::2644785007922391715::1759153470::0::1::::<>Control<><>0<>1<><>::
+ScenePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Scenes/EventPart_ScenePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Files/FilePicker.tscn
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Themes/::1759153470
+EventPart_ThemePicker.gd::GDScript::8573717252626052913::1759153470::0::1::::<>Control<><>0<>1<><>::
+ThemePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Themes/EventPart_ThemePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Timelines/::1759153470
+EventPart_TimelinePicker.gd::GDScript::7517039121437370686::1759153470::0::1::::<>Control<><>0<>1<><>::
+TimelinePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/ResourcePickers/Timelines/EventPart_TimelinePicker.gd<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+::res://addons/dialogic/Editor/Events/Parts/Text/::1759153470
 CustomLineEdit.gd::GDScript::7951788170844188195::1759152045::0::1::::<>LineEdit<><>0<>0<><>::
-CustomLineEdit.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::
-EventPart_SignalArgumentPicker.gd::GDScript::2726958012358709390::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_TextAndVoicePicker.gd::GDScript::6800249856260712724::1759152045::0::1::::<>Control<><>0<>1<><>::
-EventPart_TextEditor.gd::GDScript::7471404144235851264::1759152045::0::1::::<>Control<><>0<>1<><>::
-GreyLabel.gd::GDScript::2099440099616473828::1759152045::0::1::::<>Label<><>0<>1<><>::
-GreyLabel.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.gd
-SignalArgumentPicker.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/EventPart_SignalArgumentPicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
-TextAndVoiceEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/EventPart_TextAndVoicePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Audio/VoiceEditor.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/TextEditor.tscn
-TextEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/EventPart_TextEditor.gd<>res://addons/dialogic/Editor/Events/styles/TextBackground.tres
-::res://addons/dialogic/Editor/Events/Parts/WaitSeconds/::1759152061
-EventPart_WaitSeconds.gd::GDScript::2116869996401214268::1759152045::0::1::::<>Control<><>0<>1<><>::
-WaitSeconds.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/WaitSeconds/EventPart_WaitSeconds.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres<>res://addons/dialogic/Editor/Events/Parts/SpinBoxPreventDnD.gd
+CustomLineEdit.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::
+EventPart_SignalArgumentPicker.gd::GDScript::2726958012358709390::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_TextAndVoicePicker.gd::GDScript::6800249856260712724::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_TextEditor.gd::GDScript::7471404144235851264::1759153470::0::1::::<>Control<><>0<>1<><>::
+GreyLabel.gd::GDScript::2099440099616473828::1759153470::0::1::::<>Label<><>0<>1<><>::
+GreyLabel.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.gd
+SignalArgumentPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/EventPart_SignalArgumentPicker.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn
+TextAndVoiceEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/EventPart_TextAndVoicePicker.gd<>res://addons/dialogic/Editor/Events/Parts/Audio/VoiceEditor.tscn<>res://addons/dialogic/Editor/Events/Parts/Text/TextEditor.tscn
+TextEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/EventPart_TextEditor.gd<>res://addons/dialogic/Editor/Events/styles/TextBackground.tres
+::res://addons/dialogic/Editor/Events/Parts/WaitSeconds/::1759153470
+EventPart_WaitSeconds.gd::GDScript::2116869996401214268::1759153470::0::1::::<>Control<><>0<>1<><>::
+WaitSeconds.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/WaitSeconds/EventPart_WaitSeconds.gd<>res://addons/dialogic/Editor/Events/Parts/Text/GreyLabel.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres<>res://addons/dialogic/Editor/Events/Parts/SpinBoxPreventDnD.gd
 ::res://addons/dialogic/Editor/Events/styles/::1759151981
 InputFieldsStyle.tres::Theme::-1::1759152045::0::1::::<><><>0<>0<><>::
 ResourceMenuHover.tres::StyleBoxFlat::-1::1759152045::0::1::::<><><>0<>0<><>::
@@ -287,65 +293,65 @@ SettingsFieldBackground.tres::StyleBoxFlat::-1::1759152045::0::1::::<><><>0<>0<>
 SimpleButtonHover.tres::StyleBoxFlat::-1::1759152045::0::1::::<><><>0<>0<><>::
 SimpleButtonNormal.tres::StyleBoxFlat::-1::1759152045::0::1::::<><><>0<>0<><>::
 TextBackground.tres::StyleBoxFlat::-1::1759152045::0::1::::<><><>0<>0<><>::
-::res://addons/dialogic/Editor/Events/Templates/::1759152061
-EventBlock.gd::GDScript::1122311382335499380::1759152045::0::1::::<>HBoxContainer<><>0<>1<><>::
-EventTemplate.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventBlock.gd<>res://addons/dialogic/Editor/Events/Parts/EventBlock/ExpandControl.tscn<>res://addons/dialogic/Editor/Events/styles/selected_styleboxflat.tres<>res://addons/dialogic/Editor/Events/styles/ResourceMenuPanelBackground.tres<>res://addons/dialogic/Images/Plugin/plugin-editor-icon-dark-theme.svg<>res://addons/dialogic/Images/Event Icons/event-outline.svg<>res://addons/dialogic/Editor/Events/Parts/EventBlock/PopupMenu.gd
-::res://addons/dialogic/Editor/GlossaryEntryEditor/::1759152061
-GlossaryEntryEditor.gd::GDScript::3984652149493812267::1759152045::0::1::::<>ScrollContainer<><>0<>1<><>::
-GlossaryEntryEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/GlossaryEntryEditor/GlossaryEntryEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
-::res://addons/dialogic/Editor/MasterTree/::1759152061
-DragPreview.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::
-MasterTree.gd::GDScript::1142509352298314570::1759152045::0::1::::<>Tree<><>0<>1<><>::
-MasterTree.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/MasterTree/MasterTree.gd<>res://addons/dialogic/Documentation/Nodes/DocsTreeHelper.tscn
-::res://addons/dialogic/Editor/SettingsEditor/::1759152062
-SettingsEditor.gd::GDScript::8093800033112295211::1759152045::0::1::::<>ScrollContainer<><>0<>1<><>::
-SettingsEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/SettingsEditor/SettingsEditor.gd<>res://addons/dialogic/Editor/Common/SectionTitle.tscn<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.tscn<>res://addons/dialogic/Editor/SettingsEditor/Scenes/HistorySettings.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
-::res://addons/dialogic/Editor/SettingsEditor/Scenes/::1759152061
-HistorySettings.gd::GDScript::8850091285889576766::1759152045::0::1::::<>VBoxContainer<><>0<>1<><>::
-HistorySettings.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Common/SectionTitle.tscn<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Editor/SettingsEditor/Scenes/HistorySettings.gd<>res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.tscn
-SettingsCheckbox.gd::GDScript::3015678455420797576::1759152045::0::1::::<>HBoxContainer<><>0<>1<><>::
-SettingsCheckbox.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.gd
+::res://addons/dialogic/Editor/Events/Templates/::1759153470
+EventBlock.gd::GDScript::1122311382335499380::1759153470::0::1::::<>HBoxContainer<><>0<>1<><>::
+EventTemplate.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventBlock.gd<>res://addons/dialogic/Editor/Events/Parts/EventBlock/ExpandControl.tscn<>res://addons/dialogic/Editor/Events/styles/selected_styleboxflat.tres<>res://addons/dialogic/Editor/Events/styles/ResourceMenuPanelBackground.tres<>res://addons/dialogic/Images/Plugin/plugin-editor-icon-dark-theme.svg<>res://addons/dialogic/Images/Event Icons/event-outline.svg<>res://addons/dialogic/Editor/Events/Parts/EventBlock/PopupMenu.gd
+::res://addons/dialogic/Editor/GlossaryEntryEditor/::1759153470
+GlossaryEntryEditor.gd::GDScript::3984652149493812267::1759153470::0::1::::<>ScrollContainer<><>0<>1<><>::
+GlossaryEntryEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/GlossaryEntryEditor/GlossaryEntryEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
+::res://addons/dialogic/Editor/MasterTree/::1759153470
+DragPreview.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::
+MasterTree.gd::GDScript::1142509352298314570::1759153470::0::1::::<>Tree<><>0<>1<><>::
+MasterTree.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/MasterTree/MasterTree.gd<>res://addons/dialogic/Documentation/Nodes/DocsTreeHelper.tscn
+::res://addons/dialogic/Editor/SettingsEditor/::1759153470
+SettingsEditor.gd::GDScript::8093800033112295211::1759153470::0::1::::<>ScrollContainer<><>0<>1<><>::
+SettingsEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/SettingsEditor/SettingsEditor.gd<>res://addons/dialogic/Editor/Common/SectionTitle.tscn<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.tscn<>res://addons/dialogic/Editor/SettingsEditor/Scenes/HistorySettings.tscn<>res://addons/dialogic/Editor/Events/Parts/ResourcePickers/ResourcePickerMenu.tscn<>res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+::res://addons/dialogic/Editor/SettingsEditor/Scenes/::1759153470
+HistorySettings.gd::GDScript::8850091285889576766::1759153470::0::1::::<>VBoxContainer<><>0<>1<><>::
+HistorySettings.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Common/SectionTitle.tscn<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Editor/SettingsEditor/Scenes/HistorySettings.gd<>res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.tscn
+SettingsCheckbox.gd::GDScript::3015678455420797576::1759153470::0::1::::<>HBoxContainer<><>0<>1<><>::
+SettingsCheckbox.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/SettingsEditor/Scenes/SettingsCheckbox.gd
 ::res://addons/dialogic/Editor/Theme/::1759151981
 MainTheme.tres::Theme::-1::1759152045::0::1::::<><><>0<>0<><>::
 PickerTheme.tres::Theme::-1::1759152045::0::1::::<><><>0<>0<><>::
-::res://addons/dialogic/Editor/ThemeEditor/::1759152062
-AudioPicker.gd::GDScript::6948774162315320360::1759152044::0::1::::<>GridContainer<><>0<>1<><>::
-AudioPicker.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/ThemeEditor/AudioPicker.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
-ButtonStylePicker.gd::GDScript::6375372394902824404::1759152044::0::1::::<>GridContainer<><>0<>1<><>::
-ButtonStylePicker.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/ThemeEditor/ButtonStylePicker.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
+::res://addons/dialogic/Editor/ThemeEditor/::1759153470
+AudioPicker.gd::GDScript::6948774162315320360::1759153470::0::1::::<>GridContainer<><>0<>1<><>::
+AudioPicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/ThemeEditor/AudioPicker.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
+ButtonStylePicker.gd::GDScript::6375372394902824404::1759153470::0::1::::<>GridContainer<><>0<>1<><>::
+ButtonStylePicker.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/ThemeEditor/ButtonStylePicker.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
 default-theme.cfg::TextFile::-1::1759151948::0::1::::<><><>0<>0<><>::
-ThemeEditor.gd::GDScript::344758862326718336::1759152044::0::1::::<>Control<><>0<>1<><>::
-ThemeEditor.tscn::PackedScene::-1::1759152045::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Plugin/plugin-editor-icon-light-theme.svg<>res://addons/dialogic/Editor/ThemeEditor/ThemeEditor.gd<>res://addons/dialogic/Editor/Common/SectionTitle.tscn<>res://addons/dialogic/Editor/ThemeEditor/ButtonStylePicker.tscn<>res://addons/dialogic/Editor/ThemeEditor/AudioPicker.tscn<>res://addons/dialogic/Editor/Common/TLabel.tscn
-::res://addons/dialogic/Editor/TimelineEditor/::1759152062
-EventButton.gd::GDScript::213308878110247735::1759152044::0::1::::<>Button<><>0<>1<><>::
-FlexContainer.gd::GDScript::6887098675533056206::1759152044::0::1::::<>Container<><>0<>1<><>::
-SmallEventButton.gd::GDScript::5669322329375646981::1759152044::0::1::::<>Button<><>0<>1<><>::
-SmallEventButton.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/TimelineEditor/SmallEventButton.gd
-TimelineArea.gd::GDScript::387387128001226208::1759152044::0::1::::<>ScrollContainer<><>0<>1<><>::
-TimelineEditor.gd::GDScript::2643889982566326592::1759152044::0::1::::<>HSplitContainer<><>0<>1<><>::
-TimelineEditor.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Tutorials/arrow-down.svg<>res://addons/dialogic/Editor/TimelineEditor/TimelineEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Editor/TimelineEditor/TimelineArea.gd<>res://addons/dialogic/Editor/Theme/MainTheme.tres<>res://addons/dialogic/Editor/TimelineEditor/FlexContainer.gd
-TimelineTestingScene.gd::GDScript::3094482983983154050::1759152044::0::1::::<>Node<><>0<>0<><>::
+ThemeEditor.gd::GDScript::344758862326718336::1759153470::0::1::::<>Control<><>0<>1<><>::
+ThemeEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Plugin/plugin-editor-icon-light-theme.svg<>res://addons/dialogic/Editor/ThemeEditor/ThemeEditor.gd<>res://addons/dialogic/Editor/Common/SectionTitle.tscn<>res://addons/dialogic/Editor/ThemeEditor/ButtonStylePicker.tscn<>res://addons/dialogic/Editor/ThemeEditor/AudioPicker.tscn<>res://addons/dialogic/Editor/Common/TLabel.tscn
+::res://addons/dialogic/Editor/TimelineEditor/::1759153470
+EventButton.gd::GDScript::213308878110247735::1759153470::0::1::::<>Button<><>0<>1<><>::
+FlexContainer.gd::GDScript::6887098675533056206::1759153470::0::1::::<>Container<><>0<>1<><>::
+SmallEventButton.gd::GDScript::5669322329375646981::1759153470::0::1::::<>Button<><>0<>1<><>::
+SmallEventButton.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/TimelineEditor/SmallEventButton.gd
+TimelineArea.gd::GDScript::387387128001226208::1759153470::0::1::::<>ScrollContainer<><>0<>1<><>::
+TimelineEditor.gd::GDScript::2643889982566326592::1759153470::0::1::::<>HSplitContainer<><>0<>1<><>::
+TimelineEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Images/Tutorials/arrow-down.svg<>res://addons/dialogic/Editor/TimelineEditor/TimelineEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn<>res://addons/dialogic/Editor/TimelineEditor/TimelineArea.gd<>res://addons/dialogic/Editor/Theme/MainTheme.tres<>res://addons/dialogic/Editor/TimelineEditor/FlexContainer.gd
+TimelineTestingScene.gd::GDScript::3094482983983154050::1759153470::0::1::::<>Node<><>0<>0<><>::
 TimelineTestingScene.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/TimelineEditor/TimelineTestingScene.gd
-::res://addons/dialogic/Editor/ValueEditor/::1759152062
-ValueEditor.gd::GDScript::7157386930379337802::1759152044::0::1::::<>ScrollContainer<><>0<>1<><>::
-ValueEditor.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/ValueEditor/ValueEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
+::res://addons/dialogic/Editor/ValueEditor/::1759153470
+ValueEditor.gd::GDScript::7157386930379337802::1759153470::0::1::::<>ScrollContainer<><>0<>1<><>::
+ValueEditor.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/ValueEditor/ValueEditor.gd<>res://addons/dialogic/Editor/Common/TLabel.tscn
 ::res://addons/dialogic/Example Assets/::1759151981
 ::res://addons/dialogic/Example Assets/backgrounds/::1759152063
 background-1.png::CompressedTexture2D::6334521278729130924::1759151948::1759152063::1::::<><><>0<>0<>53ad3a7ef0c67f7f5c5bc88945d38e05<>res://.godot/imported/background-1.png-1fc779d8fd5d0bc2346042b70def9109.ctex::
 background-2.png::CompressedTexture2D::4533871467803478361::1759151948::1759152063::1::::<><><>0<>0<>cc9ec714a65523657d702aa626f3f344<>res://.godot/imported/background-2.png-16cefbac02f843f04a3346ffecedf6b6.ctex::
 GlossaryBackground.tres::StyleBoxFlat::-1::1759152044::0::1::::<><><>0<>0<><>::
-::res://addons/dialogic/Example Assets/CustomEvents/::1759152062
+::res://addons/dialogic/Example Assets/CustomEvents/::1759153470
 EventBlock.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Templates/EventTemplate.tscn
-EventPart_Example.gd::GDScript::6463704309875986087::1759152044::0::1::::<>Control<><>0<>1<><>::
-EventPart_Example.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Example Assets/CustomEvents/EventPart_Example.gd
+EventPart_Example.gd::GDScript::6463704309875986087::1759153470::0::1::::<>Control<><>0<>1<><>::
+EventPart_Example.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Editor/Events/Parts/Text/CustomLineEdit.tscn<>res://addons/dialogic/Example Assets/CustomEvents/EventPart_Example.gd
 event_yourname_000.gd::GDScript::2198231180708554268::1759152044::0::1::::<>Node<><>0<>0<><>::
-::res://addons/dialogic/Example Assets/Fonts/::1759151981
-DefaultBoldFont.tres::FontFile::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
-DefaultFont.tres::FontFile::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Regular.ttf
-DefaultItalicFont.tres::FontFile::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Italic.ttf
-GlossaryFont.tres::FontFile::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
-NameFont.tres::FontFile::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
-::res://addons/dialogic/Example Assets/Fonts/Overlock/::1759152062
+::res://addons/dialogic/Example Assets/Fonts/::1759153470
+DefaultBoldFont.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
+DefaultFont.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Regular.ttf
+DefaultItalicFont.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Italic.ttf
+GlossaryFont.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
+NameFont.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
+::res://addons/dialogic/Example Assets/Fonts/Overlock/::1759153470
 OFL.txt::TextFile::-1::1759151948::0::1::::<><><>0<>0<><>::
 Overlock-Black.ttf::FontFile::6311021935445225732::1759151948::1759152062::1::::<><><>0<>0<>a4953d6c43b8946f7a6604fa856e453b<>res://.godot/imported/Overlock-Black.ttf-955909b870773856d7373c4318890105.fontdata::
 Overlock-BlackItalic.ttf::FontFile::175325919139013236::1759151948::1759152062::1::::<><><>0<>0<>03c6e43ef76a3da74e4e10938ac350ee<>res://.godot/imported/Overlock-BlackItalic.ttf-a02e8ca1583fe258a2864ede0edb71bf.fontdata::
@@ -353,14 +359,14 @@ Overlock-Bold.ttf::FontFile::9007199862342543826::1759151948::1759152062::1::::<
 Overlock-BoldItalic.ttf::FontFile::6478347186158390222::1759151948::1759152062::1::::<><><>0<>0<>1959ee11219573df5006f5b960c7958b<>res://.godot/imported/Overlock-BoldItalic.ttf-a58bbd6e78ecf9ce377a4f34633bbd56.fontdata::
 Overlock-Italic.ttf::FontFile::7888436588454455133::1759151948::1759152062::1::::<><><>0<>0<>f458c3ed9253a26bc5b4046e45b76700<>res://.godot/imported/Overlock-Italic.ttf-d9f7ee600845f4afe74c9bb7da94ab68.fontdata::
 Overlock-Regular.ttf::FontFile::7612449079081675785::1759151948::1759152062::1::::<><><>0<>0<>1f696e30047bd68f9f8652829b0099f7<>res://.godot/imported/Overlock-Regular.ttf-07c264565e14dc60eab79bc606c211f1.fontdata::
-Overlock.tres::FontFile::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
-::res://addons/dialogic/Example Assets/History/::1759152062
-HistoryBackground.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/backgrounds/background-2.png
-HistoryButton-theme.tres::Theme::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/backgrounds/background-2.png<>res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
-HistoryButton.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryButton-theme.tres
-HistoryReturnButton.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryButton-theme.tres
-HistoryRow.gd::GDScript::5057145012733043958::1759152044::0::1::::<>PanelContainer<><>0<>1<><>::
-HistoryRow.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryRow.gd<>res://addons/dialogic/Example Assets/backgrounds/background-2.png
+Overlock.tres::FontFile::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
+::res://addons/dialogic/Example Assets/History/::1759153470
+HistoryBackground.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/backgrounds/background-2.png
+HistoryButton-theme.tres::Theme::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/backgrounds/background-2.png<>res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Black.ttf
+HistoryButton.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryButton-theme.tres
+HistoryReturnButton.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryButton-theme.tres
+HistoryRow.gd::GDScript::5057145012733043958::1759153470::0::1::::<>PanelContainer<><>0<>1<><>::
+HistoryRow.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryRow.gd<>res://addons/dialogic/Example Assets/backgrounds/background-2.png
 ::res://addons/dialogic/Example Assets/next-indicator/::1759152063
 next-indicator.png::CompressedTexture2D::7104992858948623078::1759151948::1759152063::1::::<><><>0<>0<>97879ff922c262c863f27af63ec7808d<>res://.godot/imported/next-indicator.png-e3b7b80d9da791a1d0a061a728b6f781.ctex::
 ::res://addons/dialogic/Example Assets/portraits/::1759152063
@@ -463,42 +469,42 @@ add-timeline-2.svg::CompressedTexture2D::8744147021842016907::1759151948::175915
 add-timeline.svg::CompressedTexture2D::8048963612211882669::1759151948::1759152062::1::::<><><>0<>0<>41da6c6141caf0d6f90119aeb6ea5cc7<>res://.godot/imported/add-timeline.svg-fc120773b7d10b417503abc3c1b33ca0.ctex::
 ::res://addons/dialogic/Images/Tutorials/::1759152062
 arrow-down.svg::CompressedTexture2D::3222042834206191209::1759151948::1759152062::1::::<><><>0<>0<>8200fe26f97bb7e6b212832138b9ce84<>res://.godot/imported/arrow-down.svg-82927ec9bdee161b2d27d6f4808e76b4.ctex::
-::res://addons/dialogic/Localization/::1759152062
+::res://addons/dialogic/Localization/::1759153470
 dialogic.csv::Translation::1464573194660012144::1759151948::1759152062::1::::<><><>0<>0<>c58f92903be4dbf53118650feafe818e<>res://addons/dialogic/Localization/dialogic.zh_CN.translation<*>res://addons/dialogic/Localization/dialogic.en.translation<*>res://addons/dialogic/Localization/dialogic.es.translation<*>res://addons/dialogic/Localization/dialogic.fr.translation<*>res://addons/dialogic/Localization/dialogic.de.translation::
-dialogic.de.translation::OptimizedTranslation::7454958980236363622::1759152062::0::1::::<><><>0<>0<><>::
-dialogic.en.translation::OptimizedTranslation::137303905171424375::1759152062::0::1::::<><><>0<>0<><>::
-dialogic.es.translation::OptimizedTranslation::2476768794601803510::1759152062::0::1::::<><><>0<>0<><>::
-dialogic.fr.translation::OptimizedTranslation::2689099998451809720::1759152062::0::1::::<><><>0<>0<><>::
-dialogic.zh_CN.translation::OptimizedTranslation::5293109255901868849::1759152062::0::1::::<><><>0<>0<><>::
-translation_service.gd::GDScript::1133592065877551967::1759152044::0::1::::DTS<>RefCounted<><>0<>1<><>::
-::res://addons/dialogic/Nodes/::1759152062
-Background.gd::GDScript::2117741288445784496::1759152044::0::1::::<>TextureRect<><>0<>0<><>::
+dialogic.de.translation::OptimizedTranslation::7454958980236363622::1759153470::0::1::::<><><>0<>0<><>::
+dialogic.en.translation::OptimizedTranslation::137303905171424375::1759153470::0::1::::<><><>0<>0<><>::
+dialogic.es.translation::OptimizedTranslation::2476768794601803510::1759153470::0::1::::<><><>0<>0<><>::
+dialogic.fr.translation::OptimizedTranslation::2689099998451809720::1759153470::0::1::::<><><>0<>0<><>::
+dialogic.zh_CN.translation::OptimizedTranslation::5293109255901868849::1759153470::0::1::::<><><>0<>0<><>::
+translation_service.gd::GDScript::1133592065877551967::1759153470::0::1::::DTS<>RefCounted<><>0<>1<><>::
+::res://addons/dialogic/Nodes/::1759153470
+Background.gd::GDScript::2117741288445784496::1759153470::0::1::::<>TextureRect<><>0<>0<><>::
 Background.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/Background.gd
-BackgroundMusic.gd::GDScript::918287272877746065::1759152044::0::1::::DialogicBackgroundMusic<>Control<><>0<>0<><>::
-BackgroundMusic.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/BackgroundMusic.gd
-canvas_dialog_node.gd::GDScript::938134257720866148::1759152044::0::1::::<>CanvasLayer<><>0<>0<><>::
+BackgroundMusic.gd::GDScript::918287272877746065::1759153470::0::1::::DialogicBackgroundMusic<>Control<><>0<>0<><>::
+BackgroundMusic.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/BackgroundMusic.gd
+canvas_dialog_node.gd::GDScript::938134257720866148::1759153470::0::1::::<>CanvasLayer<><>0<>0<><>::
 CharacterVoice.gd::GDScript::3311731808194467293::1759152044::0::1::::<>AudioStreamPlayer<><>0<>0<><>::
 ChoiceButton.gd::GDScript::4437239413475324355::1759152044::0::1::::<>Button<><>0<>0<><>::
 ChoiceButton.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/ChoiceButton.gd
-DialogicCustomEvents.gd::GDScript::3250345448575187622::1759152044::0::1::::DialogicCustomEvents<>Node<><>0<>1<><>::
-DialogNode.gd::GDScript::7130529832972099709::1759152044::0::1::::<>Control<><>0<>1<><>::
-DialogNode.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/TextBubble.tscn<>res://addons/dialogic/Example Assets/backgrounds/GlossaryBackground.tres<>res://addons/dialogic/Nodes/CharacterVoice.gd<>res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres<>res://addons/dialogic/Nodes/glossary_info.gd<>res://addons/dialogic/Nodes/DialogNode.gd<>res://addons/dialogic/Nodes/BackgroundMusic.tscn<>res://addons/dialogic/Nodes/random_audio_stream_player.gd<>res://addons/dialogic/Example Assets/Sound Effects/Beep.wav<>res://addons/dialogic/Nodes/DialogicCustomEvents.gd<>res://addons/dialogic/Nodes/History.tscn
-DialogProxy.gd::GDScript::8752295504557184583::1759152044::0::1::::<>Control<><>0<>0<><>::
-glossary_info.gd::GDScript::891798204017541909::1759152044::0::1::::<>PanelContainer<><>0<>1<><>::
-History.gd::GDScript::5957542739714478526::1759152044::0::1::::<>Control<><>0<>1<><>::
-History.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryBackground.tscn<>res://addons/dialogic/Example Assets/History/HistoryRow.tscn<>res://addons/dialogic/Nodes/History.gd<>res://addons/dialogic/Example Assets/History/HistoryButton.tscn<>res://addons/dialogic/Example Assets/History/HistoryReturnButton.tscn
-Portrait.gd::GDScript::5237133567017531758::1759152044::0::1::::<>Control<><>0<>0<><>::
-Portrait.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/Anima/DialogicAnimaTween.gd<>res://addons/dialogic/Nodes/Portrait.gd
-random_audio_stream_player.gd::GDScript::411752952978660466::1759152044::0::1::::<>AudioStreamPlayer<><>0<>1<><>::
-TextBubble.gd::GDScript::5649654531387573::1759152044::0::1::::<>Control<><>0<>1<><>::
-TextBubble.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres<>res://addons/dialogic/Example Assets/backgrounds/background-2.png<>res://addons/dialogic/Example Assets/next-indicator/next-indicator.png<>res://addons/dialogic/Nodes/TextBubble.gd
-::res://addons/dialogic/Nodes/Anima/::1759152062
+DialogicCustomEvents.gd::GDScript::3250345448575187622::1759153470::0::1::::DialogicCustomEvents<>Node<><>0<>1<><>::
+DialogNode.gd::GDScript::7130529832972099709::1759153470::0::1::::<>Control<><>0<>1<><>::
+DialogNode.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/TextBubble.tscn<>res://addons/dialogic/Example Assets/backgrounds/GlossaryBackground.tres<>res://addons/dialogic/Nodes/CharacterVoice.gd<>res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres<>res://addons/dialogic/Nodes/glossary_info.gd<>res://addons/dialogic/Nodes/DialogNode.gd<>res://addons/dialogic/Nodes/BackgroundMusic.tscn<>res://addons/dialogic/Nodes/random_audio_stream_player.gd<>res://addons/dialogic/Example Assets/Sound Effects/Beep.wav<>res://addons/dialogic/Nodes/DialogicCustomEvents.gd<>res://addons/dialogic/Nodes/History.tscn
+DialogProxy.gd::GDScript::8752295504557184583::1759153470::0::1::::<>Control<><>0<>0<><>::
+glossary_info.gd::GDScript::891798204017541909::1759153470::0::1::::<>PanelContainer<><>0<>1<><>::
+History.gd::GDScript::5957542739714478526::1759153470::0::1::::<>Control<><>0<>1<><>::
+History.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/History/HistoryBackground.tscn<>res://addons/dialogic/Example Assets/History/HistoryRow.tscn<>res://addons/dialogic/Nodes/History.gd<>res://addons/dialogic/Example Assets/History/HistoryButton.tscn<>res://addons/dialogic/Example Assets/History/HistoryReturnButton.tscn
+Portrait.gd::GDScript::5237133567017531758::1759153470::0::1::::<>Control<><>0<>0<><>::
+Portrait.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Nodes/Anima/DialogicAnimaTween.gd<>res://addons/dialogic/Nodes/Portrait.gd
+random_audio_stream_player.gd::GDScript::411752952978660466::1759153470::0::1::::<>AudioStreamPlayer<><>0<>1<><>::
+TextBubble.gd::GDScript::5649654531387573::1759153470::0::1::::<>Control<><>0<>1<><>::
+TextBubble.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres<>res://addons/dialogic/Example Assets/backgrounds/background-2.png<>res://addons/dialogic/Example Assets/next-indicator/next-indicator.png<>res://addons/dialogic/Nodes/TextBubble.gd
+::res://addons/dialogic/Nodes/Anima/::1759153470
 AnimaLicense.md::TextFile::-1::1759151948::0::1::::<><><>0<>0<><>::
-DialogicAnimaPropertiesHelper.gd::GDScript::6478173452899106763::1759152044::0::1::::DialogicAnimaPropertiesHelper<>RefCounted<><>0<>0<><>::
-DialogicAnimaResources.gd::GDScript::1073807188926909052::1759152044::0::1::::DialogicAnimaResources<>Node<><>0<>0<><>::
-DialogicAnimaTween.gd::GDScript::6755398849333094643::1759152044::0::1::::<>Tween<><>0<>0<><>::
+DialogicAnimaPropertiesHelper.gd::GDScript::6478173452899106763::1759153470::0::1::::DialogicAnimaPropertiesHelper<>RefCounted<><>0<>0<><>::
+DialogicAnimaResources.gd::GDScript::1073807188926909052::1759153470::0::1::::DialogicAnimaResources<>Node<><>0<>0<><>::
+DialogicAnimaTween.gd::GDScript::6755398849333094643::1759153470::0::1::::<>Tween<><>0<>0<><>::
 ::res://addons/dialogic/Nodes/Anima/animations/::1759151981
-::res://addons/dialogic/Nodes/Anima/animations/attention_seeker/::1759152062
+::res://addons/dialogic/Nodes/Anima/animations/attention_seeker/::1759153470
 bounce.gd::GDScript::3061030216085224129::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 flash.gd::GDScript::4168138853141872890::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 headshake.gd::GDScript::51857978239254887::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
@@ -511,7 +517,7 @@ shake_y.gd::GDScript::6563962392642235339::1759152044::0::1::::<>RefCounted<><>0
 swing.gd::GDScript::6277191941057126808::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 tada.gd::GDScript::5542027268257027958::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 wobble.gd::GDScript::1299589566880492901::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
-::res://addons/dialogic/Nodes/Anima/animations/entrances_and_exits/::1759152062
+::res://addons/dialogic/Nodes/Anima/animations/entrances_and_exits/::1759153470
 1-fade_in.gd::GDScript::6081242113095209702::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 2-fade_in_up.gd::GDScript::4938634908338043005::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 3-fade_in_up_big.gd::GDScript::8891191524412314508::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
@@ -534,38 +540,146 @@ slide_in_left.gd::GDScript::6996775612895705581::1759152044::0::1::::<>RefCounte
 slide_in_right.gd::GDScript::5686950312862511877::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 slide_out_left.gd::GDScript::2667515078365227210::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
 slide_out_right.gd::GDScript::1873361290000153958::1759152044::0::1::::<>RefCounted<><>0<>0<><>::
-::res://addons/dialogic/Other/::1759152062
-DialogicClass.gd::GDScript::9052970330290217778::1759152044::0::1::::Dialogic<>Node<><>0<>0<><>::
+::res://addons/dialogic/Other/::1759909542
+compatibility_4_5.gd::GDScript::87323862749677658::1759155096::0::1::::DialogicCompatibility<>Node<><>0<>1<><>::
+DialogicClass.gd::GDScript::9052970330290217778::1759153470::0::1::::Dialogic<>Node<><>0<>0<><>::
 DialogicDefinitionsUtil.gd::GDScript::5990186030952535202::1759152044::0::1::::DialogicDefinitionsUtil<>Node<><>0<>0<><>::
-DialogicResources.gd::GDScript::8614067430406413094::1759152044::0::1::::DialogicResources<>RefCounted<><>0<>1<><>::
+DialogicResources.gd::GDScript::8614067430406413094::1759155096::0::1::::DialogicResources<>RefCounted<><>0<>1<><>::
 DialogicSharp.cs::CSharpScript::5975267933179718520::1759152044::0::1::::<><><>0<>0<><>::
-DialogicUtil.gd::GDScript::4114944778153273473::1759152044::0::1::::DialogicUtil<>RefCounted<><>0<>1<><>::
-export_plugin.gd::GDScript::6080229120039717265::1759152044::0::1::::<>EditorExportPlugin<><>0<>0<><>::
+DialogicUtil.gd::GDScript::4114944778153273473::1759153470::0::1::::DialogicUtil<>RefCounted<><>0<>1<><>::
+export_plugin.gd::GDScript::6080229120039717265::1759153470::0::1::::<>EditorExportPlugin<><>0<>0<><>::
 inspector_timeline_picker.gd::GDScript::9132872196949038462::1759152044::0::1::::<>EditorInspectorPlugin<><>0<>0<><>::
-timeline_picker.gd::GDScript::6384375142527617224::1759152044::0::1::::<>EditorProperty<><>0<>1<><>::
-::res://addons/dialogic/Parser/::1759152062
-DialogicParser.gd::GDScript::6367372011290194467::1759152044::0::1::::DialogicParser<>Node<><>0<>0<><>::
+timeline_picker.gd::GDScript::6384375142527617224::1759153470::0::1::::<>EditorProperty<><>0<>1<><>::
+::res://addons/dialogic/Parser/::1759153470
+DialogicParser.gd::GDScript::6367372011290194467::1759153470::0::1::::DialogicParser<>Node<><>0<>0<><>::
+::res://addons/resource_validator/::1759910885
+auto_validator.gd::GDScript::2902763242436244676::1759911043::0::1::::<>SceneTree<><>0<>0<><>::
+plugin.cfg::TextFile::-1::1759909364::0::1::::<><><>0<>0<><>::
+resource_checker.gd::GDScript::6092925525397482157::1759909522::0::1::::<>RefCounted<><>0<>1<><>::
+resource_validator.gd::GDScript::3659349822394066267::1759909369::0::1::::<>EditorPlugin<><>0<>1<><>::
+::res://addons/scene_system/::1759909542
+dialogue_scene_loader.gd::GDScript::6722138463101717209::1759155648::0::1::::DialogueSceneLoader<>Node<><>0<>1<><>::
+generate_test_images.gd::GDScript::7735873795489733055::1759155493::0::1::::<>EditorScript<><>0<>1<><>::
+scene_loader.gd::GDScript::6905677788123160946::1759154592::0::1::::SceneLoader<>Node<><>0<>0<><>::
+scene_manager.gd::GDScript::7046306944535129685::1759154592::0::1::::SceneManager<>Node<><>0<>0<><>::
+::res://addons/scene_system/scenes/::1759154083
+::res://addons/shared/::1759154083
+::res://addons/shared/resources/::1759154083
+::res://assets/::1759911178
+::res://assets/audio/::1759911181
+::res://assets/audio/bgm/::1759923068
+emotional.ogg::AudioStreamOggVorbis::9005986501179355163::1759923147::1759923068::0::::<><><>0<>0<>fb3b837ae75a4e2218358f95afcb334d<>::
+main_theme.ogg::AudioStreamOggVorbis::2101641338696397208::1759923147::1759923068::0::::<><><>0<>0<>4feddc4a01a154332f1381cc3010c739<>::
+::res://assets/audio/sfx/::1759923068
+click.wav::AudioStreamWAV::9186157692187789245::1759923147::1759923173::1::::<><><>0<>0<>e0a2b312e464d756855abff7cfc7d65f<>res://.godot/imported/click.wav-f07625b3f1bdf9c432f2cbe728e402c7.sample::
+transition.wav::AudioStreamWAV::7297627170754638434::1759923147::1759923173::1::::<><><>0<>0<>ac13ddba006858ad6f74cb702838ba8f<>res://.godot/imported/transition.wav-bd6a7a996ad2647552ce68b53722cea5.sample::
+::res://assets/backgrounds/::1759923068
+classroom.png::CompressedTexture2D::5560471319089651586::1759923147::1759923173::0::::<><><>0<>0<>703c9ce3d0a0f121b55c6f454bfadb5c<>::
+street.png::CompressedTexture2D::1207610487058244690::1759923147::1759923173::0::::<><><>0<>0<>01c5538df5d4f762490da208ca1b7907<>::
+::res://assets/characters/::1759155330
+::res://assets/characters/chulsoo/::1759923068
+default.png::CompressedTexture2D::487182791807624765::1759923147::1759923173::0::::<><><>0<>0<>95dd2eaf4d2099c739ca71567c283ca2<>::
+happy.png::CompressedTexture2D::1703021926965548145::1759923147::1759923173::0::::<><><>0<>0<>416a2608f2f1b757f9c03b46923eaa1a<>::
+sad.png::CompressedTexture2D::4274320287567866327::1759923147::1759923173::0::::<><><>0<>0<>136b8be97e6f2ed54f5aaf824bd7b66c<>::
+::res://assets/characters/younghee/::1759923068
+default.png::CompressedTexture2D::982942202292506577::1759923147::1759923173::0::::<><><>0<>0<>c2f02a1a900d239fedf0556928718a3a<>::
+happy.png::CompressedTexture2D::4325998862253324251::1759923147::1759923173::0::::<><><>0<>0<>86c8718ffd553f4fecf68951659a6ac1<>::
+sad.png::CompressedTexture2D::373995792863325115::1759923147::1759923173::0::::<><><>0<>0<>bb413972afd5b3c0332abafd289875ec<>::
+::res://assets/ui/::1759923068
+choice_button_hover.png::CompressedTexture2D::6610744529410277028::1759923147::1759923173::0::::<><><>0<>0<>25de14eff1d499ae6f6a70443e1f7621<>::
+choice_button_normal.png::CompressedTexture2D::4260961130003156644::1759923147::1759923173::0::::<><><>0<>0<>10e45398b8a5137b27dc8d505544e1b5<>::
+dialog_box.png::CompressedTexture2D::4359444937180472895::1759923147::1759923173::0::::<><><>0<>0<>5680e1ef97d34e6556aa05d02028bb91<>::
+::res://build_reports/::1759911052
+resource_validation.report.json::JSON::-1::1759911097::0::1::::<><><>0<>0<><>::
 ::res://dialogic/::1759151980
 definitions.json::JSON::-1::1759151948::0::1::::<><><>0<>0<><>::
 folder_structure.json::JSON::-1::1759151948::0::1::::<><><>0<>0<><>::
 settings.cfg::TextFile::-1::1759151948::0::1::::<><><>0<>0<><>::
-::res://dialogic/Menus/::1759152063
+::res://dialogic/Menus/::1759155096
 BackgroundImage.jpg::CompressedTexture2D::1169706850648421566::1759151948::1759152063::1::::<><><>0<>0<>ca6ecddb110249f640aaf00d39b2df7d<>res://.godot/imported/BackgroundImage.jpg-b099a2919b95ae73760a07c83c744540.ctex::
-DialogicMenus.gd::GDScript::3623180861105145734::1759152044::0::1::::<>Control<><>0<>0<><>::
+DialogicMenus.gd::GDScript::3623180861105145734::1759153470::0::1::::<>Control<><>0<>0<><>::
 DialogicMenus_AboutMenu.gd::GDScript::4328386431875085762::1759152044::0::1::::<>Control<><>0<>0<><>::
-DialogicMenus_LoadMenu.gd::GDScript::9068501274187449820::1759152044::0::1::::<>Control<><>0<>0<><>::
-DialogicMenus_MainMenu.gd::GDScript::4585508001132761532::1759152044::0::1::::<>Control<><>0<>0<><>::
-DialogicMenus_SaveMenu.gd::GDScript::900122448301921972::1759152044::0::1::::<>Control<><>0<>0<><>::
-DialogicMenus_SaveSlot.gd::GDScript::4688252718611028229::1759152044::0::1::::<>Control<><>0<>0<><>::
-DialogicMenus_SettingsMenu.gd::GDScript::3059163088569917224::1759152044::0::1::::<>Control<><>0<>0<><>::
+DialogicMenus_LoadMenu.gd::GDScript::9068501274187449820::1759153470::0::1::::<>Control<><>0<>0<><>::
+DialogicMenus_MainMenu.gd::GDScript::4585508001132761532::1759153470::0::1::::<>Control<><>0<>0<><>::
+DialogicMenus_SaveMenu.gd::GDScript::900122448301921972::1759155096::0::1::::<>Control<><>0<>0<><>::
+DialogicMenus_SaveSlot.gd::GDScript::4688252718611028229::1759155096::0::1::::<>Control<><>0<>0<><>::
+DialogicMenus_SettingsMenu.gd::GDScript::3059163088569917224::1759153470::0::1::::<>Control<><>0<>0<><>::
 DialogicMenus_SubMenus.gd::GDScript::1867491880185724644::1759152044::0::1::::<>Control<><>0<>0<><>::
 DialogicMenus_Warning.gd::GDScript::7045699993368533125::1759152044::0::1::::<>Control<><>0<>0<><>::
-DialogicMenu_SaveSlot.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/NameFont.tres<>res://dialogic/Menus/DialogicMenus_SaveSlot.gd<>res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres
-DialogicVisualNovelMenu.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres<>res://dialogic/Menus/BackgroundImage.jpg<>res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Italic.ttf<>res://dialogic/Menus/Menu_BackgroundMusic_Next to You.ogg<>res://dialogic/Menus/DialogicMenus_SubMenus.gd<>res://dialogic/Menus/DialogicMenus_Warning.gd<>res://dialogic/Menus/DialogicMenus_SettingsMenu.gd<>res://dialogic/Menus/DialogicMenus_MainMenu.gd<>res://dialogic/Menus/DialogicMenus_AboutMenu.gd<>res://dialogic/Menus/DialogicMenus_SaveMenu.gd<>res://dialogic/Menus/DialogicMenus.gd<>res://dialogic/Menus/DialogicMenus_LoadMenu.gd<>res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Regular.ttf<>res://addons/dialogic/Example Assets/Fonts/DefaultItalicFont.tres
+DialogicMenu_SaveSlot.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/NameFont.tres<>res://dialogic/Menus/DialogicMenus_SaveSlot.gd<>res://addons/dialogic/Example Assets/Fonts/DefaultFont.tres
+DialogicVisualNovelMenu.tscn::PackedScene::-1::1759153470::0::1::::<><><>0<>0<><>::res://addons/dialogic/Example Assets/Fonts/DefaultBoldFont.tres<>res://dialogic/Menus/BackgroundImage.jpg<>res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Italic.ttf<>res://dialogic/Menus/Menu_BackgroundMusic_Next to You.ogg<>res://dialogic/Menus/DialogicMenus_SubMenus.gd<>res://dialogic/Menus/DialogicMenus_Warning.gd<>res://dialogic/Menus/DialogicMenus_SettingsMenu.gd<>res://dialogic/Menus/DialogicMenus_MainMenu.gd<>res://dialogic/Menus/DialogicMenus_AboutMenu.gd<>res://dialogic/Menus/DialogicMenus_SaveMenu.gd<>res://dialogic/Menus/DialogicMenus.gd<>res://dialogic/Menus/DialogicMenus_LoadMenu.gd<>res://addons/dialogic/Example Assets/Fonts/Overlock/Overlock-Regular.ttf<>res://addons/dialogic/Example Assets/Fonts/DefaultItalicFont.tres
 Menu_BackgroundMusic_Next to You.ogg::AudioStreamOggVorbis::8949406664954493564::1759151948::1759152062::1::::<><><>0<>0<>abe7cad3041465e7c43c49b8864793d8<>res://.godot/imported/Menu_BackgroundMusic_Next to You.ogg-9313871e56ad42e02fecf00fe45c8644.oggvorbisstr::
 ::res://dialogic/themes/::1759151980
 theme-1631463496.cfg::TextFile::-1::1759151948::0::1::::<><><>0<>0<><>::
 ::res://dialogic/timelines/::1759151980
 timeline-1631464299.json::JSON::-1::1759151948::0::1::::<><><>0<>0<><>::
-::res://project/::1759151980
-MainScene.tscn::PackedScene::-1::1759152044::0::1::::<><><>0<>0<><>::res://dialogic/Menus/DialogicVisualNovelMenu.tscn
+::res://docs/::1759157130
+xml_format_guide.md::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+::res://project/::1759909542
+MainScene.tscn::PackedScene::-1::1759155320::0::1::::<><><>0<>0<><>::res://project/main_scene.gd<>res://addons/scene_system/dialogue_scene_loader.gd
+main_scene.gd::GDScript::1047839289799087796::1759155282::0::1::::<>Node<><>0<>0<><>::
+::res://scenes/::1759156786
+::res://scenes/achievements/::1759157130
+achievements.tscn::PackedScene::8302586173648369907::1759157130::0::1::::<><><>0<>0<><>::res://scripts/achievements/achievements_ui.gd
+::res://scenes/background/::1759157130
+background.tscn::PackedScene::2872520155499213791::1759157130::0::1::::<><><>0<>0<><>::res://scripts/background/background_controller.gd
+::res://scenes/character/::1759157130
+character.tscn::PackedScene::4456973593826432068::1759157130::0::1::::<><><>0<>0<><>::res://scripts/character/character_controller.gd
+::res://scenes/dialogue/::1759157130
+dialogue.tscn::PackedScene::5918097600429622350::1759157130::0::1::::<><><>0<>0<><>::res://scripts/dialogue/dialogue_controller.gd<>res://scripts/dialogue/history_ui.gd
+scene1.xml::TextFile::-1::1759923147::0::1::::<><><>0<>0<><>::
+scene2.xml::TextFile::-1::1759923147::0::1::::<><><>0<>0<><>::
+scene3.xml::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+scene4.xml::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+::res://scenes/settings/::1759157130
+settings.tscn::PackedScene::4708766962965303822::1759157130::0::1::::<><><>0<>0<><>::res://scripts/settings/settings_ui.gd
+::res://scripts/::1759909542
+error_reporter.gd::GDScript::4466013116519408844::1759909413::0::1::::<>Node<><>0<>0<><>::
+resource_manager.gd::GDScript::1400055349380782239::1759909403::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/accessibility/::1759909542
+accessibility_manager.gd::GDScript::894883538024297622::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/achievements/::1759909542
+achievements_ui.gd::GDScript::4513194708468760225::1759157130::0::1::::<>Control<><>0<>0<><>::
+::res://scripts/background/::1759909542
+background_controller.gd::GDScript::3096377781808887557::1759157130::0::1::::<>Node2D<><>0<>0<><>::
+background_effect_parser.gd::GDScript::365805709622503729::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/character/::1759909542
+character_controller.gd::GDScript::8406940776300046002::1759157130::0::1::::<>Node2D<><>0<>0<><>::
+character_manager.gd::GDScript::5229796263219618325::1759157130::0::1::::<>Node<><>0<>0<><>::
+character_parser.gd::GDScript::1817723404080344322::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/dialogue/::1759909542
+dialogue_controller.gd::GDScript::6220175125929813591::1759157130::0::1::::<>Node<><>0<>0<><>::
+history_ui.gd::GDScript::3968257325221609617::1759157130::0::1::::<>Control<><>0<>0<><>::
+::res://scripts/game/::1759909542
+game_data_manager.gd::GDScript::3956746374377223245::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/localization/::1759909542
+localization_manager.gd::GDScript::804500995950975680::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/settings/::1759909542
+settings_ui.gd::GDScript::3921550285527413536::1759157130::0::1::::<>Control<><>0<>0<><>::
+::res://scripts/ui/::1759909542
+theme_manager.gd::GDScript::5464355550694166074::1759157130::0::1::::<>Node<><>0<>0<><>::
+ui_animation_manager.gd::GDScript::974225661958089824::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://sequences/::1759157130
+main_story.xml::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+::res://test/::1759909542
+test_utils.gd::GDScript::228617336359288477::1759157130::0::1::::<>Node<><>0<>0<><>::
+::res://test/integration/::1759909542
+test_dialogue_scene.gd::GDScript::4068494834065909466::1759157130::0::1::::<>GutTest<><>0<>0<><>::
+::res://test/regression/::1759909542
+test_game_flow.gd::GDScript::1565872492515033582::1759157130::0::1::::<>GutTest<><>0<>0<><>::
+::res://test/scenes/::1759157130
+background_test.xml::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+character_test.xml::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+dialogue_test.xml::TextFile::-1::1759157130::0::1::::<><><>0<>0<><>::
+::res://test/unit/::1759909542
+test_background_controller.gd::GDScript::7040709548806233958::1759157130::0::1::::<>GutTest<><>0<>0<><>::
+::res://tests/::1759155096
+test_runner.tscn::PackedScene::1210706404568467145::1759155096::0::1::::<><><>0<>0<><>::res://addons/gut/test_runner.gd
+::res://tests/integration/::1759909542
+test_system_integration.gd::GDScript::1474227298466934258::1759154592::0::1::::<>GutTest<><>0<>0<><>::
+::res://tests/unit/::1759909542
+test_character_system.gd::GDScript::5318645414641904708::1759154592::0::1::::<>GutTest<><>0<>0<><>::
+test_scene_management.gd::GDScript::6361534017588225112::1759154592::0::1::::<>GutTest<><>0<>0<><>::
+::res://tools/::1759923067
+generate_dummy_resources.gd::GDScript::8500267494463885684::1759923138::0::1::::<>Node<><>0<>0<><>::
+generate_resources.tscn::PackedScene::-1::1759911415::0::1::::<><><>0<>0<><>::res://tools/generate_dummy_resources.gd

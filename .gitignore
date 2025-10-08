@@ -14,3 +14,14 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Build reports
+build_reports/
+*.report.json
+
+# Resource files
+assets/backgrounds/
+assets/characters/
+assets/ui/
+assets/audio/
+scenes/dialogue/

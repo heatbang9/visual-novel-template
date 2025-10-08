@@ -1,0 +1,33 @@
+{
+    "backgrounds": [
+        "res://assets/backgrounds/classroom.png",
+        "res://assets/backgrounds/street.png"
+    ],
+    "characters": [
+        "res://assets/characters/chulsoo/default.png",
+        "res://assets/characters/chulsoo/happy.png",
+        "res://assets/characters/chulsoo/sad.png",
+        "res://assets/characters/younghee/default.png",
+        "res://assets/characters/younghee/happy.png",
+        "res://assets/characters/younghee/sad.png"
+    ],
+    "scenes": [
+        "res://scenes/dialogue/scene1.xml",
+        "res://scenes/dialogue/scene2.xml"
+    ],
+    "ui": [
+        "res://assets/ui/dialog_box.png",
+        "res://assets/ui/choice_button_normal.png",
+        "res://assets/ui/choice_button_hover.png"
+    ],
+    "audio": {
+        "bgm": [
+            "res://assets/audio/bgm/main_theme.ogg",
+            "res://assets/audio/bgm/emotional.ogg"
+        ],
+        "sfx": [
+            "res://assets/audio/sfx/click.wav",
+            "res://assets/audio/sfx/transition.wav"
+        ]
+    }
+}
