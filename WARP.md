@@ -74,6 +74,21 @@ godot --run-tests TestName
 godot project.godot
 ```
 
+### 자동 빌드 테스트
+
+프로젝트의 빌드 상태를 빠르게 확인하기 위한 자동 테스트 명령어입니다. 이 명령어는 Godot 프로젝트를 10초 동안 실행하고 자동으로 종료하며, 로그를 통해 빌드 문제를 확인할 수 있습니다.
+
+```powershell
+# PowerShell에서 실행
+$godot = Start-Process -FilePath "C:\Users\kthgo\OneDrive\문서\Godot_v4.5-stable_mono_windows_arm64\Godot_v4.5-stable_mono_windows_arm64\Godot_v4.5-stable_mono_windows_arm64.exe" -ArgumentList "--path", $pwd -PassThru; Start-Sleep -Seconds 10; Stop-Process -Id $godot.Id -Force
+```
+
+이 자동 테스트는 다음과 같은 경우에 반드시 실행해야 합니다:
+- 새로운 기능 구현 후 빌드 확인
+- 리소스 파일 추가/수정 후 확인
+- PR 생성 전 최종 검증
+- 메인 브랜치 머지 후 확인
+
 ### 프로젝트 내보내기
 ```shell
 # Windows 빌드
