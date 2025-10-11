@@ -31,6 +31,14 @@ func get_character(id: String) -> CharacterBase:
 func get_all_characters() -> Array:
     return _characters.values()
 
+func has_character(id: String) -> bool:
+    return _characters.has(id)
+
+func clear_characters() -> void:
+    var ids := _characters.keys()
+    for id in ids:
+        remove_character(id)
+
 # 캐릭터 상태 관리
 func set_character_state(id: String, state: String) -> void:
     var character = get_character(id)
