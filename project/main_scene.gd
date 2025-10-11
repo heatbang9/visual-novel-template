@@ -1,6 +1,9 @@
 extends Node
 
 @onready var dialogue_scene_loader = $DialogueSceneLoader
+@onready var character_manager = $CharacterManager
+@onready var background_sprite = $SceneRoot/Background
+@onready var character_layer = $SceneRoot/Characters
 @onready var dialogue_text = $UI/DialogueBox/MarginContainer/VBoxContainer/DialogueText
 @onready var speaker_label = $UI/DialogueBox/MarginContainer/VBoxContainer/SpeakerLabel
 @onready var choice_container = $UI/DialogueBox/MarginContainer/VBoxContainer/ChoiceContainer
@@ -10,6 +13,8 @@ extends Node
 var current_scene: Node = null
 
 func _ready() -> void:
+    dialogue_scene_loader.configure_character_system(character_manager, character_layer)
+    dialogue_scene_loader.set_background_target(background_sprite)
     dialogue_scene_loader.dialogue_started.connect(_on_dialogue_started)
     dialogue_scene_loader.dialogue_ended.connect(_on_dialogue_ended)
     load_first_scene()
@@ -17,16 +22,17 @@ func _ready() -> void:
 func load_first_scene() -> void:
     var result = dialogue_scene_loader.load_scene_from_xml("res://scenes/dialogue/scene1.xml")
     if result == OK:
-        current_scene = dialogue_scene_loader.create_scene_node()
-        add_child(current_scene)
+        _clear_current_scene()
+        current_scene = dialogue_scene_loader.create_scene_node(background_sprite, character_layer)
+        if current_scene.get_child_count() > 0:
+            add_child(current_scene)
         show_next_dialogue()
 
 func show_next_dialogue() -> void:
     var dialogue = dialogue_scene_loader.get_next_dialogue()
     if dialogue.is_empty():
-        _on_dialogue_ended(dialogue_scene_loader.current_scene_data.name)
         return
-    
+
     match dialogue.type:
         "message":
             _show_message(dialogue)
@@ -35,8 +41,15 @@ func show_next_dialogue() -> void:
 
 func _show_message(message: Dictionary) -> void:
     choice_container.hide()
-    speaker_label.text = dialogue_scene_loader.current_scene_data.characters[message.speaker].name if message.speaker != "narrator" else "내레이터"
-    dialogue_text.text = message.text
+    var speaker_id = message.get("speaker", "")
+    if speaker_id == "narrator" or speaker_id.is_empty():
+        speaker_label.text = "내레이터"
+    else:
+        var char_data = dialogue_scene_loader.current_scene_data.characters.get(speaker_id)
+        speaker_label.text = char_data.name if char_data and char_data.has("name") else speaker_id
+        _update_character_focus(speaker_id, message.get("emotion", ""))
+
+    dialogue_text.text = message.get("text", "")
 
 func _show_choice(choice: Dictionary) -> void:
     speaker_label.text = ""
@@ -61,6 +74,24 @@ func _on_option_selected(option_index: int) -> void:
     dialogue_scene_loader.choice_made.emit(option_index)
     choice_container.hide()
     show_next_dialogue()
+
+func _update_character_focus(speaker_id: String, emotion: String) -> void:
+    if character_manager and character_manager.has_character(speaker_id):
+        character_manager.set_character_state(speaker_id, "talking")
+        for char_id in dialogue_scene_loader.current_scene_data.characters.keys():
+            if char_id != speaker_id and character_manager.has_character(char_id):
+                character_manager.set_character_state(char_id, "idle")
+
+    var character_node = dialogue_scene_loader.get_character_node(speaker_id)
+    if character_node and character_node.has_method("change_emotion") and not emotion.is_empty():
+        character_node.change_emotion(emotion, 0.2)
+
+func _clear_current_scene() -> void:
+    if current_scene and is_instance_valid(current_scene):
+        if current_scene.get_parent() == self:
+            remove_child(current_scene)
+        current_scene.queue_free()
+    current_scene = null
 
 func _on_dialogue_started(scene_name: String) -> void:
     print("Dialogue started: ", scene_name)
