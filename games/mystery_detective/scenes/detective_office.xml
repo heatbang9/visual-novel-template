@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="detective_office_opening" localization_key="mystery_detective.detective_office.title">
+    
+    <!-- 누아르 분위기 BGM -->
+    <action type="play_bgm" duration="3.0" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/bgm/noir_atmosphere.ogg" 
+                   fade_in="true" 
+                   loop="true"/>
+    </action>
+    
+    <!-- 배경: 어둠침침한 탐정 사무실 -->
+    <background type="image" 
+                path="res://games/mystery_detective/backgrounds/detective_office_evening.png" 
+                transition="fade_from_black" 
+                duration="3.0"/>
+    
+    <!-- 비 내리는 효과음 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/rain_on_window.ogg" 
+                   volume="0.4" 
+                   pitch="1.0"/>
+    </action>
+    
+    <!-- 화면 효과: 어둠침침한 분위기 -->
+    <action type="screen_effect" duration="2.0" wait="false">
+        <parameters effect="dim_lighting" intensity="0.3"/>
+    </action>
+    
+    <!-- 탐정 캐릭터 정의 -->
+    <character id="detective" name="탐정" default_position="center" 
+               entry_animation="fade_in" scale="1.0">
+        <portrait emotion="tired" path="res://games/mystery_detective/characters/detective/tired.png"/>
+        <portrait emotion="alert" path="res://games/mystery_detective/characters/detective/alert.png"/>
+        <portrait emotion="thinking" path="res://games/mystery_detective/characters/detective/thinking.png"/>
+        <portrait emotion="determined" path="res://games/mystery_detective/characters/detective/determined.png"/>
+        <portrait emotion="suspicious" path="res://games/mystery_detective/characters/detective/suspicious.png"/>
+        <portrait emotion="smoking" path="res://games/mystery_detective/characters/detective/smoking.png"/>
+        <voice pitch="0.9" speed="0.95" volume="1.0"/>
+    </character>
+    
+    <!-- 탐정 등장 -->
+    <action type="character_enter" target="detective" duration="2.0" wait="true">
+        <parameters animation="fade_in" position="center"/>
+    </action>
+    
+    <!-- 시계 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/old_clock_ticking.ogg" 
+                   volume="0.3"/>
+    </action>
+    
+    <message speaker="narrator" typewriter_speed="20">
+        밤 10시. 도시에 비가 내리는 어둠침침한 밤입니다.
+        낡은 사무실에서 혼자 남은 탐정은 오늘도 케이스 파일들을 정리하고 있습니다.
+    </message>
+    
+    <!-- 담배 피우는 모습 -->
+    <action type="change_emotion" target="detective" duration="1.0" wait="true">
+        <parameters emotion="smoking"/>
+    </action>
+    
+    <!-- 담배 라이터 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/lighter_click.ogg" 
+                   volume="0.5"/>
+    </action>
+    
+    <message speaker="detective" emotion="tired" voice_file="res://games/mystery_detective/audio/voice/detective/tired_monologue.ogg">
+        또 다른 평범한 밤이군... 
+        이번 주에 맡은 사건이라고는 바람피운 남편 뒷조사와 잃어버린 고양이 찾기뿐이다.
+    </message>
+    
+    <action type="change_emotion" target="detective" duration="0.5" wait="true">
+        <parameters emotion="thinking"/>
+    </action>
+    
+    <message speaker="detective" emotion="thinking">
+        진짜 사건... 진짜 미스터리는 언제쯤 내게 찾아올까?
+    </message>
+    
+    <!-- 파일 정리하는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/papers_shuffling.ogg" 
+                   volume="0.4"/>
+    </action>
+    
+    <message speaker="narrator">
+        탐정은 책상 위에 쌓인 케이스 파일들을 정리하며 한숨을 쉽니다. 
+        30년 경력의 베테랑이지만, 요즘엔 대부분이 시시한 일들뿐입니다.
+    </message>
+    
+    <!-- 전화벨 소리 (갑작스럽게) -->
+    <action type="play_sfx" wait="true">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/old_telephone_ring.ogg" 
+                   volume="0.8"/>
+    </action>
+    
+    <!-- 놀라는 표정 -->
+    <action type="change_emotion" target="detective" duration="0.3" wait="true">
+        <parameters emotion="alert"/>
+    </action>
+    
+    <message speaker="detective" emotion="alert">
+        이 시간에 전화라니... 누구지?
+    </message>
+    
+    <!-- 전화 받는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/phone_pickup.ogg" 
+                   volume="0.6"/>
+    </action>
+    
+    <message speaker="detective" emotion="alert">
+        여보세요, 이곳은 하드보일드 탐정사무소입니다.
+    </message>
+    
+    <!-- 신비한 목소리 (전화 너머) -->
+    <message speaker="mysterious_voice" voice_file="res://games/mystery_detective/audio/voice/mysterious/urgent_call.ogg">
+        탐정님... 도움이 필요합니다. 아주 급한 일이에요.
+        지금 당장 만날 수 있나요?
+    </message>
+    
+    <action type="change_emotion" target="detective" duration="0.5" wait="true">
+        <parameters emotion="suspicious"/>
+    </action>
+    
+    <message speaker="detective" emotion="suspicious">
+        이 늦은 시간에? 어떤 일인지 먼저 말씀해 주시죠.
+    </message>
+    
+    <message speaker="mysterious_voice">
+        전화로는... 전화로는 말할 수 없어요. 
+        누군가 죽었습니다. 그리고 경찰은 믿을 수 없어요.
+    </message>
+    
+    <!-- 번개 치는 소리와 함께 화면 플래시 -->
+    <action type="play_sfx" wait="true">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/thunder_strike.ogg" 
+                   volume="0.7"/>
+    </action>
+    
+    <action type="screen_effect" duration="0.2" wait="true">
+        <parameters effect="flash_white"/>
+    </action>
+    
+    <!-- 흥미를 느끼는 탐정 -->
+    <action type="change_emotion" target="detective" duration="0.5" wait="true">
+        <parameters emotion="determined"/>
+    </action>
+    
+    <message speaker="detective" emotion="determined">
+        살인 사건이라는 말씀이신가요?
+    </message>
+    
+    <message speaker="mysterious_voice">
+        그럴 수도... 아니면 더 복잡한 일일 수도 있어요. 
+        제발 도와주세요. 당신만이 유일한 희망입니다.
+    </message>
+    
+    <!-- 카메라 줌인 (긴장감 고조) -->
+    <action type="camera_zoom" target="camera" duration="2.0" wait="true">
+        <parameters zoom_level="1.4" animation="ease_in"/>
+    </action>
+    
+    <message speaker="detective" emotion="determined">
+        알겠습니다. 어디서 만날까요?
+    </message>
+    
+    <message speaker="mysterious_voice">
+        시내 중심가의 '미드나이트 카페'... 30분 후에요. 
+        검은 모자를 쓰고 있을게요.
+    </message>
+    
+    <!-- 전화 끊어지는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/phone_hangup.ogg" 
+                   volume="0.5"/>
+    </action>
+    
+    <message speaker="narrator" typewriter_speed="22">
+        전화가 끊어집니다. 
+        갑작스러운 의뢰의 전화에 탐정의 마음속에 오랜만의 설렘이 일어납니다.
+    </message>
+    
+    <!-- 담배 끄는 모습 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/cigarette_extinguish.ogg" 
+                   volume="0.4"/>
+    </action>
+    
+    <action type="change_emotion" target="detective" duration="0.5" wait="true">
+        <parameters emotion="alert"/>
+    </action>
+    
+    <message speaker="detective" emotion="alert">
+        드디어... 진짜 사건이 왔군. 
+        오랜만에 제대로 된 미스터리를 맛볼 수 있겠어.
+    </message>
+    
+    <!-- 준비하는 소리들 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/coat_rustling.ogg" 
+                   volume="0.5"/>
+    </action>
+    
+    <message speaker="detective" emotion="determined">
+        녹음기... 수첩... 확대경... 좋아, 모든 준비가 끝났다.
+    </message>
+    
+    <!-- 사무실을 나서는 모습 -->
+    <action type="character_exit" target="detective" duration="1.5" wait="true">
+        <parameters animation="slide_left"/>
+    </action>
+    
+    <!-- 문 닫는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/office_door_close.ogg" 
+                   volume="0.6"/>
+    </action>
+    
+    <message speaker="narrator">
+        탐정은 우비를 입고 비 내리는 밤거리로 나섭니다.
+        아직 모르고 있지만, 이것이 그의 인생을 바꿀 사건의 시작이었습니다.
+    </message>
+    
+    <!-- 거리 씬으로 전환 -->
+    <action type="screen_effect" duration="2.0" wait="true">
+        <parameters effect="fade_to_black"/>
+    </action>
+    
+    <!-- 빗소리와 발걸음 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/sfx/footsteps_in_rain.ogg" 
+                   volume="0.5"/>
+    </action>
+    
+    <!-- 새로운 BGM으로 전환 (서스펜스) -->
+    <action type="play_bgm" duration="3.0" wait="false">
+        <parameters audio_path="res://games/mystery_detective/audio/bgm/suspense_night.ogg" 
+                   fade_in="true"/>
+    </action>
+    
+    <background type="image" 
+                path="res://games/mystery_detective/backgrounds/rainy_street_night.png" 
+                transition="fade_from_black" 
+                duration="2.5"/>
+    
+    <message speaker="narrator" typewriter_speed="18">
+        비에 젖은 네온사인들이 어둠 속에서 번쩍이고,
+        텅 빈 거리에는 탐정의 발걸음 소리만이 울려 퍼집니다.
+    </message>
+    
+    <message speaker="narrator">
+        과연 어떤 미스터리가 그를 기다리고 있을까요?
+        그리고 이 신비한 의뢰인의 정체는 무엇일까요?
+    </message>
+    
+    <!-- 장면 마무리 -->
+    <action type="screen_effect" duration="2.0" wait="true">
+        <parameters effect="fade_black"/>
+    </action>
+    
+    <wait duration="1.5"/>
+    
+</scene>

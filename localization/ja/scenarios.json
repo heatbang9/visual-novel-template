@@ -1,0 +1,55 @@
+{
+  "scenes": {
+    "first_meeting": {
+      "title": "初対面",
+      "msg01": "新学期の初日、あなたは新しいクラスに配属されました。",
+      "msg02": "教室に入ると、目立つ学生が一人います。",
+      "msg03": "その学生との初対面をどのように始めますか？",
+      "yuki_first_look": "（窓際の席で本を読んでいる学生が、あなたをちらりと見ます。）"
+    },
+    "lunch_time": {
+      "title": "昼食時間",
+      "msg01": "昼食の時間になりました。",
+      "msg02": "ユキが弁当を取り出して、あなたを見ています。",
+      "yuki_invite": "一緒にお昼を食べませんか？"
+    },
+    "after_school": {
+      "title": "放課後",
+      "msg01": "今日の授業がすべて終わりました。",
+      "msg02": "ユキがかばんをまとめながら話しかけます。",
+      "yuki_suggestion": "今日は本当に楽しかったです。明日もお話ししましょう！"
+    }
+  },
+  "choices": {
+    "friendly_approach": "親しみやすく挨拶する",
+    "shy_approach": "恥ずかしそうに頭を下げる",
+    "confident_approach": "自信を持って話しかける",
+    "share_lunch": "お弁当を分け合うことを提案する",
+    "talk_hobbies": "趣味について話す",
+    "study_together": "一緒に勉強することを提案する",
+    "go_library": "一緒に図書館に行くことを提案する",
+    "go_cafe": "一緒にカフェに行くことを提案する",
+    "confession": "告白する",
+    "give_gift": "プレゼントをあげる",
+    "wait_more": "もう少し待つ"
+  },
+  "ui": {
+    "save_game": "ゲームセーブ",
+    "load_game": "ゲームロード",
+    "settings": "設定",
+    "quit": "ゲーム終了",
+    "auto_play": "オートプレイ",
+    "skip_mode": "スキップモード",
+    "voice_volume": "ボイス音量",
+    "bgm_volume": "BGM音量",
+    "sfx_volume": "SE音量"
+  },
+  "system": {
+    "saving": "セーブ中...",
+    "loading": "ロード中...",
+    "save_complete": "セーブが完了しました",
+    "load_complete": "ロードが完了しました",
+    "save_failed": "セーブに失敗しました",
+    "load_failed": "ロードに失敗しました"
+  }
+}

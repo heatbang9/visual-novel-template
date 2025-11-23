@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="yuki_first_conversation" localization_key="school_romance.yuki_first_talk.title">
+    
+    <!-- 교실 내부 BGM -->
+    <action type="play_bgm" duration="2.0" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/bgm/classroom_peaceful.ogg" 
+                   fade_in="true" 
+                   loop="true"/>
+    </action>
+    
+    <!-- 배경: 교실 내부 (창가 쪽 중심) -->
+    <background type="image" 
+                path="res://games/school_romance/backgrounds/classroom_window_side.png" 
+                transition="fade" 
+                duration="2.0"/>
+    
+    <!-- 유키 캐릭터 정의 -->
+    <character id="yuki" name="유키" default_position="right" 
+               entry_animation="fade_in" scale="0.95" flip_h="false">
+        <portrait emotion="reading" path="res://games/school_romance/characters/yuki/reading.png"/>
+        <portrait emotion="surprised" path="res://games/school_romance/characters/yuki/surprised.png"/>
+        <portrait emotion="curious" path="res://games/school_romance/characters/yuki/curious.png"/>
+        <portrait emotion="gentle_smile" path="res://games/school_romance/characters/yuki/gentle_smile.png"/>
+        <portrait emotion="shy" path="res://games/school_romance/characters/yuki/shy.png"/>
+        <portrait emotion="interested" path="res://games/school_romance/characters/yuki/interested.png"/>
+        <portrait emotion="normal" path="res://games/school_romance/characters/yuki/normal.png"/>
+        <voice pitch="1.2" speed="1.0" volume="0.9"/>
+    </character>
+    
+    <!-- 플레이어 -->
+    <character id="player" name="주인공" default_position="left" 
+               entry_animation="slide_right" scale="1.0">
+        <portrait emotion="nervous" path="res://games/school_romance/characters/player/nervous.png"/>
+        <portrait emotion="confident" path="res://games/school_romance/characters/player/confident.png"/>
+        <portrait emotion="interested" path="res://games/school_romance/characters/player/interested.png"/>
+        <portrait emotion="determined" path="res://games/school_romance/characters/player/determined.png"/>
+    </character>
+    
+    <!-- 유키가 책을 읽고 있는 모습 -->
+    <action type="character_enter" target="yuki" duration="1.0" wait="true">
+        <parameters animation="fade_in" position="right"/>
+    </action>
+    
+    <!-- 책장 넘기는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/book_page_turn.ogg" 
+                   volume="0.5"/>
+    </action>
+    
+    <message speaker="narrator" typewriter_speed="25">
+        창가 자리에서 한 학생이 조용히 책을 읽고 있습니다. 
+        봄 햇살이 그녀의 옆얼굴을 부드럽게 비추고 있어, 마치 한 폭의 그림 같습니다.
+    </message>
+    
+    <!-- 플레이어 접근 -->
+    <action type="character_enter" target="player" duration="1.2" wait="true">
+        <parameters animation="slide_right" position="center"/>
+    </action>
+    
+    <message speaker="player" emotion="nervous">
+        (저 학생... 정말 책 읽는 모습이 예쁘다. 어떻게 말을 걸어볼까?)
+    </message>
+    
+    <!-- 플레이어가 가까이 다가가자 유키가 눈치챔 -->
+    <action type="change_emotion" target="yuki" duration="0.5" wait="true">
+        <parameters emotion="surprised"/>
+    </action>
+    
+    <!-- 살짝 놀라는 효과음 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/gentle_surprise.ogg" 
+                   volume="0.4"/>
+    </action>
+    
+    <message speaker="yuki" emotion="surprised" voice_file="res://games/school_romance/audio/voice/yuki/surprised_greeting.ogg">
+        아... 안녕하세요?
+    </message>
+    
+    <action type="change_emotion" target="player" duration="0.5" wait="true">
+        <parameters emotion="confident"/>
+    </action>
+    
+    <message speaker="player" emotion="confident">
+        안녕하세요! 저도 이 반 학생이에요. 혼자 앉아 계셔서... 말 걸어봤어요.
+    </message>
+    
+    <!-- 유키가 책을 살짝 내려놓음 -->
+    <action type="change_emotion" target="yuki" duration="0.5" wait="true">
+        <parameters emotion="curious"/>
+    </action>
+    
+    <message speaker="yuki" emotion="curious">
+        아, 그러시군요. 저는... 유키예요.
+    </message>
+    
+    <message speaker="player" emotion="interested">
+        유키... 예쁜 이름이네요. 저는 [플레이어 이름]이에요.
+    </message>
+    
+    <!-- 첫 대화의 어색함을 깨는 책 이야기 -->
+    <action type="change_emotion" target="yuki" duration="0.5" wait="true">
+        <parameters emotion="gentle_smile"/>
+    </action>
+    
+    <message speaker="yuki" emotion="gentle_smile">
+        만나서 반가워요. 혹시... 제가 읽고 있는 책이 궁금하신가요?
+    </message>
+    
+    <!-- 책 표지 확대 효과 -->
+    <action type="camera_zoom" target="camera" duration="1.5" wait="true">
+        <parameters zoom_level="1.3" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="player" emotion="interested">
+        네! 뭔가 흥미로워 보이는데, 어떤 책인지 알려주실 수 있나요?
+    </message>
+    
+    <action type="change_emotion" target="yuki" duration="0.5" wait="true">
+        <parameters emotion="interested"/>
+    </action>
+    
+    <message speaker="yuki" emotion="interested" voice_file="res://games/school_romance/audio/voice/yuki/book_explanation.ogg">
+        이건 미야자와 겐지의 작품이에요. '은하철도의 밤'이라는 소설인데... 
+        정말 아름다운 이야기거든요.
+    </message>
+    
+    <message speaker="narrator">
+        유키의 눈이 반짝이며 책에 대한 열정이 드러납니다. 
+        문학을 사랑하는 마음이 진심으로 전해져 옵니다.
+    </message>
+    
+    <!-- 대화 선택지 준비 상황 -->
+    <message speaker="yuki" emotion="curious">
+        혹시 문학 작품 읽는 것 좋아하세요?
+    </message>
+    
+    <message speaker="narrator" typewriter_speed="20">
+        유키가 당신에게 관심을 보이고 있습니다. 
+        어떻게 대답하느냐에 따라 첫 대화의 분위기가 달라질 것 같습니다.
+    </message>
+    
+    <!-- 선택지 분기점 -->
+    <choice_point id="first_conversation_choice"/>
+    
+    <!-- 선택지별 반응 미리보기 -->
+    
+    <!-- 책 칭찬하기 선택 -->
+    <action type="change_emotion" target="yuki" duration="0.5" wait="false" condition="choice_compliment">
+        <parameters emotion="gentle_smile"/>
+    </action>
+    
+    <message speaker="yuki" emotion="gentle_smile" condition="choice_compliment">
+        정말요? 그렇게 생각해 주시다니... 감사해요.
+    </message>
+    
+    <action type="play_sfx" wait="false" condition="choice_compliment">
+        <parameters audio_path="res://games/school_romance/audio/sfx/heart_flutter.ogg" volume="0.3"/>
+    </action>
+    
+    <!-- 책 추천 요청 선택 -->
+    <action type="change_emotion" target="yuki" duration="0.5" wait="false" condition="choice_recommendation">
+        <parameters emotion="interested"/>
+    </action>
+    
+    <message speaker="yuki" emotion="interested" condition="choice_recommendation">
+        책 추천요? 와... 정말 관심이 있으시군요! 
+        그럼 처음 읽기 좋은 작품부터 추천해드릴게요.
+    </message>
+    
+    <!-- 같은 작가 이야기 선택 (높은 관찰력 필요) -->
+    <action type="change_emotion" target="yuki" duration="0.3" wait="false" condition="choice_same_author">
+        <parameters emotion="surprised"/>
+    </action>
+    
+    <action type="play_sfx" wait="false" condition="choice_same_author">
+        <parameters audio_path="res://games/school_romance/audio/sfx/amazing_discovery.ogg" volume="0.5"/>
+    </action>
+    
+    <message speaker="yuki" emotion="surprised" condition="choice_same_author">
+        헉... 정말요?! 미야자와 겐지의 다른 작품도 알고 계시는군요! 
+        '주문이 많은 요리점'도 읽어보셨나요?
+    </message>
+    
+    <action type="camera_move" target="camera" duration="1.5" wait="false" condition="choice_same_author">
+        <parameters to_position="800,360" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="player" emotion="determined" condition="choice_same_author">
+        네! 그것도 정말 인상 깊었어요. 특히 마지막 부분에서...
+    </message>
+    
+    <action type="change_emotion" target="yuki" duration="0.5" wait="true" condition="choice_same_author">
+        <parameters emotion="interested"/>
+    </action>
+    
+    <message speaker="yuki" emotion="interested" condition="choice_same_author">
+        와... 정말 대단해요! 같은 취향을 가진 분을 만나다니... 
+        이렇게 기쁠 줄 몰랐어요.
+    </message>
+    
+    <!-- 공통 마무리 -->
+    <action type="camera_zoom" target="camera" duration="2.0" wait="true">
+        <parameters zoom_level="1.0" animation="ease_out"/>
+    </action>
+    
+    <message speaker="narrator">
+        첫 대화가 생각보다 자연스럽게 이어집니다. 
+        유키의 표정이 처음보다 훨씬 밝아진 것을 느낄 수 있습니다.
+    </message>
+    
+    <!-- 수업 준비 종소리 -->
+    <action type="play_sfx" wait="true">
+        <parameters audio_path="res://games/school_romance/audio/sfx/school_bell.ogg" 
+                   volume="0.7"/>
+    </action>
+    
+    <message speaker="yuki" emotion="normal">
+        아, 곧 수업이 시작되겠네요. 자리로 돌아가야겠어요.
+    </message>
+    
+    <message speaker="player" emotion="determined">
+        네, 저도요. 오늘 이야기해서 정말 좋았어요, 유키씨.
+    </message>
+    
+    <action type="change_emotion" target="yuki" duration="0.5" wait="true">
+        <parameters emotion="shy"/>
+    </action>
+    
+    <message speaker="yuki" emotion="shy" voice_file="res://games/school_romance/audio/voice/yuki/shy_goodbye.ogg">
+        저... 저도요. 다음에 또 이야기해요.
+    </message>
+    
+    <!-- 각자 자리로 돌아가는 모습 -->
+    <action type="character_move" target="player" duration="1.5" wait="false">
+        <parameters to_position="left" animation="ease_out"/>
+    </action>
+    
+    <action type="character_move" target="yuki" duration="1.5" wait="true">
+        <parameters to_position="far_right" animation="ease_out"/>
+    </action>
+    
+    <message speaker="narrator">
+        첫 만남이 이렇게 좋을 줄이야... 
+        주인공의 마음에 작은 설렘이 생겨납니다.
+    </message>
+    
+    <!-- 씬 마무리 -->
+    <action type="screen_effect" duration="1.5" wait="true">
+        <parameters effect="fade_white"/>
+    </action>
+    
+    <wait duration="1.0"/>
+    
+</scene>

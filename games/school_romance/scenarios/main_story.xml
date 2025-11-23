@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="school_romance_main" default_route="prologue">
+    
+    <!-- 프롤로그 루트 -->
+    <route id="prologue" name="프롤로그">
+        <scene id="opening" path="res://games/school_romance/scenes/opening.xml">
+            <condition type="variable" variable="game_started" value="false"/>
+            <set_variable name="game_started" value="true"/>
+            <set_variable name="day_count" value="1"/>
+        </scene>
+        
+        <scene id="school_entrance" path="res://games/school_romance/scenes/school_entrance.xml">
+            <condition type="variable" variable="school_visited" value="false"/>
+            <set_variable name="school_visited" value="true"/>
+            
+            <choice id="enter_confidently" text="자신감 있게 교문을 지나간다" target_route="confident_path">
+                <effect variable="confidence_level" modifier="add" value="2"/>
+                <effect variable="first_impression" modifier="set" value="confident"/>
+            </choice>
+            
+            <choice id="enter_nervously" text="긴장하며 조심스럽게 들어간다" target_route="gentle_path">
+                <effect variable="nervousness" modifier="add" value="1"/>
+                <effect variable="first_impression" modifier="set" value="gentle"/>
+            </choice>
+            
+            <choice id="observe_first" text="주변을 둘러본 후 천천히 들어간다" target_route="observant_path">
+                <effect variable="observation_skill" modifier="add" value="2"/>
+                <effect variable="first_impression" modifier="set" value="thoughtful"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 자신감 루트 -->
+    <route id="confident_path" name="자신감 있는 길">
+        <scene id="classroom_arrival_confident" path="res://games/school_romance/scenes/classroom_confident.xml">
+            <condition type="variable" variable="first_impression" value="confident"/>
+            
+            <choice id="introduce_loudly" text="큰 소리로 자기소개를 한다">
+                <effect variable="popularity" modifier="add" value="3"/>
+                <effect variable="yuki_impression" modifier="add" value="1"/>
+                <effect variable="social_energy" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="find_empty_seat" text="빈 자리를 찾아 앉는다">
+                <effect variable="confidence_level" modifier="add" value="1"/>
+                <effect variable="yuki_impression" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="approach_yuki" text="창가 자리의 학생에게 다가간다" target_route="yuki_focus">
+                <requirement variable="confidence_level" operator=">=" value="3"/>
+                <effect variable="yuki_affection" modifier="add" value="3"/>
+                <effect variable="direct_approach" modifier="set" value="true"/>
+            </choice>
+        </scene>
+        
+        <scene id="lunch_time_confident" path="res://games/school_romance/scenes/lunch_confident.xml">
+            <condition type="variable" variable="day_count" value="1"/>
+            <set_variable name="day_count" value="2"/>
+            
+            <choice id="eat_with_class" text="반 친구들과 함께 먹는다">
+                <effect variable="class_friendship" modifier="add" value="3"/>
+                <effect variable="social_network" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="invite_yuki_lunch" text="유키를 점심에 초대한다">
+                <requirement variable="yuki_impression" operator=">=" value="2"/>
+                <effect variable="yuki_affection" modifier="add" value="4"/>
+                <effect variable="special_moment_count" modifier="add" value="1"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 부드러운 루트 -->
+    <route id="gentle_path" name="부드러운 길">
+        <scene id="classroom_arrival_gentle" path="res://games/school_romance/scenes/classroom_gentle.xml">
+            <condition type="variable" variable="first_impression" value="gentle"/>
+            
+            <choice id="quiet_introduction" text="조용히 자기소개를 한다">
+                <effect variable="gentle_charm" modifier="add" value="2"/>
+                <effect variable="yuki_impression" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="sit_quietly" text="조용히 뒤쪽 자리에 앉는다">
+                <effect variable="observation_skill" modifier="add" value="2"/>
+                <effect variable="mysterious_aura" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <scene id="library_encounter" path="res://games/school_romance/scenes/library_encounter.xml">
+            <condition type="variable" variable="gentle_charm" value=">=2"/>
+            
+            <choice id="recommend_book" text="유키에게 책을 추천한다">
+                <requirement variable="observation_skill" operator=">=" value="2"/>
+                <effect variable="yuki_affection" modifier="add" value="3"/>
+                <effect variable="intellectual_bond" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="study_together" text="같이 공부하자고 제안한다">
+                <effect variable="yuki_affection" modifier="add" value="2"/>
+                <effect variable="academic_partnership" modifier="add" value="2"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 관찰력 루트 -->
+    <route id="observant_path" name="신중한 길">
+        <scene id="classroom_observation" path="res://games/school_romance/scenes/classroom_observe.xml">
+            <condition type="variable" variable="first_impression" value="thoughtful"/>
+            
+            <choice id="analyze_classmates" text="반 친구들을 관찰한다">
+                <effect variable="social_intelligence" modifier="add" value="3"/>
+                <effect variable="strategic_thinking" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="notice_yuki_book" text="유키가 읽는 책을 유심히 본다">
+                <effect variable="yuki_understanding" modifier="add" value="3"/>
+                <effect variable="observation_skill" modifier="add" value="2"/>
+            </choice>
+        </scene>
+        
+        <scene id="strategic_approach" path="res://games/school_romance/scenes/strategic_approach.xml">
+            <condition type="variable" variable="yuki_understanding" value=">=3"/>
+            
+            <choice id="literary_conversation" text="문학에 대한 대화를 시작한다">
+                <requirement variable="observation_skill" operator=">=" value="4"/>
+                <effect variable="yuki_affection" modifier="add" value="4"/>
+                <effect variable="deep_connection" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="help_with_studies" text="공부를 도와주겠다고 한다">
+                <effect variable="yuki_affection" modifier="add" value="2"/>
+                <effect variable="helpful_reputation" modifier="add" value="2"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 유키 집중 루트 -->
+    <route id="yuki_focus" name="유키와의 특별한 인연">
+        <scene id="first_conversation" path="res://games/school_romance/scenes/yuki_first_talk.xml">
+            <condition type="variable" variable="direct_approach" value="true"/>
+            
+            <choice id="compliment_book" text="읽고 있는 책에 대해 칭찬한다">
+                <effect variable="yuki_affection" modifier="add" value="3"/>
+                <effect variable="literary_interest" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="ask_recommendation" text="책 추천을 부탁한다">
+                <effect variable="yuki_affection" modifier="add" value="2"/>
+                <effect variable="intellectual_curiosity" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="share_interest" text="같은 작가의 다른 작품에 대해 이야기한다">
+                <requirement variable="observation_skill" operator=">=" value="3"/>
+                <effect variable="yuki_affection" modifier="add" value="5"/>
+                <effect variable="common_interest" modifier="add" value="3"/>
+            </choice>
+        </scene>
+        
+        <scene id="after_school_invitation" path="res://games/school_romance/scenes/after_school_yuki.xml">
+            <condition type="variable" variable="yuki_affection" value=">=5"/>
+            <set_variable name="day_count" value="3"/>
+            
+            <choice id="cafe_invitation" text="카페에 같이 가자고 한다">
+                <effect variable="yuki_affection" modifier="add" value="3"/>
+                <effect variable="romantic_atmosphere" modifier="add" value="2"/>
+                <effect variable="date_experience" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="bookstore_visit" text="서점에 같이 가자고 한다">
+                <effect variable="yuki_affection" modifier="add" value="4"/>
+                <effect variable="shared_hobby" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="walk_home" text="같이 집에 가자고 한다">
+                <effect variable="yuki_affection" modifier="add" value="2"/>
+                <effect variable="daily_routine_bond" modifier="add" value="2"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 중간 이벤트들 -->
+    <route id="week2_events" name="2주차 이벤트">
+        <scene id="cultural_festival_prep" path="res://games/school_romance/scenes/cultural_festival.xml">
+            <condition type="variable" variable="day_count" value=">=7"/>
+            
+            <choice id="volunteer_with_yuki" text="유키와 같은 준비위원회에 지원한다">
+                <requirement variable="yuki_affection" operator=">=" value="8"/>
+                <effect variable="yuki_affection" modifier="add" value="4"/>
+                <effect variable="teamwork_experience" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="surprise_event" text="유키를 위한 깜짝 이벤트를 준비한다">
+                <requirement variable="romantic_atmosphere" operator=">=" value="3"/>
+                <effect variable="yuki_affection" modifier="add" value="6"/>
+                <effect variable="romantic_gesture" modifier="add" value="4"/>
+            </choice>
+        </scene>
+        
+        <scene id="study_session" path="res://games/school_romance/scenes/study_together.xml">
+            <condition type="variable" variable="academic_partnership" value=">=2"/>
+            
+            <choice id="help_with_math" text="수학 문제를 같이 풀어준다">
+                <effect variable="yuki_affection" modifier="add" value="2"/>
+                <effect variable="academic_trust" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="literature_discussion" text="문학 작품에 대해 깊이 있는 토론을 한다">
+                <requirement variable="literary_interest" operator=">=" value="3"/>
+                <effect variable="yuki_affection" modifier="add" value="4"/>
+                <effect variable="intellectual_bond" modifier="add" value="3"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 클라이맥스 루트들 -->
+    <route id="confession_route" name="고백 루트">
+        <scene id="confession_preparation" path="res://games/school_romance/scenes/confession_prep.xml">
+            <condition type="variable" variable="yuki_affection" value=">=15"/>
+            <condition type="variable" variable="day_count" value=">=14"/>
+            
+            <choice id="rooftop_confession" text="옥상에서 고백한다">
+                <requirement variable="romantic_atmosphere" operator=">=" value="5"/>
+                <effect variable="confession_type" modifier="set" value="romantic"/>
+            </choice>
+            
+            <choice id="library_confession" text="도서관에서 조용히 고백한다">
+                <requirement variable="intellectual_bond" operator=">=" value="5"/>
+                <effect variable="confession_type" modifier="set" value="intellectual"/>
+            </choice>
+            
+            <choice id="festival_confession" text="축제에서 고백한다">
+                <requirement variable="festival_participation" operator=">=" value="3"/>
+                <effect variable="confession_type" modifier="set" value="festive"/>
+            </choice>
+        </scene>
+        
+        <scene id="confession_result" path="res://games/school_romance/scenes/confession_outcome.xml">
+            <condition type="variable" variable="confession_type" value="!="""/>
+            
+            <!-- 고백 결과는 누적 애정도와 호감도에 따라 결정 -->
+            <choice id="accept_confession" text="[자동] 고백 수락" target_route="happy_ending">
+                <requirement variable="yuki_affection" operator=">=" value="20"/>
+                <requirement variable="common_interest" operator=">=" value="5"/>
+                <effect variable="relationship_status" modifier="set" value="dating"/>
+            </choice>
+            
+            <choice id="need_more_time" text="[자동] 시간이 더 필요하다는 답변" target_route="friendship_ending">
+                <requirement variable="yuki_affection" operator=">=" value="12"/>
+                <requirement variable="yuki_affection" operator="<" value="20"/>
+                <effect variable="relationship_status" modifier="set" value="close_friends"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 엔딩 루트들 -->
+    <route id="happy_ending" name="해피 엔딩">
+        <scene id="dating_life" path="res://games/school_romance/scenes/dating_life.xml">
+            <condition type="variable" variable="relationship_status" value="dating"/>
+            
+            <choice id="first_date_plan" text="첫 데이트 계획을 세운다">
+                <effect variable="dating_happiness" modifier="add" value="5"/>
+            </choice>
+        </scene>
+        
+        <scene id="graduation_promise" path="res://games/school_romance/scenes/graduation.xml">
+            <condition type="variable" variable="dating_happiness" value=">=5"/>
+            <set_variable name="ending_type" value="true_love"/>
+        </scene>
+    </route>
+    
+    <route id="friendship_ending" name="우정 엔딩">
+        <scene id="close_friendship" path="res://games/school_romance/scenes/friendship_development.xml">
+            <condition type="variable" variable="relationship_status" value="close_friends"/>
+            <set_variable name="ending_type" value="best_friends"/>
+        </scene>
+    </route>
+    
+    <!-- 글로벌 변수 정의 -->
+    <global_variables>
+        <!-- 게임 진행 상태 -->
+        <variable name="game_started" type="bool" default="false"/>
+        <variable name="day_count" type="int" default="0"/>
+        <variable name="school_visited" type="bool" default="false"/>
+        
+        <!-- 플레이어 특성 -->
+        <variable name="confidence_level" type="int" default="1"/>
+        <variable name="observation_skill" type="int" default="1"/>
+        <variable name="social_intelligence" type="int" default="1"/>
+        <variable name="gentle_charm" type="int" default="0"/>
+        <variable name="nervousness" type="int" default="0"/>
+        <variable name="popularity" type="int" default="0"/>
+        
+        <!-- 유키 관련 -->
+        <variable name="yuki_affection" type="int" default="0"/>
+        <variable name="yuki_impression" type="int" default="0"/>
+        <variable name="yuki_understanding" type="int" default="0"/>
+        
+        <!-- 관계 발전 -->
+        <variable name="intellectual_bond" type="int" default="0"/>
+        <variable name="romantic_atmosphere" type="int" default="0"/>
+        <variable name="common_interest" type="int" default="0"/>
+        <variable name="special_moment_count" type="int" default="0"/>
+        
+        <!-- 활동 관련 -->
+        <variable name="literary_interest" type="int" default="0"/>
+        <variable name="academic_partnership" type="int" default="0"/>
+        <variable name="class_friendship" type="int" default="0"/>
+        <variable name="festival_participation" type="int" default="0"/>
+        
+        <!-- 플레이어 선택 추적 -->
+        <variable name="first_impression" type="string" default="neutral"/>
+        <variable name="direct_approach" type="bool" default="false"/>
+        <variable name="confession_type" type="string" default=""/>
+        <variable name="relationship_status" type="string" default="strangers"/>
+        <variable name="ending_type" type="string" default=""/>
+        
+        <!-- 기타 특성 -->
+        <variable name="dating_happiness" type="int" default="0"/>
+        <variable name="academic_trust" type="int" default="0"/>
+        <variable name="helpful_reputation" type="int" default="0"/>
+        <variable name="mysterious_aura" type="int" default="0"/>
+    </global_variables>
+    
+</scenario>

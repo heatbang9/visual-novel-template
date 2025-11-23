@@ -1,0 +1,157 @@
+{
+	"games": {
+		"school_romance": {
+			"id": "school_romance",
+			"title": "학교 생활 로맨스",
+			"title_en": "School Life Romance",
+			"title_ja": "学校生活ロマンス",
+			"description": "고등학교에서 펼쳐지는 달콤한 청춘 로맨스 이야기. 유키와의 만남부터 시작되는 다양한 루트와 엔딩을 경험해보세요.",
+			"description_en": "A sweet youth romance story unfolding in high school. Experience various routes and endings starting from meeting Yuki.",
+			"description_ja": "高校で繰り広げられる甘い青春ロマンスの物語。ユキとの出会いから始まる様々なルートとエンディングを体験してください。",
+			"version": "1.0.0",
+			"author": "Visual Novel Studio",
+			"thumbnail": "res://games/school_romance/thumbnail.png",
+			"banner": "res://games/school_romance/banner.png",
+			"scenario_path": "res://games/school_romance/scenarios/",
+			"main_scenario": "main_story.xml",
+			"estimated_playtime": 65,
+			"genre": ["romance", "school", "comedy", "drama"],
+			"rating": "Teen",
+			"enabled": true,
+			"featured": true,
+			"release_date": "2024-11-23",
+			"last_updated": "2024-11-23",
+			"features": [
+				"다중 루트 시스템",
+				"캐릭터 호감도 시스템",
+				"25개 이상의 선택지",
+				"4가지 엔딩",
+				"풀 일러스트",
+				"부분 음성 지원"
+			],
+			"story_tags": ["첫사랑", "학교축제", "도서관", "청춘", "성장"]
+		},
+		"mystery_detective": {
+			"id": "mystery_detective",
+			"title": "미스터리 탐정",
+			"title_en": "Mystery Detective",
+			"title_ja": "ミステリー探偵",
+			"description": "도시에서 벌어지는 복잡한 살인 사건을 수사하는 하드보일드 탐정 이야기. 증거를 수집하고 범인을 찾아내세요.",
+			"description_en": "A hard-boiled detective story investigating complex murder cases in the city. Collect evidence and find the culprit.",
+			"description_ja": "都市で起こる複雑な殺人事件を捜査するハードボイルド探偵の物語。証拠を集めて犯人を見つけ出してください。",
+			"version": "1.0.0",
+			"author": "Visual Novel Studio",
+			"thumbnail": "res://games/mystery_detective/thumbnail.png",
+			"banner": "res://games/mystery_detective/banner.png",
+			"scenario_path": "res://games/mystery_detective/scenarios/",
+			"main_scenario": "main_story.xml",
+			"estimated_playtime": 75,
+			"genre": ["mystery", "detective", "thriller", "noir"],
+			"rating": "Mature",
+			"enabled": true,
+			"featured": true,
+			"release_date": "2024-11-23",
+			"last_updated": "2024-11-23",
+			"features": [
+				"추리 퍼즐 시스템",
+				"증거 수집 메커니즘",
+				"다중 용의자 시스템",
+				"3가지 수사 스타일",
+				"5가지 엔딩",
+				"누아르 분위기",
+				"완전 음성 지원"
+			],
+			"story_tags": ["추리", "범죄", "음모", "정의", "도시"]
+		},
+		"space_adventure": {
+			"id": "space_adventure",
+			"title": "스페이스 어드벤처",
+			"title_en": "Space Adventure",
+			"title_ja": "スペースアドベンチャー",
+			"description": "먼 미래, 우주를 탐험하며 외계 문명과 조우하는 장대한 SF 모험 이야기. 은하계의 운명을 좌우하는 선택을 하세요.",
+			"description_en": "In the distant future, an epic SF adventure story of exploring space and encountering alien civilizations. Make choices that determine the fate of the galaxy.",
+			"description_ja": "遠い未来、宇宙を探検して異星文明と遭遇する壮大なSF冒険の物語。銀河系の運命を左右する選択をしてください。",
+			"version": "1.0.0",
+			"author": "Visual Novel Studio",
+			"thumbnail": "res://games/space_adventure/thumbnail.png",
+			"banner": "res://games/space_adventure/banner.png",
+			"scenario_path": "res://games/space_adventure/scenarios/",
+			"main_scenario": "main_story.xml",
+			"estimated_playtime": 90,
+			"genre": ["sci-fi", "adventure", "space", "drama"],
+			"rating": "Teen",
+			"enabled": true,
+			"featured": false,
+			"release_date": "2024-11-23",
+			"last_updated": "2024-11-23",
+			"features": [
+				"우주선 관리 시스템",
+				"외교/탐사/과학 루트",
+				"승무원 관계 시스템",
+				"은하계 정치 시뮬레이션",
+				"4가지 주요 엔딩",
+				"우주 전투 시퀀스",
+				"3D 배경 그래픽"
+			],
+			"story_tags": ["우주", "외계인", "탐험", "과학", "운명"]
+		}
+	},
+	"deployment": {
+		"build_mode": "development",
+		"enabled_games": [
+			"school_romance",
+			"mystery_detective", 
+			"space_adventure"
+		],
+		"featured_games": [
+			"school_romance",
+			"mystery_detective"
+		],
+		"show_development_games": true,
+		"auto_update_check": true,
+		"minimum_godot_version": "4.5.0",
+		"target_platforms": [
+			"windows",
+			"linux", 
+			"macos"
+		],
+		"localization_supported": [
+			"ko",
+			"en",
+			"ja"
+		]
+	},
+	"metadata": {
+		"collection_name": "Visual Novel Collection",
+		"collection_version": "1.0.0",
+		"total_estimated_playtime": 230,
+		"content_rating": "Teen+",
+		"developer": "Visual Novel Studio",
+		"publisher": "Indie Games",
+		"website": "https://visualnovelstudio.com",
+		"support_email": "support@visualnovelstudio.com",
+		"social_media": {
+			"twitter": "@VisualNovelStudio",
+			"discord": "https://discord.gg/visualnovels",
+			"youtube": "https://youtube.com/visualnovelstudio"
+		}
+	},
+	"system_requirements": {
+		"minimum": {
+			"os": "Windows 10 / macOS 10.15 / Ubuntu 18.04",
+			"processor": "Intel i3-4130 / AMD FX-6300",
+			"memory": "4 GB RAM",
+			"graphics": "DirectX 11 / OpenGL 3.3 compatible",
+			"storage": "2 GB available space",
+			"sound": "DirectX compatible"
+		},
+		"recommended": {
+			"os": "Windows 11 / macOS 12 / Ubuntu 20.04",
+			"processor": "Intel i5-8400 / AMD Ryzen 5 2600",
+			"memory": "8 GB RAM", 
+			"graphics": "DirectX 12 / Vulkan compatible",
+			"storage": "4 GB available space",
+			"sound": "5.1 surround sound compatible"
+		}
+	}
+}

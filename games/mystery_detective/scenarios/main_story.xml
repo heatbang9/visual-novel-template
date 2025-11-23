@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="mystery_detective_main" default_route="prologue">
+    
+    <!-- 프롤로그 루트 -->
+    <route id="prologue" name="사건의 시작">
+        <scene id="detective_office" path="res://games/mystery_detective/scenes/detective_office.xml">
+            <condition type="variable" variable="case_started" value="false"/>
+            <set_variable name="case_started" value="true"/>
+            <set_variable name="investigation_day" value="1"/>
+            <set_variable name="detective_reputation" value="3"/>
+        </scene>
+        
+        <scene id="mysterious_client" path="res://games/mystery_detective/scenes/client_visit.xml">
+            <condition type="variable" variable="client_met" value="false"/>
+            <set_variable name="client_met" value="true"/>
+            
+            <choice id="accept_case_immediately" text="즉시 사건을 수락한다" target_route="investigation_start">
+                <effect variable="client_trust" modifier="add" value="2"/>
+                <effect variable="investigation_style" modifier="set" value="aggressive"/>
+            </choice>
+            
+            <choice id="ask_more_details" text="더 자세한 내용을 물어본다">
+                <effect variable="detective_knowledge" modifier="add" value="3"/>
+                <effect variable="investigation_style" modifier="set" value="methodical"/>
+            </choice>
+            
+            <choice id="demand_higher_fee" text="더 높은 수임료를 요구한다">
+                <effect variable="money" modifier="add" value="500"/>
+                <effect variable="client_trust" modifier="subtract" value="1"/>
+                <effect variable="investigation_style" modifier="set" value="mercenary"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 수사 시작 루트 -->
+    <route id="investigation_start" name="수사 개시">
+        <scene id="crime_scene_arrival" path="res://games/mystery_detective/scenes/crime_scene.xml">
+            <condition type="variable" variable="crime_scene_visited" value="false"/>
+            <set_variable name="crime_scene_visited" value="true"/>
+            
+            <choice id="examine_body" text="시체를 자세히 조사한다">
+                <effect variable="forensic_evidence" modifier="add" value="3"/>
+                <effect variable="medical_knowledge" modifier="add" value="2"/>
+                <effect variable="clue_body_marks" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="check_surroundings" text="주변 환경을 살펴본다">
+                <effect variable="environmental_clues" modifier="add" value="4"/>
+                <effect variable="observation_skill" modifier="add" value="2"/>
+                <effect variable="clue_footprints" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="question_witnesses" text="목격자들을 심문한다">
+                <effect variable="witness_testimony" modifier="add" value="3"/>
+                <effect variable="interrogation_skill" modifier="add" value="3"/>
+                <effect variable="suspect_list_count" modifier="add" value="2"/>
+            </choice>
+        </scene>
+        
+        <scene id="evidence_analysis" path="res://games/mystery_detective/scenes/evidence_room.xml">
+            <condition type="variable" variable="forensic_evidence" value=">=2"/>
+            
+            <choice id="scientific_analysis" text="과학적 분석을 실시한다">
+                <requirement variable="medical_knowledge" operator=">=" value="3"/>
+                <effect variable="analysis_accuracy" modifier="add" value="4"/>
+                <effect variable="clue_weapon_type" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="pattern_recognition" text="증거들 간의 패턴을 찾는다">
+                <requirement variable="observation_skill" operator=">=" value="4"/>
+                <effect variable="deductive_reasoning" modifier="add" value="5"/>
+                <effect variable="case_breakthrough" modifier="add" value="3"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 용의자 추적 루트 -->
+    <route id="suspect_investigation" name="용의자 수사">
+        <scene id="suspect_one_investigation" path="res://games/mystery_detective/scenes/suspect_alex.xml">
+            <condition type="variable" variable="suspect_list_count" value=">=1"/>
+            
+            <choice id="direct_confrontation" text="직접 대면하여 추궁한다">
+                <effect variable="alex_suspicion" modifier="add" value="3"/>
+                <effect variable="intimidation_factor" modifier="add" value="2"/>
+                <effect variable="alex_alibi_broken" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="surveillance_approach" text="몰래 미행하며 관찰한다">
+                <effect variable="stealth_skill" modifier="add" value="3"/>
+                <effect variable="alex_secret_activity" modifier="set" value="true"/>
+                <effect variable="hidden_evidence" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="background_check" text="과거 이력을 조사한다">
+                <effect variable="background_intel" modifier="add" value="4"/>
+                <effect variable="alex_motive_discovered" modifier="set" value="true"/>
+                <effect variable="detective_knowledge" modifier="add" value="2"/>
+            </choice>
+        </scene>
+        
+        <scene id="suspect_two_investigation" path="res://games/mystery_detective/scenes/suspect_maria.xml">
+            <condition type="variable" variable="suspect_list_count" value=">=2"/>
+            
+            <choice id="psychological_approach" text="심리적 압박을 가한다">
+                <effect variable="maria_stress_level" modifier="add" value="4"/>
+                <effect variable="confession_chance" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="evidence_presentation" text="증거를 제시하며 추궁한다">
+                <requirement variable="forensic_evidence" operator=">=" value="5"/>
+                <effect variable="maria_cornered" modifier="set" value="true"/>
+                <effect variable="case_progress" modifier="add" value="5"/>
+            </choice>
+            
+            <choice id="empathy_tactic" text="공감하며 자백을 유도한다">
+                <effect variable="maria_trust" modifier="add" value="3"/>
+                <effect variable="emotional_manipulation" modifier="add" value="2"/>
+                <effect variable="hidden_motive" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 진실 추적 루트 -->
+    <route id="truth_investigation" name="진실 추적">
+        <scene id="conspiracy_discovery" path="res://games/mystery_detective/scenes/conspiracy.xml">
+            <condition type="variable" variable="case_breakthrough" value=">=5"/>
+            <set_variable name="investigation_day" value="3"/>
+            
+            <choice id="follow_money_trail" text="돈의 흐름을 추적한다">
+                <requirement variable="background_intel" operator=">=" value="6"/>
+                <effect variable="corruption_evidence" modifier="add" value="4"/>
+                <effect variable="powerful_enemy" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="protect_witness" text="핵심 증인을 보호한다">
+                <effect variable="witness_safety" modifier="add" value="3"/>
+                <effect variable="moral_standing" modifier="add" value="4"/>
+                <effect variable="danger_level" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="confront_mastermind" text="배후 인물에게 직접 맞선다" target_route="final_confrontation">
+                <requirement variable="courage" operator=">=" value="5"/>
+                <effect variable="final_showdown" modifier="set" value="true"/>
+                <effect variable="personal_risk" modifier="add" value="5"/>
+            </choice>
+        </scene>
+        
+        <scene id="midnight_revelation" path="res://games/mystery_detective/scenes/midnight_clue.xml">
+            <condition type="variable" variable="hidden_evidence" value=">=3"/>
+            
+            <choice id="secret_meeting" text="비밀 만남에 참석한다">
+                <effect variable="insider_information" modifier="add" value="5"/>
+                <effect variable="betrayal_risk" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="break_into_office" text="의심스러운 사무실에 침입한다">
+                <effect variable="illegal_evidence" modifier="add" value="4"/>
+                <effect variable="legal_trouble" modifier="add" value="2"/>
+                <effect variable="crucial_documents" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 최종 대결 루트 -->
+    <route id="final_confrontation" name="최종 대결">
+        <scene id="warehouse_showdown" path="res://games/mystery_detective/scenes/warehouse_finale.xml">
+            <condition type="variable" variable="final_showdown" value="true"/>
+            
+            <choice id="negotiate_surrender" text="범인의 자수를 설득한다">
+                <requirement variable="moral_standing" operator=">=" value="6"/>
+                <effect variable="peaceful_resolution" modifier="set" value="true"/>
+                <effect variable="justice_served" modifier="add" value="5"/>
+            </choice>
+            
+            <choice id="present_overwhelming_evidence" text="압도적인 증거를 제시한다">
+                <requirement variable="forensic_evidence" operator=">=" value="8"/>
+                <requirement variable="witness_testimony" operator=">=" value="5"/>
+                <effect variable="courtroom_victory" modifier="set" value="true"/>
+                <effect variable="detective_reputation" modifier="add" value="5"/>
+            </choice>
+            
+            <choice id="physical_confrontation" text="물리적 대결을 선택한다">
+                <requirement variable="danger_level" operator=">=" value="4"/>
+                <effect variable="action_hero_ending" modifier="set" value="true"/>
+                <effect variable="personal_injury" modifier="add" value="3"/>
+            </choice>
+        </scene>
+        
+        <scene id="truth_revealed" path="res://games/mystery_detective/scenes/case_closed.xml">
+            <condition type="variable" variable="case_progress" value=">=10"/>
+            
+            <!-- 진실 공개 및 사건 해결 -->
+            <choice id="media_exposure" text="언론에 진실을 공개한다">
+                <effect variable="public_hero" modifier="set" value="true"/>
+                <effect variable="fame_level" modifier="add" value="4"/>
+            </choice>
+            
+            <choice id="quiet_resolution" text="조용히 사건을 마무리한다">
+                <effect variable="professional_discretion" modifier="set" value="true"/>
+                <effect variable="client_satisfaction" modifier="add" value="3"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 추가 수사 루트 -->
+    <route id="deep_investigation" name="심층 수사">
+        <scene id="forensic_lab" path="res://games/mystery_detective/scenes/forensic_analysis.xml">
+            <condition type="variable" variable="analysis_accuracy" value=">=5"/>
+            
+            <choice id="dna_analysis" text="DNA 분석을 요청한다">
+                <requirement variable="money" operator=">=" value="300"/>
+                <effect variable="scientific_proof" modifier="add" value="4"/>
+                <effect variable="money" modifier="subtract" value="300"/>
+            </choice>
+            
+            <choice id="ballistics_test" text="탄도학 검사를 실시한다">
+                <requirement variable="clue_weapon_type" operator="==" value="true"/>
+                <effect variable="weapon_match" modifier="set" value="true"/>
+                <effect variable="definitive_evidence" modifier="add" value="3"/>
+            </choice>
+        </scene>
+        
+        <scene id="psychological_profile" path="res://games/mystery_detective/scenes/criminal_psychology.xml">
+            <condition type="variable" variable="deductive_reasoning" value=">=6"/>
+            
+            <choice id="profile_killer" text="범인의 심리 프로파일을 작성한다">
+                <effect variable="psychological_insight" modifier="add" value="5"/>
+                <effect variable="predict_next_move" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="understand_motive" text="범행 동기를 분석한다">
+                <effect variable="motive_clarity" modifier="add" value="4"/>
+                <effect variable="victim_connection" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 엔딩 루트들 -->
+    <route id="perfect_detective" name="완벽한 탐정 엔딩">
+        <scene id="flawless_case" path="res://games/mystery_detective/scenes/perfect_ending.xml">
+            <condition type="variable" variable="justice_served" value=">=5"/>
+            <condition type="variable" variable="moral_standing" value=">=6"/>
+            <condition type="variable" variable="detective_reputation" value=">=8"/>
+            <set_variable name="ending_type" value="perfect_detective"/>
+        </scene>
+    </route>
+    
+    <route id="action_hero" name="액션 히어로 엔딩">
+        <scene id="dramatic_finale" path="res://games/mystery_detective/scenes/action_ending.xml">
+            <condition type="variable" variable="action_hero_ending" value="true"/>
+            <condition type="variable" variable="courage" value=">=6"/>
+            <set_variable name="ending_type" value="action_hero"/>
+        </scene>
+    </route>
+    
+    <route id="noir_detective" name="누아르 탐정 엔딩">
+        <scene id="bittersweet_justice" path="res://games/mystery_detective/scenes/noir_ending.xml">
+            <condition type="variable" variable="corruption_evidence" value=">=4"/>
+            <condition type="variable" variable="personal_sacrifice" value=">=3"/>
+            <set_variable name="ending_type" value="noir_detective"/>
+        </scene>
+    </route>
+    
+    <!-- 글로벌 변수 정의 -->
+    <global_variables>
+        <!-- 게임 진행 상태 -->
+        <variable name="case_started" type="bool" default="false"/>
+        <variable name="client_met" type="bool" default="false"/>
+        <variable name="crime_scene_visited" type="bool" default="false"/>
+        <variable name="investigation_day" type="int" default="0"/>
+        
+        <!-- 수사 능력 -->
+        <variable name="detective_knowledge" type="int" default="2"/>
+        <variable name="observation_skill" type="int" default="2"/>
+        <variable name="deductive_reasoning" type="int" default="2"/>
+        <variable name="interrogation_skill" type="int" default="2"/>
+        <variable name="stealth_skill" type="int" default="1"/>
+        <variable name="courage" type="int" default="3"/>
+        
+        <!-- 증거 및 단서 -->
+        <variable name="forensic_evidence" type="int" default="0"/>
+        <variable name="witness_testimony" type="int" default="0"/>
+        <variable name="environmental_clues" type="int" default="0"/>
+        <variable name="background_intel" type="int" default="0"/>
+        <variable name="hidden_evidence" type="int" default="0"/>
+        
+        <!-- 사건 진행 -->
+        <variable name="case_progress" type="int" default="0"/>
+        <variable name="case_breakthrough" type="int" default="0"/>
+        <variable name="analysis_accuracy" type="int" default="0"/>
+        <variable name="suspect_list_count" type="int" default="0"/>
+        
+        <!-- 인물 관계 -->
+        <variable name="client_trust" type="int" default="3"/>
+        <variable name="alex_suspicion" type="int" default="0"/>
+        <variable name="maria_stress_level" type="int" default="0"/>
+        <variable name="maria_trust" type="int" default="0"/>
+        
+        <!-- 수사 스타일 -->
+        <variable name="investigation_style" type="string" default="balanced"/>
+        <variable name="moral_standing" type="int" default="5"/>
+        <variable name="detective_reputation" type="int" default="3"/>
+        <variable name="intimidation_factor" type="int" default="0"/>
+        
+        <!-- 특수 발견 사항 -->
+        <variable name="clue_body_marks" type="bool" default="false"/>
+        <variable name="clue_footprints" type="bool" default="false"/>
+        <variable name="clue_weapon_type" type="bool" default="false"/>
+        <variable name="alex_alibi_broken" type="bool" default="false"/>
+        <variable name="alex_secret_activity" type="bool" default="false"/>
+        <variable name="alex_motive_discovered" type="bool" default="false"/>
+        <variable name="maria_cornered" type="bool" default="false"/>
+        <variable name="hidden_motive" type="bool" default="false"/>
+        
+        <!-- 음모 관련 -->
+        <variable name="corruption_evidence" type="int" default="0"/>
+        <variable name="powerful_enemy" type="bool" default="false"/>
+        <variable name="witness_safety" type="int" default="3"/>
+        <variable name="danger_level" type="int" default="0"/>
+        <variable name="insider_information" type="int" default="0"/>
+        <variable name="illegal_evidence" type="int" default="0"/>
+        <variable name="crucial_documents" type="bool" default="false"/>
+        
+        <!-- 최종 대결 -->
+        <variable name="final_showdown" type="bool" default="false"/>
+        <variable name="peaceful_resolution" type="bool" default="false"/>
+        <variable name="courtroom_victory" type="bool" default="false"/>
+        <variable name="action_hero_ending" type="bool" default="false"/>
+        <variable name="personal_injury" type="int" default="0"/>
+        <variable name="personal_risk" type="int" default="0"/>
+        
+        <!-- 과학 수사 -->
+        <variable name="scientific_proof" type="int" default="0"/>
+        <variable name="weapon_match" type="bool" default="false"/>
+        <variable name="definitive_evidence" type="int" default="0"/>
+        <variable name="psychological_insight" type="int" default="0"/>
+        <variable name="predict_next_move" type="bool" default="false"/>
+        <variable name="motive_clarity" type="int" default="0"/>
+        <variable name="victim_connection" type="bool" default="false"/>
+        
+        <!-- 결과 지표 -->
+        <variable name="justice_served" type="int" default="0"/>
+        <variable name="public_hero" type="bool" default="false"/>
+        <variable name="professional_discretion" type="bool" default="false"/>
+        <variable name="client_satisfaction" type="int" default="0"/>
+        <variable name="fame_level" type="int" default="0"/>
+        <variable name="personal_sacrifice" type="int" default="0"/>
+        
+        <!-- 기타 -->
+        <variable name="money" type="int" default="1000"/>
+        <variable name="medical_knowledge" type="int" default="1"/>
+        <variable name="confession_chance" type="int" default="0"/>
+        <variable name="emotional_manipulation" type="int" default="0"/>
+        <variable name="betrayal_risk" type="int" default="0"/>
+        <variable name="legal_trouble" type="int" default="0"/>
+        <variable name="ending_type" type="string" default=""/>
+    </global_variables>
+    
+</scenario>

@@ -1,0 +1,55 @@
+{
+  "scenes": {
+    "first_meeting": {
+      "title": "첫 만남",
+      "msg01": "새 학기 첫날, 당신은 새로운 반에 배정되었습니다.",
+      "msg02": "교실에 들어서자 눈에 띄는 학생이 한 명 있습니다.",
+      "msg03": "그 학생과 어떻게 첫 만남을 시작할까요?",
+      "yuki_first_look": "(창가 자리에서 책을 읽고 있는 학생이 당신을 힐끗 쳐다봅니다.)"
+    },
+    "lunch_time": {
+      "title": "점심 시간",
+      "msg01": "점심시간이 되었습니다.",
+      "msg02": "유키가 도시락을 꺼내며 당신을 쳐다봅니다.",
+      "yuki_invite": "같이 점심 드실래요?"
+    },
+    "after_school": {
+      "title": "하교 시간",
+      "msg01": "하루 수업이 모두 끝났습니다.",
+      "msg02": "유키가 가방을 챙기며 말을 겁니다.",
+      "yuki_suggestion": "오늘 정말 즐거웠어요. 내일도 같이 이야기해요!"
+    }
+  },
+  "choices": {
+    "friendly_approach": "친근하게 인사한다",
+    "shy_approach": "수줍게 고개만 끄덕인다", 
+    "confident_approach": "자신감 있게 말을 건다",
+    "share_lunch": "도시락을 나눠 먹자고 제안한다",
+    "talk_hobbies": "취미에 대해 이야기한다",
+    "study_together": "같이 공부하자고 제안한다",
+    "go_library": "도서관에 같이 가자고 한다",
+    "go_cafe": "카페에 같이 가자고 한다",
+    "confession": "고백한다",
+    "give_gift": "선물을 준다",
+    "wait_more": "좀 더 기다린다"
+  },
+  "ui": {
+    "save_game": "게임 저장",
+    "load_game": "게임 불러오기",
+    "settings": "설정",
+    "quit": "게임 종료",
+    "auto_play": "자동 재생",
+    "skip_mode": "스킵 모드",
+    "voice_volume": "음성 볼륨",
+    "bgm_volume": "배경음악 볼륨",
+    "sfx_volume": "효과음 볼륨"
+  },
+  "system": {
+    "saving": "저장 중...",
+    "loading": "불러오는 중...",
+    "save_complete": "저장이 완료되었습니다",
+    "load_complete": "불러오기가 완료되었습니다",
+    "save_failed": "저장에 실패했습니다",
+    "load_failed": "불러오기에 실패했습니다"
+  }
+}

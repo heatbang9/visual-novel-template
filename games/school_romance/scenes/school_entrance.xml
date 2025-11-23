@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="school_entrance" localization_key="school_romance.school_entrance.title">
+    
+    <!-- 학교 테마 BGM 시작 -->
+    <action type="play_bgm" duration="2.5" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/bgm/school_theme.ogg" 
+                   fade_in="true" 
+                   loop="true"/>
+    </action>
+    
+    <!-- 배경: 학교 정문 -->
+    <background type="image" 
+                path="res://games/school_romance/backgrounds/school_gate.png" 
+                transition="fade_from_black" 
+                duration="2.5" 
+                scale="1.1"/>
+    
+    <!-- 학교 분위기 사운드 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/school_morning_ambience.ogg" 
+                   volume="0.3" 
+                   pitch="1.0"/>
+    </action>
+    
+    <!-- 플레이어 재등장 -->
+    <character id="player" name="주인공" default_position="left" 
+               entry_animation="slide_left" scale="1.0">
+        <portrait emotion="normal" path="res://games/school_romance/characters/player/normal.png"/>
+        <portrait emotion="excited" path="res://games/school_romance/characters/player/excited.png"/>
+        <portrait emotion="nervous" path="res://games/school_romance/characters/player/nervous.png"/>
+        <portrait emotion="determined" path="res://games/school_romance/characters/player/determined.png"/>
+        <portrait emotion="observant" path="res://games/school_romance/characters/player/observant.png"/>
+    </character>
+    
+    <!-- 플레이어 등장 -->
+    <action type="character_enter" target="player" duration="1.2" wait="true">
+        <parameters animation="slide_left" position="center"/>
+    </action>
+    
+    <!-- 나레이션 -->
+    <message speaker="narrator" typewriter_speed="25">
+        드디어 학교 정문 앞에 도착했습니다. 
+        벚꽃이 만개한 교정이 한눈에 들어오며, 새 학기의 설렘이 더욱 커집니다.
+    </message>
+    
+    <!-- 학교 건물 확대 -->
+    <action type="camera_zoom" target="camera" duration="2.0" wait="true">
+        <parameters zoom_level="1.2" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="player" emotion="excited">
+        와... 벚꽃이 정말 예쁘게 피었네. 사진 찍어둘 걸 그랬나?
+    </message>
+    
+    <!-- 다른 학생들이 지나가는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/students_chatting.ogg" 
+                   volume="0.4" 
+                   pitch="1.0"/>
+    </action>
+    
+    <message speaker="narrator">
+        주변으로는 새 학기를 맞은 다른 학생들이 삼삼오오 모여 이야기하며 지나갑니다.
+    </message>
+    
+    <!-- 잠시 관찰하는 모습 -->
+    <action type="change_emotion" target="player" duration="0.5" wait="true">
+        <parameters emotion="observant"/>
+    </action>
+    
+    <message speaker="player" emotion="observant">
+        다들 친구들과 함께 와서 즐거워 보이네... 
+        나도 곧 새로운 친구들을 만나겠지?
+    </message>
+    
+    <!-- 입학식 안내 방송 -->
+    <action type="play_sfx" wait="true">
+        <parameters audio_path="res://games/school_romance/audio/sfx/school_announcement.ogg" 
+                   volume="0.6"/>
+    </action>
+    
+    <message speaker="announcer" voice_file="res://games/school_romance/audio/voice/announcer/morning_greeting.ogg">
+        학생 여러분, 좋은 아침입니다. 새 학기 반 편성이 완료되었습니다. 
+        각자 배정받은 교실로 이동해 주시기 바랍니다.
+    </message>
+    
+    <action type="change_emotion" target="player" duration="0.5" wait="true">
+        <parameters emotion="determined"/>
+    </action>
+    
+    <message speaker="player" emotion="determined">
+        좋아, 이제 정말로 시작이다!
+    </message>
+    
+    <!-- 교문 앞에서의 선택 상황 연출 -->
+    <message speaker="narrator" typewriter_speed="20">
+        학교 정문을 앞에 두고, 어떤 마음가짐으로 새 학기를 시작할지 결정해야 할 때입니다.
+    </message>
+    
+    <!-- 선택지 상황 강조 효과 -->
+    <action type="camera_zoom" target="camera" duration="1.5" wait="true">
+        <parameters zoom_level="1.0" animation="ease_out"/>
+    </action>
+    
+    <!-- 각 선택지에 해당하는 시각적 힌트 -->
+    <message speaker="narrator">
+        첫인상은 앞으로의 학교생활에 큰 영향을 미칠 수 있습니다. 
+        어떤 모습으로 새로운 시작을 맞이하시겠습니까?
+    </message>
+    
+    <!-- 자신감 있는 선택지 암시 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/confident_step.ogg" 
+                   volume="0.3"/>
+    </action>
+    
+    <!-- 신중한 선택지 암시 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/thoughtful_pause.ogg" 
+                   volume="0.3"/>
+    </action>
+    
+    <!-- 선택지 분기점 명시 -->
+    <choice_point id="school_entrance_choice"/>
+    
+    <!-- 선택 후 각 루트별 예시 연출 -->
+    
+    <!-- 자신감 있게 들어가는 경우 -->
+    <action type="character_move" target="player" duration="1.0" wait="false" condition="choice_confident">
+        <parameters to_position="right" animation="confident_walk"/>
+    </action>
+    
+    <action type="play_sfx" wait="false" condition="choice_confident">
+        <parameters audio_path="res://games/school_romance/audio/sfx/confident_footsteps.ogg" 
+                   volume="0.5"/>
+    </action>
+    
+    <message speaker="player" emotion="determined" condition="choice_confident">
+        좋아, 당당하게 가자!
+    </message>
+    
+    <!-- 긴장하며 들어가는 경우 -->
+    <action type="change_emotion" target="player" duration="0.5" wait="true" condition="choice_nervous">
+        <parameters emotion="nervous"/>
+    </action>
+    
+    <action type="character_move" target="player" duration="1.5" wait="true" condition="choice_nervous">
+        <parameters to_position="right" animation="cautious_walk"/>
+    </action>
+    
+    <message speaker="player" emotion="nervous" condition="choice_nervous">
+        조심조심... 실수하지 말자.
+    </message>
+    
+    <!-- 주변을 관찰하는 경우 -->
+    <action type="change_emotion" target="player" duration="0.5" wait="true" condition="choice_observant">
+        <parameters emotion="observant"/>
+    </action>
+    
+    <action type="camera_move" target="camera" duration="2.0" wait="true" condition="choice_observant">
+        <parameters to_position="640,300" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="player" emotion="observant" condition="choice_observant">
+        일단 주변을 좀 더 살펴보자. 어떤 분위기인지 파악해보고...
+    </message>
+    
+    <!-- 공통 마무리 -->
+    <action type="screen_effect" duration="1.0" wait="true">
+        <parameters effect="fade_white"/>
+    </action>
+    
+    <message speaker="narrator">
+        주인공은 자신만의 방식으로 학교 안으로 발걸음을 내디뎠습니다.
+        이제 정말로 새로운 모험이 시작됩니다.
+    </message>
+    
+    <!-- 다음 씬으로의 전환 -->
+    <action type="screen_effect" duration="2.0" wait="true">
+        <parameters effect="fade_to_black"/>
+    </action>
+    
+    <!-- 교실로 향하는 발걸음 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://games/school_romance/audio/sfx/hallway_footsteps.ogg" 
+                   volume="0.4"/>
+    </action>
+    
+    <wait duration="1.5"/>
+    
+</scene>

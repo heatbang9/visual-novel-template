@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="space_adventure_main" default_route="prologue">
+    
+    <!-- 프롤로그 루트 -->
+    <route id="prologue" name="우주로의 여행">
+        <scene id="space_station_departure" path="res://games/space_adventure/scenes/station_departure.xml">
+            <condition type="variable" variable="mission_started" value="false"/>
+            <set_variable name="mission_started" value="true"/>
+            <set_variable name="crew_morale" value="8"/>
+            <set_variable name="ship_fuel" value="100"/>
+            <set_variable name="mission_day" value="1"/>
+        </scene>
+        
+        <scene id="crew_introduction" path="res://games/space_adventure/scenes/meet_crew.xml">
+            <condition type="variable" variable="crew_met" value="false"/>
+            <set_variable name="crew_met" value="true"/>
+            
+            <choice id="focus_on_science" text="과학 연구에 중점을 둔다" target_route="scientific_exploration">
+                <effect variable="science_priority" modifier="add" value="3"/>
+                <effect variable="dr_nova_relationship" modifier="add" value="2"/>
+                <effect variable="mission_type" modifier="set" value="science"/>
+            </choice>
+            
+            <choice id="focus_on_diplomacy" text="외교적 접촉을 우선한다" target_route="diplomatic_contact">
+                <effect variable="diplomacy_skill" modifier="add" value="3"/>
+                <effect variable="ambassador_zara_relationship" modifier="add" value="2"/>
+                <effect variable="mission_type" modifier="set" value="diplomatic"/>
+            </choice>
+            
+            <choice id="focus_on_exploration" text="미지 영역 탐사를 선택한다" target_route="deep_space_exploration">
+                <effect variable="exploration_drive" modifier="add" value="3"/>
+                <effect variable="pilot_ace_relationship" modifier="add" value="2"/>
+                <effect variable="mission_type" modifier="set" value="exploration"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 과학 탐사 루트 -->
+    <route id="scientific_exploration" name="과학 탐사">
+        <scene id="research_facility_discovery" path="res://games/space_adventure/scenes/alien_research.xml">
+            <condition type="variable" variable="mission_type" value="science"/>
+            <set_variable name="mission_day" value="15"/>
+            
+            <choice id="study_alien_technology" text="외계 기술을 연구한다">
+                <effect variable="technology_advancement" modifier="add" value="4"/>
+                <effect variable="scientific_knowledge" modifier="add" value="5"/>
+                <effect variable="alien_tech_unlocked" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="analyze_biological_samples" text="생명체 샘플을 분석한다">
+                <effect variable="xenobiology_expertise" modifier="add" value="4"/>
+                <effect variable="medical_breakthrough" modifier="add" value="3"/>
+                <effect variable="cure_discovered" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="decode_alien_messages" text="외계인의 메시지를 해독한다">
+                <requirement variable="science_priority" operator=">=" value="5"/>
+                <effect variable="communication_established" modifier="set" value="true"/>
+                <effect variable="alien_language_learned" modifier="set" value="true"/>
+                <effect variable="first_contact_success" modifier="add" value="4"/>
+            </choice>
+        </scene>
+        
+        <scene id="quantum_phenomenon" path="res://games/space_adventure/scenes/quantum_discovery.xml">
+            <condition type="variable" variable="scientific_knowledge" value=">=6"/>
+            
+            <choice id="harness_quantum_energy" text="양자 에너지를 활용한다">
+                <effect variable="ship_power" modifier="multiply" value="2"/>
+                <effect variable="quantum_mastery" modifier="add" value="5"/>
+                <effect variable="energy_crisis_solved" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="study_space_time" text="시공간 현상을 연구한다">
+                <requirement variable="technology_advancement" operator=">=" value="6"/>
+                <effect variable="temporal_understanding" modifier="add" value="4"/>
+                <effect variable="time_travel_possible" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 외교 접촉 루트 -->
+    <route id="diplomatic_contact" name="외교적 접촉">
+        <scene id="first_contact_protocol" path="res://games/space_adventure/scenes/first_contact.xml">
+            <condition type="variable" variable="mission_type" value="diplomatic"/>
+            
+            <choice id="peaceful_approach" text="평화적으로 접근한다">
+                <effect variable="alien_trust" modifier="add" value="4"/>
+                <effect variable="peaceful_reputation" modifier="add" value="3"/>
+                <effect variable="diplomatic_success" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="cautious_approach" text="신중하게 접근한다">
+                <effect variable="alien_respect" modifier="add" value="3"/>
+                <effect variable="safety_protocol" modifier="add" value="2"/>
+                <effect variable="crew_safety" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="cultural_exchange" text="문화 교류를 제안한다">
+                <requirement variable="diplomacy_skill" operator=">=" value="4"/>
+                <effect variable="cultural_understanding" modifier="add" value="5"/>
+                <effect variable="alien_alliance" modifier="add" value="4"/>
+                <effect variable="trade_agreement" modifier="set" value="true"/>
+            </choice>
+        </scene>
+        
+        <scene id="galactic_council" path="res://games/space_adventure/scenes/galactic_politics.xml">
+            <condition type="variable" variable="diplomatic_success" value=">=5"/>
+            <set_variable name="mission_day" value="30"/>
+            
+            <choice id="join_galactic_federation" text="은하 연방에 가입한다">
+                <effect variable="earth_status" modifier="set" value="federation_member"/>
+                <effect variable="galactic_influence" modifier="add" value="5"/>
+                <effect variable="technology_sharing" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="maintain_independence" text="지구의 독립을 유지한다">
+                <effect variable="earth_status" modifier="set" value="independent"/>
+                <effect variable="self_reliance" modifier="add" value="4"/>
+                <effect variable="neutral_status" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="form_new_alliance" text="새로운 동맹을 결성한다">
+                <requirement variable="alien_alliance" operator=">=" value="6"/>
+                <effect variable="earth_status" modifier="set" value="alliance_leader"/>
+                <effect variable="leadership_role" modifier="add" value="5"/>
+                <effect variable="new_coalition" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 심우주 탐사 루트 -->
+    <route id="deep_space_exploration" name="심우주 탐사">
+        <scene id="unknown_sector" path="res://games/space_adventure/scenes/uncharted_space.xml">
+            <condition type="variable" variable="mission_type" value="exploration"/>
+            
+            <choice id="investigate_anomaly" text="우주 이상 현상을 조사한다">
+                <effect variable="cosmic_mystery" modifier="add" value="4"/>
+                <effect variable="exploration_achievement" modifier="add" value="3"/>
+                <effect variable="anomaly_data" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="map_new_systems" text="새로운 항성계를 지도화한다">
+                <effect variable="cartography_skill" modifier="add" value="4"/>
+                <effect variable="navigation_mastery" modifier="add" value="3"/>
+                <effect variable="star_charts_complete" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="search_for_life" text="생명체 흔적을 찾는다">
+                <effect variable="xenobiology_discoveries" modifier="add" value="5"/>
+                <effect variable="life_detection" modifier="add" value="4"/>
+                <effect variable="new_species_found" modifier="set" value="true"/>
+            </choice>
+        </scene>
+        
+        <scene id="ancient_civilization" path="res://games/space_adventure/scenes/ancient_ruins.xml">
+            <condition type="variable" variable="exploration_achievement" value=">=5"/>
+            
+            <choice id="explore_ruins" text="고대 유적을 탐사한다">
+                <effect variable="archaeological_find" modifier="add" value="5"/>
+                <effect variable="ancient_knowledge" modifier="add" value="4"/>
+                <effect variable="precursor_technology" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="decipher_language" text="고대 문자를 해독한다">
+                <requirement variable="cosmic_mystery" operator=">=" value="6"/>
+                <effect variable="linguistic_breakthrough" modifier="add" value="4"/>
+                <effect variable="galactic_history" modifier="add" value="5"/>
+                <effect variable="universal_translator" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 위기 관리 루트 -->
+    <route id="crisis_management" name="우주선 위기">
+        <scene id="system_malfunction" path="res://games/space_adventure/scenes/ship_crisis.xml">
+            <condition type="variable" variable="mission_day" value=">=10"/>
+            <condition type="variable" variable="ship_fuel" value="<=50"/>
+            
+            <choice id="emergency_repairs" text="긴급 수리를 실시한다">
+                <effect variable="engineering_skill" modifier="add" value="3"/>
+                <effect variable="ship_condition" modifier="add" value="4"/>
+                <effect variable="crew_confidence" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="rationing_protocol" text="연료 배급제를 실시한다">
+                <effect variable="resource_management" modifier="add" value="4"/>
+                <effect variable="survival_instinct" modifier="add" value="3"/>
+                <effect variable="crew_discipline" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="seek_alien_help" text="외계인의 도움을 요청한다">
+                <requirement variable="alien_trust" operator=">=" value="3"/>
+                <effect variable="alien_assistance" modifier="set" value="true"/>
+                <effect variable="debt_to_aliens" modifier="add" value="2"/>
+                <effect variable="ship_fuel" modifier="add" value="30"/>
+            </choice>
+        </scene>
+        
+        <scene id="crew_conflict" path="res://games/space_adventure/scenes/internal_conflict.xml">
+            <condition type="variable" variable="crew_morale" value="<=3"/>
+            
+            <choice id="democratic_decision" text="민주적 의사결정을 한다">
+                <effect variable="crew_unity" modifier="add" value="4"/>
+                <effect variable="leadership_style" modifier="set" value="democratic"/>
+                <effect variable="crew_morale" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="authoritative_command" text="강력한 지휘력을 발휘한다">
+                <effect variable="command_respect" modifier="add" value="4"/>
+                <effect variable="leadership_style" modifier="set" value="authoritative"/>
+                <effect variable="discipline_restored" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 최종 미션 루트 -->
+    <route id="final_mission" name="최종 임무">
+        <scene id="galaxy_threat" path="res://games/space_adventure/scenes/galactic_crisis.xml">
+            <condition type="variable" variable="mission_day" value=">=45"/>
+            
+            <choice id="unite_species" text="모든 종족을 연합시킨다">
+                <requirement variable="diplomatic_success" operator=">=" value="8"/>
+                <requirement variable="alien_alliance" operator=">=" value="8"/>
+                <effect variable="galactic_unity" modifier="set" value="true"/>
+                <effect variable="coalition_leader" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="use_ancient_technology" text="고대 기술을 활용한다">
+                <requirement variable="precursor_technology" operator="==" value="true"/>
+                <requirement variable="ancient_knowledge" operator=">=" value="6"/>
+                <effect variable="tech_solution" modifier="set" value="true"/>
+                <effect variable="scientific_victory" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="sacrifice_for_galaxy" text="은하계를 위해 희생한다" target_route="heroic_ending">
+                <requirement variable="crew_unity" operator=">=" value="6"/>
+                <effect variable="heroic_sacrifice" modifier="set" value="true"/>
+                <effect variable="legendary_status" modifier="set" value="true"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 엔딩 루트들 -->
+    <route id="scientific_triumph" name="과학적 승리 엔딩">
+        <scene id="research_legacy" path="res://games/space_adventure/scenes/science_ending.xml">
+            <condition type="variable" variable="scientific_victory" value="true"/>
+            <condition type="variable" variable="technology_advancement" value=">=8"/>
+            <set_variable name="ending_type" value="scientific_triumph"/>
+        </scene>
+    </route>
+    
+    <route id="diplomatic_victory" name="외교적 승리 엔딩">
+        <scene id="galactic_peace" path="res://games/space_adventure/scenes/diplomatic_ending.xml">
+            <condition type="variable" variable="galactic_unity" value="true"/>
+            <condition type="variable" variable="coalition_leader" value="true"/>
+            <set_variable name="ending_type" value="diplomatic_victory"/>
+        </scene>
+    </route>
+    
+    <route id="explorer_legend" name="전설적 탐험가 엔딩">
+        <scene id="cosmic_discovery" path="res://games/space_adventure/scenes/explorer_ending.xml">
+            <condition type="variable" variable="exploration_achievement" value=">=10"/>
+            <condition type="variable" variable="new_species_found" value="true"/>
+            <set_variable name="ending_type" value="explorer_legend"/>
+        </scene>
+    </route>
+    
+    <route id="heroic_ending" name="영웅적 희생 엔딩">
+        <scene id="ultimate_sacrifice" path="res://games/space_adventure/scenes/heroic_ending.xml">
+            <condition type="variable" variable="heroic_sacrifice" value="true"/>
+            <set_variable name="ending_type" value="heroic_sacrifice"/>
+        </scene>
+    </route>
+    
+    <!-- 글로벌 변수 정의 -->
+    <global_variables>
+        <!-- 미션 상태 -->
+        <variable name="mission_started" type="bool" default="false"/>
+        <variable name="crew_met" type="bool" default="false"/>
+        <variable name="mission_day" type="int" default="0"/>
+        <variable name="mission_type" type="string" default=""/>
+        
+        <!-- 우주선 상태 -->
+        <variable name="ship_fuel" type="int" default="100"/>
+        <variable name="ship_condition" type="int" default="10"/>
+        <variable name="ship_power" type="int" default="10"/>
+        <variable name="crew_morale" type="int" default="8"/>
+        <variable name="crew_unity" type="int" default="5"/>
+        <variable name="crew_safety" type="int" default="8"/>
+        <variable name="crew_confidence" type="int" default="6"/>
+        <variable name="crew_discipline" type="int" default="5"/>
+        
+        <!-- 플레이어 능력 -->
+        <variable name="science_priority" type="int" default="2"/>
+        <variable name="diplomacy_skill" type="int" default="2"/>
+        <variable name="exploration_drive" type="int" default="2"/>
+        <variable name="engineering_skill" type="int" default="2"/>
+        <variable name="resource_management" type="int" default="2"/>
+        <variable name="leadership_style" type="string" default="balanced"/>
+        <variable name="command_respect" type="int" default="3"/>
+        
+        <!-- 과학 연구 -->
+        <variable name="scientific_knowledge" type="int" default="0"/>
+        <variable name="technology_advancement" type="int" default="0"/>
+        <variable name="xenobiology_expertise" type="int" default="0"/>
+        <variable name="quantum_mastery" type="int" default="0"/>
+        <variable name="medical_breakthrough" type="int" default="0"/>
+        <variable name="temporal_understanding" type="int" default="0"/>
+        <variable name="xenobiology_discoveries" type="int" default="0"/>
+        <variable name="archaeological_find" type="int" default="0"/>
+        <variable name="ancient_knowledge" type="int" default="0"/>
+        <variable name="linguistic_breakthrough" type="int" default="0"/>
+        <variable name="galactic_history" type="int" default="0"/>
+        
+        <!-- 외교 관계 -->
+        <variable name="alien_trust" type="int" default="0"/>
+        <variable name="alien_respect" type="int" default="0"/>
+        <variable name="alien_alliance" type="int" default="0"/>
+        <variable name="diplomatic_success" type="int" default="0"/>
+        <variable name="cultural_understanding" type="int" default="0"/>
+        <variable name="peaceful_reputation" type="int" default="0"/>
+        <variable name="galactic_influence" type="int" default="0"/>
+        <variable name="leadership_role" type="int" default="0"/>
+        
+        <!-- 탐사 성과 -->
+        <variable name="exploration_achievement" type="int" default="0"/>
+        <variable name="cosmic_mystery" type="int" default="0"/>
+        <variable name="cartography_skill" type="int" default="0"/>
+        <variable name="navigation_mastery" type="int" default="0"/>
+        <variable name="life_detection" type="int" default="0"/>
+        <variable name="survival_instinct" type="int" default="0"/>
+        
+        <!-- 특수 발견 -->
+        <variable name="alien_tech_unlocked" type="bool" default="false"/>
+        <variable name="cure_discovered" type="bool" default="false"/>
+        <variable name="communication_established" type="bool" default="false"/>
+        <variable name="alien_language_learned" type="bool" default="false"/>
+        <variable name="first_contact_success" type="int" default="0"/>
+        <variable name="energy_crisis_solved" type="bool" default="false"/>
+        <variable name="time_travel_possible" type="bool" default="false"/>
+        <variable name="trade_agreement" type="bool" default="false"/>
+        <variable name="technology_sharing" type="bool" default="false"/>
+        
+        <!-- 정치적 상태 -->
+        <variable name="earth_status" type="string" default="exploring"/>
+        <variable name="neutral_status" type="bool" default="false"/>
+        <variable name="new_coalition" type="bool" default="false"/>
+        
+        <!-- 탐사 성과 -->
+        <variable name="anomaly_data" type="bool" default="false"/>
+        <variable name="star_charts_complete" type="bool" default="false"/>
+        <variable name="new_species_found" type="bool" default="false"/>
+        <variable name="precursor_technology" type="bool" default="false"/>
+        <variable name="universal_translator" type="bool" default="false"/>
+        
+        <!-- 위기 관리 -->
+        <variable name="alien_assistance" type="bool" default="false"/>
+        <variable name="debt_to_aliens" type="int" default="0"/>
+        <variable name="discipline_restored" type="bool" default="false"/>
+        
+        <!-- 승무원 관계 -->
+        <variable name="dr_nova_relationship" type="int" default="3"/>
+        <variable name="ambassador_zara_relationship" type="int" default="3"/>
+        <variable name="pilot_ace_relationship" type="int" default="3"/>
+        
+        <!-- 최종 미션 -->
+        <variable name="galactic_unity" type="bool" default="false"/>
+        <variable name="coalition_leader" type="bool" default="false"/>
+        <variable name="tech_solution" type="bool" default="false"/>
+        <variable name="scientific_victory" type="bool" default="false"/>
+        <variable name="heroic_sacrifice" type="bool" default="false"/>
+        <variable name="legendary_status" type="bool" default="false"/>
+        
+        <!-- 엔딩 타입 -->
+        <variable name="ending_type" type="string" default=""/>
+        
+        <!-- 기타 중요 지표 -->
+        <variable name="safety_protocol" type="int" default="5"/>
+        <variable name="self_reliance" type="int" default="3"/>
+    </global_variables>
+    
+</scenario>

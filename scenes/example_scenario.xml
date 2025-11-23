@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="school_life" default_route="main">
+    <!-- 메인 루트 -->
+    <route id="main" name="메인 스토리">
+        <!-- 첫 만남 씬 -->
+        <scene id="first_meeting" path="res://scenes/dialogue/first_meeting.xml">
+            <condition type="variable" variable="first_meeting_complete" value="false"/>
+            <set_variable name="first_meeting_complete" value="true"/>
+            
+            <choice id="friendly_approach" text="친근하게 인사한다" target_route="friendship">
+                <effect variable="friendship_level" modifier="add" value="2"/>
+                <effect variable="first_impression" modifier="set" value="friendly"/>
+            </choice>
+            
+            <choice id="shy_approach" text="수줍게 고개만 끄덕인다" target_route="main">
+                <effect variable="shyness_level" modifier="add" value="1"/>
+                <effect variable="first_impression" modifier="set" value="shy"/>
+            </choice>
+            
+            <choice id="confident_approach" text="자신감 있게 말을 건다" target_route="romance">
+                <requirement variable="confidence_level" operator=">=" value="3"/>
+                <effect variable="affection_level" modifier="add" value="1"/>
+                <effect variable="confidence_level" modifier="add" value="1"/>
+                <effect variable="first_impression" modifier="set" value="confident"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 친구 루트 -->
+    <route id="friendship" name="친구 루트">
+        <scene id="lunch_together" path="res://scenes/dialogue/lunch_together.xml">
+            <condition type="requirement" requires="first_meeting_complete" value="true"/>
+            <condition type="variable" variable="first_impression" value="friendly"/>
+            <set_variable name="lunch_time_complete" value="true"/>
+            
+            <choice id="share_lunch" text="도시락을 나눠 먹자고 제안한다">
+                <effect variable="friendship_level" modifier="add" value="3"/>
+                <effect variable="kindness_level" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="talk_hobbies" text="취미에 대해 이야기한다">
+                <effect variable="friendship_level" modifier="add" value="2"/>
+                <effect variable="conversation_skill" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="study_together" text="같이 공부하자고 제안한다">
+                <requirement variable="academic_level" operator=">=" value="2"/>
+                <effect variable="friendship_level" modifier="add" value="2"/>
+                <effect variable="academic_level" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <scene id="after_school_friend" path="res://scenes/dialogue/after_school_friend.xml">
+            <condition type="variable" variable="lunch_time_complete" value="true"/>
+            <condition type="variable" variable="friendship_level" value=">=5"/>
+            
+            <choice id="go_library" text="도서관에 같이 가자고 한다">
+                <effect variable="friendship_level" modifier="add" value="2"/>
+                <effect variable="academic_level" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="go_cafe" text="카페에 같이 가자고 한다">
+                <effect variable="friendship_level" modifier="add" value="3"/>
+                <effect variable="social_skill" modifier="add" value="1"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 연애 루트 -->
+    <route id="romance" name="연애 루트">
+        <scene id="special_moment" path="res://scenes/dialogue/special_moment.xml">
+            <condition type="requirement" requires="first_meeting_complete" value="true"/>
+            <condition type="variable" variable="first_impression" value="confident"/>
+            <condition type="variable" variable="affection_level" value=">=3"/>
+            
+            <choice id="confession" text="고백한다">
+                <requirement variable="affection_level" operator=">=" value="5"/>
+                <requirement variable="confidence_level" operator=">=" value="4"/>
+                <effect variable="romance_flag" modifier="set" value="true"/>
+                <effect variable="ending_type" modifier="set" value="romance_success"/>
+            </choice>
+            
+            <choice id="give_gift" text="선물을 준다">
+                <requirement variable="thoughtfulness" operator=">=" value="2"/>
+                <effect variable="affection_level" modifier="add" value="2"/>
+                <effect variable="thoughtfulness" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="wait_more" text="좀 더 기다린다" target_route="friendship">
+                <effect variable="patience_level" modifier="add" value="1"/>
+                <effect variable="friendship_level" modifier="add" value="1"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 글로벌 변수 정의 -->
+    <global_variables>
+        <variable name="first_meeting_complete" type="bool" default="false"/>
+        <variable name="lunch_time_complete" type="bool" default="false"/>
+        <variable name="friendship_level" type="int" default="0"/>
+        <variable name="affection_level" type="int" default="0"/>
+        <variable name="confidence_level" type="int" default="1"/>
+        <variable name="academic_level" type="int" default="1"/>
+        <variable name="shyness_level" type="int" default="0"/>
+        <variable name="kindness_level" type="int" default="0"/>
+        <variable name="conversation_skill" type="int" default="0"/>
+        <variable name="social_skill" type="int" default="0"/>
+        <variable name="thoughtfulness" type="int" default="0"/>
+        <variable name="patience_level" type="int" default="0"/>
+        <variable name="romance_flag" type="bool" default="false"/>
+        <variable name="first_impression" type="string" default="neutral"/>
+        <variable name="ending_type" type="string" default="normal"/>
+    </global_variables>
+</scenario>

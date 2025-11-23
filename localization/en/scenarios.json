@@ -1,0 +1,55 @@
+{
+  "scenes": {
+    "first_meeting": {
+      "title": "First Meeting",
+      "msg01": "It's the first day of the new semester, and you've been assigned to a new class.",
+      "msg02": "As you enter the classroom, one student catches your eye.",
+      "msg03": "How would you like to start your first meeting with this student?",
+      "yuki_first_look": "(A student reading by the window glances at you briefly.)"
+    },
+    "lunch_time": {
+      "title": "Lunch Time",
+      "msg01": "It's lunch time.",
+      "msg02": "Yuki takes out her lunch box and looks at you.",
+      "yuki_invite": "Would you like to have lunch together?"
+    },
+    "after_school": {
+      "title": "After School",
+      "msg01": "All classes for the day have ended.",
+      "msg02": "Yuki packs her bag and speaks to you.",
+      "yuki_suggestion": "Today was really fun. Let's talk again tomorrow!"
+    }
+  },
+  "choices": {
+    "friendly_approach": "Greet her in a friendly manner",
+    "shy_approach": "Shyly nod your head",
+    "confident_approach": "Speak to her confidently",
+    "share_lunch": "Suggest sharing lunch",
+    "talk_hobbies": "Talk about hobbies",
+    "study_together": "Suggest studying together",
+    "go_library": "Suggest going to the library together",
+    "go_cafe": "Suggest going to a cafe together",
+    "confession": "Confess your feelings",
+    "give_gift": "Give her a gift",
+    "wait_more": "Wait a little longer"
+  },
+  "ui": {
+    "save_game": "Save Game",
+    "load_game": "Load Game",
+    "settings": "Settings",
+    "quit": "Quit Game",
+    "auto_play": "Auto Play",
+    "skip_mode": "Skip Mode",
+    "voice_volume": "Voice Volume",
+    "bgm_volume": "BGM Volume",
+    "sfx_volume": "SFX Volume"
+  },
+  "system": {
+    "saving": "Saving...",
+    "loading": "Loading...",
+    "save_complete": "Game saved successfully",
+    "load_complete": "Game loaded successfully",
+    "save_failed": "Failed to save game",
+    "load_failed": "Failed to load game"
+  }
+}

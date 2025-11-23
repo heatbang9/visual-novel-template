@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="enhanced_first_meeting" localization_key="scenes.first_meeting.title">
+    
+    <!-- 배경 설정 (부드러운 전환 효과) -->
+    <background type="image" path="res://scenes/background/school_classroom.png" 
+               transition="fade" duration="2.0" scale="1.2"/>
+    
+    <!-- BGM 시작 -->
+    <action type="play_bgm" duration="2.0" wait="false">
+        <parameters audio_path="res://audio/bgm/peaceful_school.ogg" fade_in="true" loop="true"/>
+    </action>
+    
+    <!-- 캐릭터 정의 (상세 설정) -->
+    <character id="yuki" name="유키" default_position="right" 
+               entry_animation="slide_right" exit_animation="fade_out" 
+               scale="0.9" flip_h="false">
+        
+        <!-- 다양한 감정 표현 -->
+        <portrait emotion="normal" path="res://characters/yuki/normal.png" offset_x="0" offset_y="-10"/>
+        <portrait emotion="happy" path="res://characters/yuki/happy.png" offset_x="0" offset_y="-10"/>
+        <portrait emotion="surprised" path="res://characters/yuki/surprised.png" offset_x="5" offset_y="-8"/>
+        <portrait emotion="shy" path="res://characters/yuki/shy.png" offset_x="-3" offset_y="-12"/>
+        <portrait emotion="thinking" path="res://characters/yuki/thinking.png" offset_x="0" offset_y="-10"/>
+        
+        <!-- 음성 설정 -->
+        <voice pitch="1.2" speed="1.0" volume="0.9"/>
+    </character>
+    
+    <character id="player" name="플레이어" default_position="left" 
+               entry_animation="slide_left" scale="0.95">
+        <portrait emotion="normal" path="res://characters/player/normal.png"/>
+        <portrait emotion="determined" path="res://characters/player/determined.png"/>
+        <portrait emotion="nervous" path="res://characters/player/nervous.png"/>
+        <voice pitch="0.9" speed="1.0" volume="0.9"/>
+    </character>
+    
+    <!-- 나레이션 -->
+    <message speaker="narrator" typewriter_speed="25" localization_key="scenes.first_meeting.msg01">
+        새 학기 첫날, 당신은 새로운 반에 배정되었습니다.
+        <translation lang="en">It's the first day of the new semester, and you've been assigned to a new class.</translation>
+        <translation lang="ja">新学期の初日、あなたは新しいクラスに配属されました。</translation>
+    </message>
+    
+    <!-- 카메라 줌인 효과 -->
+    <action type="camera_zoom" target="camera" duration="1.5" wait="true">
+        <parameters zoom_level="1.2" animation="ease_in_out"/>
+    </action>
+    
+    <!-- 교실 환경음 추가 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://audio/sfx/classroom_chatter.ogg" volume="0.3" pitch="1.0"/>
+    </action>
+    
+    <message speaker="narrator" typewriter_speed="30">
+        교실에 들어서자 눈에 띄는 학생이 한 명 있습니다.
+    </message>
+    
+    <!-- 유키 등장 (오른쪽에서 슬라이드) -->
+    <action type="character_enter" target="yuki" duration="1.2" wait="true">
+        <parameters animation="slide_right" position="right"/>
+    </action>
+    
+    <!-- 효과음: 책 페이지 넘기는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://audio/sfx/page_turn.ogg" volume="0.7"/>
+    </action>
+    
+    <message speaker="yuki" emotion="normal" voice_file="res://audio/voice/yuki/first_meeting_01.ogg" auto_voice="true">
+        (창가 자리에서 책을 읽고 있는 학생이 당신을 힐끗 쳐다봅니다.)
+    </message>
+    
+    <!-- 유키가 놀라는 표정으로 변경 -->
+    <action type="change_emotion" target="yuki" duration="0.3" wait="true">
+        <parameters emotion="surprised" transition="fade"/>
+    </action>
+    
+    <!-- 화면 살짝 흔들기 (긴장감 연출) -->
+    <action type="screen_effect" duration="0.5" wait="false">
+        <parameters effect="shake" intensity="2.0"/>
+    </action>
+    
+    <message speaker="narrator" typewriter_speed="20">
+        그 학생과 어떻게 첫 만남을 시작할까요?
+    </message>
+    
+    <!-- 플레이어 등장 -->
+    <action type="character_enter" target="player" duration="0.8" wait="true">
+        <parameters animation="slide_left" position="left"/>
+    </action>
+    
+    <!-- 카메라를 두 캐릭터 사이로 이동 -->
+    <action type="camera_move" target="camera" duration="1.0" wait="true">
+        <parameters to_position="640,360" animation="ease_in_out"/>
+    </action>
+    
+    <!-- 선택지 대기 포인트 -->
+    <choice_point id="first_meeting_choice"/>
+    
+    <!-- 선택 후 실행될 수 있는 추가 액션들 -->
+    
+    <!-- 친근한 접근 선택 시 -->
+    <action type="change_emotion" target="player" duration="0.5" wait="false" condition="choice_friendly">
+        <parameters emotion="determined"/>
+    </action>
+    
+    <action type="change_emotion" target="yuki" duration="0.5" wait="false" condition="choice_friendly">
+        <parameters emotion="happy"/>
+    </action>
+    
+    <!-- 수줍은 접근 선택 시 -->
+    <action type="change_emotion" target="player" duration="0.5" wait="false" condition="choice_shy">
+        <parameters emotion="nervous"/>
+    </action>
+    
+    <action type="change_emotion" target="yuki" duration="0.5" wait="false" condition="choice_shy">
+        <parameters emotion="thinking"/>
+    </action>
+    
+    <!-- 자신감 있는 접근 선택 시 -->
+    <action type="change_emotion" target="player" duration="0.5" wait="false" condition="choice_confident">
+        <parameters emotion="determined"/>
+    </action>
+    
+    <!-- 화면 효과: 로맨틱한 분위기 연출 -->
+    <action type="screen_effect" duration="1.0" wait="false" condition="choice_confident">
+        <parameters effect="soft_glow" intensity="0.3"/>
+    </action>
+    
+    <!-- 특별한 BGM으로 전환 -->
+    <action type="play_bgm" duration="2.0" wait="false" condition="choice_confident">
+        <parameters audio_path="res://audio/bgm/romantic_moment.ogg" fade_in="true"/>
+    </action>
+    
+    <!-- 씬 종료 전 카메라 원위치 -->
+    <action type="camera_zoom" target="camera" duration="1.0" wait="true">
+        <parameters zoom_level="1.0" animation="ease_out"/>
+    </action>
+    
+    <!-- 잠시 대기 -->
+    <wait duration="1.0"/>
+    
+    <!-- 배경음 페이드아웃 -->
+    <action type="stop_bgm" duration="2.0" wait="false">
+        <parameters fade_out="true"/>
+    </action>
+    
+</scene>
