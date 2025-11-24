@@ -1,0 +1,29 @@
+{
+  "episode_id": "episode3_school_club",
+  "title": {
+    "ko": "세 번째 이야기: 게임 개발 동아리의 도전",
+    "en": "Episode 3: Game Development Club Challenge"
+  },
+  "description": {
+    "ko": "게임 개발 동아리에서 새로운 친구들과 함께 게임을 만들어 나가는 이야기. 창작의 즐거움을 경험해보세요!",
+    "en": "A story of creating games with new friends in the game development club. Experience the joy of creation!"
+  },
+  "main_scene": "scene1_club_room.xml",
+  "characters": [
+    "programmer_player",
+    "artist_yuki",
+    "designer_kai",
+    "club_president_nana", 
+    "music_composer_rio",
+    "senior_developer_taro"
+  ],
+  "backgrounds": [
+    "club_room",
+    "computer_lab",
+    "presentation_room",
+    "school_festival",
+    "arcade_room"
+  ],
+  "minigames_required": false,
+  "estimated_playtime": "10-15분"
+}

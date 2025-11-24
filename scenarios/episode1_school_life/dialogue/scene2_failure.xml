@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene id="scene2_failure" episode="episode1_school_life">
+  <metadata>
+    <title>수학 게임 재도전</title>
+    <description>수학 미니게임 실패 후 친구들의 격려</description>
+  </metadata>
+  
+  <dialogue>
+    <set_background id="math_classroom"/>
+    
+    <show_character id="student_player" emotion="worried"/>
+    <show_character id="teacher_kim" emotion="kind" position="center"/>
+    
+    <message speaker="student_player">
+      <text>앗... 틀렸네요. 죄송해요.</text>
+    </message>
+    
+    <message speaker="teacher_kim">
+      <text>괜찮아! 처음이니까 당연해. 수학은 연습이 가장 중요하거든.</text>
+    </message>
+    
+    <show_character id="friend_mina" emotion="encouraging" position="right"/>
+    
+    <message speaker="friend_mina">
+      <text>나도 처음에 많이 틀렸어! 전혀 부끄러워할 일 아니야!</text>
+    </message>
+    
+    <show_character id="classmate_junho" emotion="helpful" position="far_right"/>
+    
+    <message speaker="classmate_junho">
+      <text>다시 한 번 해보자! 이번엔 내가 옆에서 도와줄게.</text>
+    </message>
+    
+    <message speaker="teacher_kim">
+      <text>그래! 함께 하면 훨씬 쉬워질 거야. 다시 도전해보자!</text>
+    </message>
+    
+    <message speaker="student_player">
+      <text>고마워요, 모두들! 이번엔 정말 열심히 해볼게요!</text>
+    </message>
+    
+    <!-- 재도전 미니게임 -->
+    <minigame type="math" difficulty="1" required="true" success_scene="scene2_success.xml" failure_scene="scene2_encouragement.xml">
+      <instructions>
+        <text lang="ko">친구들의 도움으로 다시 도전! 이번엔 더 쉬운 문제예요.</text>
+        <text lang="en">Try again with friends' help! This time with easier problems.</text>
+      </instructions>
+    </minigame>
+    
+  </dialogue>
+</scene>

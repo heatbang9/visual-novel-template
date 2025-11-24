@@ -1,0 +1,22 @@
+{
+  "id": "senior_wizard_alex",
+  "name": {
+    "ko": "알렉스 선배",
+    "en": "Senior Alex"
+  },
+  "description": {
+    "ko": "마법학교 3학년 선배. 후배들을 잘 챙겨주는 친절한 성격이다.",
+    "en": "A 3rd year senior at magic school. Kind personality who takes good care of juniors."
+  },
+  "sprites": {
+    "normal": "res://characters/senior_wizard_alex/normal.png",
+    "helpful": "res://characters/senior_wizard_alex/helpful.png",
+    "confident": "res://characters/senior_wizard_alex/confident.png",
+    "encouraging": "res://characters/senior_wizard_alex/encouraging.png"
+  },
+  "voice": {
+    "pitch": 0.9,
+    "speed": 1.0
+  },
+  "color": "#32CD32"
+}

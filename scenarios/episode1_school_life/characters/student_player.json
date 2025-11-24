@@ -1,0 +1,22 @@
+{
+  "id": "student_player",
+  "name": {
+    "ko": "나",
+    "en": "Me"
+  },
+  "description": {
+    "ko": "새로운 학교에 전학 온 평범한 학생",
+    "en": "An ordinary student who transferred to a new school"
+  },
+  "sprites": {
+    "normal": "res://characters/student_player/normal.png",
+    "happy": "res://characters/student_player/happy.png", 
+    "worried": "res://characters/student_player/worried.png",
+    "surprised": "res://characters/student_player/surprised.png"
+  },
+  "voice": {
+    "pitch": 1.0,
+    "speed": 1.0
+  },
+  "color": "#4A90E2"
+}

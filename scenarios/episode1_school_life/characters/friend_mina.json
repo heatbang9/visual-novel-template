@@ -1,0 +1,22 @@
+{
+  "id": "friend_mina",
+  "name": {
+    "ko": "민아",
+    "en": "Mina"
+  },
+  "description": {
+    "ko": "활발하고 친근한 반 친구. 항상 밝은 미소를 지니고 있다.",
+    "en": "A lively and friendly classmate. Always has a bright smile."
+  },
+  "sprites": {
+    "normal": "res://characters/friend_mina/normal.png",
+    "happy": "res://characters/friend_mina/happy.png",
+    "excited": "res://characters/friend_mina/excited.png",
+    "thinking": "res://characters/friend_mina/thinking.png"
+  },
+  "voice": {
+    "pitch": 1.2,
+    "speed": 1.1
+  },
+  "color": "#FF6B9D"
+}

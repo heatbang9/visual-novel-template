@@ -1,0 +1,22 @@
+{
+  "id": "student_council_sora",
+  "name": {
+    "ko": "학생회장 소라",
+    "en": "Student Council President Sora"
+  },
+  "description": {
+    "ko": "책임감 강한 학생회장. 학교 행사를 완벽하게 준비한다.",
+    "en": "A responsible student council president who perfectly prepares school events."
+  },
+  "sprites": {
+    "normal": "res://characters/student_council_sora/normal.png",
+    "confident": "res://characters/student_council_sora/confident.png",
+    "busy": "res://characters/student_council_sora/busy.png",
+    "encouraging": "res://characters/student_council_sora/encouraging.png"
+  },
+  "voice": {
+    "pitch": 1.1,
+    "speed": 1.0
+  },
+  "color": "#9932CC"
+}

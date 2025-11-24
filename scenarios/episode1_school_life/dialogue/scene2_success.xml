@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene id="scene2_success" episode="episode1_school_life">
+  <metadata>
+    <title>수학 게임 성공!</title>
+    <description>수학 미니게임을 성공적으로 완료한 후의 이야기</description>
+  </metadata>
+  
+  <dialogue>
+    <set_background id="math_classroom"/>
+    
+    <show_character id="teacher_kim" emotion="kind"/>
+    <show_character id="friend_mina" emotion="excited" position="right"/>
+    <show_character id="classmate_junho" emotion="helpful" position="far_right"/>
+    
+    <message speaker="teacher_kim">
+      <text>와! 정말 훌륭하게 해냈구나! 수학 실력이 대단한데?</text>
+    </message>
+    
+    <message speaker="friend_mina">
+      <text>정말 대박이야! 나도 그 문제들 어려웠는데!</text>
+    </message>
+    
+    <message speaker="classmate_junho">
+      <text>역시... 너 정말 똑똑한 것 같아. 나중에 같이 공부하자!</text>
+    </message>
+    
+    <show_character id="student_player" emotion="happy"/>
+    
+    <message speaker="student_player">
+      <text>와! 다들 도움을 줘서 할 수 있었어요. 고마워요!</text>
+    </message>
+    
+    <message speaker="teacher_kim">
+      <text>약속한 선물이야. 이건 특별한 수학 공식집이야. 앞으로 도움이 될 거야!</text>
+    </message>
+    
+    <show_character id="student_council_sora" emotion="confident" position="left"/>
+    
+    <message speaker="student_council_sora">
+      <text>축하해! 이렇게 실력있는 친구가 와서 우리 반이 더 빛날 것 같아!</text>
+    </message>
+    
+    <message speaker="friend_mina">
+      <text>이제 진짜 우리 친구네! 앞으로 재미있는 학교생활 함께 하자!</text>
+    </message>
+    
+    <message speaker="student_player">
+      <text>네! 정말 좋은 친구들을 만나서 행복해요!</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>이렇게 새로운 학교에서의 첫날이 성공적으로 마무리되었다. 앞으로 더 많은 모험이 기다리고 있을 것이다.</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>【게임 클리어!】 에피소드 1 - 학교생활의 시작을 성공적으로 완주했습니다!</text>
+    </message>
+    
+    <end_scene/>
+  </dialogue>
+</scene>

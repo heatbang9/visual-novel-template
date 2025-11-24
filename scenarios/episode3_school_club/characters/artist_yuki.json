@@ -1,0 +1,22 @@
+{
+  "id": "artist_yuki",
+  "name": {
+    "ko": "유키",
+    "en": "Yuki"
+  },
+  "description": {
+    "ko": "상상력이 풍부한 아티스트. 게임의 그래픽과 캐릭터 디자인을 담당한다.",
+    "en": "An imaginative artist responsible for game graphics and character design."
+  },
+  "sprites": {
+    "normal": "res://characters/artist_yuki/normal.png",
+    "creative": "res://characters/artist_yuki/creative.png",
+    "inspired": "res://characters/artist_yuki/inspired.png",
+    "concentrated": "res://characters/artist_yuki/concentrated.png"
+  },
+  "voice": {
+    "pitch": 1.2,
+    "speed": 1.05
+  },
+  "color": "#FF6347"
+}

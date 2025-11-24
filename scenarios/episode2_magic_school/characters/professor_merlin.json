@@ -1,0 +1,22 @@
+{
+  "id": "professor_merlin",
+  "name": {
+    "ko": "멀린 교수",
+    "en": "Professor Merlin"
+  },
+  "description": {
+    "ko": "마법학교의 존경받는 교수. 수백 년의 경험을 가진 현명한 마법사.",
+    "en": "A respected professor at magic school. A wise wizard with hundreds of years of experience."
+  },
+  "sprites": {
+    "normal": "res://characters/professor_merlin/normal.png",
+    "wise": "res://characters/professor_merlin/wise.png",
+    "teaching": "res://characters/professor_merlin/teaching.png",
+    "concerned": "res://characters/professor_merlin/concerned.png"
+  },
+  "voice": {
+    "pitch": 0.8,
+    "speed": 0.85
+  },
+  "color": "#8B4513"
+}

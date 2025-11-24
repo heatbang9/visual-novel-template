@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene id="scene1_club_room" episode="episode3_school_club">
+  <metadata>
+    <title>게임 개발 동아리</title>
+    <description>창의적인 게임 개발 동아리에서 펼쳐지는 협업 이야기</description>
+  </metadata>
+  
+  <characters>
+    <character id="programmer_player" name="나" position="center"/>
+    <character id="artist_yuki" name="유키" position="right"/>
+    <character id="designer_kai" name="카이" position="left"/>
+    <character id="club_president_nana" name="나나 회장" position="far_left"/>
+    <character id="music_composer_rio" name="리오" position="far_right"/>
+    <character id="senior_developer_taro" name="타로 선배" position="center_left"/>
+  </characters>
+  
+  <backgrounds>
+    <background id="club_room" src="res://backgrounds/club_room.png"/>
+    <background id="computer_lab" src="res://backgrounds/computer_lab.png"/>
+    <background id="presentation_room" src="res://backgrounds/presentation_room.png"/>
+    <background id="school_festival" src="res://backgrounds/school_festival.png"/>
+  </backgrounds>
+  
+  <dialogue>
+    <!-- 동아리방 -->
+    <set_background id="club_room"/>
+    
+    <message speaker="narrator">
+      <text>컴퓨터와 각종 게임 개발 도구들로 가득한 게임 개발 동아리방. 오늘은 새로운 멤버가 들어오는 날이다.</text>
+    </message>
+    
+    <show_character id="programmer_player" emotion="nervous"/>
+    
+    <message speaker="programmer_player">
+      <text>게임 개발 동아리... 정말 이곳이 맞나? 좀 긴장되는데...</text>
+    </message>
+    
+    <show_character id="club_president_nana" emotion="leadership" position="left"/>
+    
+    <message speaker="club_president_nana">
+      <text>어서 와! 새로운 멤버를 기다리고 있었어! 나는 동아리 회장 나나야!</text>
+    </message>
+    
+    <show_character id="artist_yuki" emotion="creative" position="right"/>
+    
+    <message speaker="artist_yuki">
+      <text>안녕! 나는 아트 담당 유키야! 게임 그래픽이랑 캐릭터 디자인을 해!</text>
+    </message>
+    
+    <show_character id="designer_kai" emotion="enthusiastic" position="far_right"/>
+    
+    <message speaker="designer_kai">
+      <text>반가워! 나는 게임 디자이너 카이! 재미있는 게임 메커니즘을 만드는 게 취미야!</text>
+    </message>
+    
+    <show_character id="music_composer_rio" emotion="satisfied" position="far_left"/>
+    
+    <message speaker="music_composer_rio">
+      <text>안녕~ 나는 음악 담당 리오야. 게임에 어울리는 멜로디를 만들어!</text>
+    </message>
+    
+    <show_character id="senior_developer_taro" emotion="mentoring" position="center_left"/>
+    
+    <message speaker="senior_developer_taro">
+      <text>어서 와, 후배! 나는 3학년 타로야. 여기서 몇 년간 게임 개발 경험을 쌓았지.</text>
+    </message>
+    
+    <show_character id="programmer_player" emotion="excited"/>
+    
+    <message speaker="programmer_player">
+      <text>와! 정말 다양한 분야의 전문가들이 모여있네요! 저는 프로그래밍을 배우고 싶어요!</text>
+    </message>
+    
+    <message speaker="club_president_nana">
+      <text>좋아! 그럼 오늘은 우리가 함께 만들어야 할 프로젝트에 대해 얘기해보자!</text>
+    </message>
+    
+    <!-- 컴퓨터실 -->
+    <set_background id="computer_lab"/>
+    
+    <message speaker="senior_developer_taro">
+      <text>다음 주에 학교 축제가 있거든. 우리 동아리에서 게임을 하나 선보이기로 했어.</text>
+    </message>
+    
+    <message speaker="designer_kai">
+      <text>나는 이미 아이디어가 있어! 플레이어가 친구들과 협력해서 퍼즐을 푸는 게임!</text>
+    </message>
+    
+    <message speaker="artist_yuki">
+      <text>오! 좋은 아이디어네! 나는 귀여운 캐릭터들을 그릴 수 있어!</text>
+    </message>
+    
+    <message speaker="music_composer_rio">
+      <text>협력이라는 테마에 어울리는 따뜻한 음악을 만들어볼게!</text>
+    </message>
+    
+    <message speaker="programmer_player">
+      <text>저는... 프로그래밍을 도울 수 있을까요? 아직 많이 서툴지만요...</text>
+    </message>
+    
+    <message speaker="senior_developer_taro">
+      <text>물론이지! 간단한 부분부터 차근차근 배우면 돼. 내가 도와줄게!</text>
+    </message>
+    
+    <message speaker="club_president_nana">
+      <text>그럼 역할을 나눠보자! 카이는 게임 디자인, 유키는 아트, 리오는 음악...</text>
+    </message>
+    
+    <message speaker="club_president_nana">
+      <text>그리고 타로 선배와 함께 프로그래밍을 맡아줄 수 있겠어?</text>
+    </message>
+    
+    <message speaker="programmer_player">
+      <text>네! 열심히 해보겠습니다!</text>
+    </message>
+    
+    <!-- 프레젠테이션룸 -->
+    <set_background id="presentation_room"/>
+    <hide_character id="artist_yuki"/>
+    <hide_character id="music_composer_rio"/>
+    
+    <message speaker="narrator">
+      <text>며칠 후... 각자 맡은 부분을 열심히 작업한 결과를 발표하는 날이다.</text>
+    </message>
+    
+    <message speaker="designer_kai">
+      <text>게임 컨셉을 완성했어! '하모니 퀘스트'라는 이름으로, 서로 다른 능력을 가진 캐릭터들이 협력하는 게임이야!</text>
+    </message>
+    
+    <show_character id="artist_yuki" emotion="inspired" position="right"/>
+    
+    <message speaker="artist_yuki">
+      <text>캐릭터 디자인도 완성! 각각 다른 색깔과 특징을 가진 네 명의 친구들이야!</text>
+    </message>
+    
+    <show_character id="music_composer_rio" emotion="composing" position="far_right"/>
+    
+    <message speaker="music_composer_rio">
+      <text>테마곡도 만들었어! 친구들이 함께할 때의 따뜻한 느낌을 담았어!</text>
+    </message>
+    
+    <message speaker="senior_developer_taro">
+      <text>그리고 우리의 신입 프로그래머도 정말 열심히 했어! 기본 시스템을 구현했지!</text>
+    </message>
+    
+    <show_character id="programmer_player" emotion="proud"/>
+    
+    <message speaker="programmer_player">
+      <text>처음엔 어려웠지만, 선배님과 모두의 도움으로 할 수 있었어요!</text>
+    </message>
+    
+    <message speaker="club_president_nana">
+      <text>모두들 정말 대단해! 이제 이 모든 걸 합쳐서 완성된 게임을 만들어보자!</text>
+    </message>
+    
+    <!-- 학교 축제 -->
+    <set_background id="school_festival"/>
+    
+    <message speaker="narrator">
+      <text>드디어 학교 축제 당일. 게임 개발 동아리의 부스에 많은 사람들이 몰려들었다.</text>
+    </message>
+    
+    <message speaker="club_president_nana">
+      <text>와! 정말 많은 사람들이 우리 게임에 관심을 가져주네!</text>
+    </message>
+    
+    <message speaker="artist_yuki">
+      <text>내가 그린 캐릭터들을 보고 모두들 귀엽다고 해! 정말 뿌듯해!</text>
+    </message>
+    
+    <message speaker="designer_kai">
+      <text>게임 플레이도 재미있다고 하네! 협력 시스템이 잘 작동하는 것 같아!</text>
+    </message>
+    
+    <message speaker="music_composer_rio">
+      <text>음악도 게임 분위기랑 잘 어울린다고! 며칠 밤새워서 만든 보람이 있어!</text>
+    </message>
+    
+    <message speaker="senior_developer_taro">
+      <text>기술적으로도 완성도가 높아! 우리 신입 프로그래머 덕분이야!</text>
+    </message>
+    
+    <message speaker="programmer_player">
+      <text>모두와 함께여서 가능했어요! 혼자였다면 절대 못 만들었을 거예요!</text>
+    </message>
+    
+    <message speaker="club_president_nana">
+      <text>정말 멋진 팀워크였어! 이번 프로젝트로 우리 모두 많이 성장한 것 같아!</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>각자의 재능이 하나로 모여 만들어진 게임. 진정한 협력의 가치를 배운 소중한 경험이었다.</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>【에피소드 3 완료】 혼자서는 할 수 없는 일도 함께라면 가능하다는 걸 배웠습니다.</text>
+    </message>
+    
+    <end_scene/>
+  </dialogue>
+</scene>

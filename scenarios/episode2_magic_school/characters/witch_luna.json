@@ -1,0 +1,22 @@
+{
+  "id": "witch_luna",
+  "name": {
+    "ko": "루나",
+    "en": "Luna"
+  },
+  "description": {
+    "ko": "신비로운 매력을 지닌 동급생 마녀. 달빛 마법을 전문으로 한다.",
+    "en": "A mysterious classmate witch who specializes in moonlight magic."
+  },
+  "sprites": {
+    "normal": "res://characters/witch_luna/normal.png",
+    "magical": "res://characters/witch_luna/magical.png",
+    "mysterious": "res://characters/witch_luna/mysterious.png",
+    "friendly": "res://characters/witch_luna/friendly.png"
+  },
+  "voice": {
+    "pitch": 1.15,
+    "speed": 0.95
+  },
+  "color": "#9370DB"
+}

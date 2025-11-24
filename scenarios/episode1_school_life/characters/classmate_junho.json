@@ -1,0 +1,22 @@
+{
+  "id": "classmate_junho", 
+  "name": {
+    "ko": "준호",
+    "en": "Junho"
+  },
+  "description": {
+    "ko": "조용하지만 수학을 잘하는 반 친구. 도움이 필요할 때 언제나 나서준다.",
+    "en": "A quiet but math-savvy classmate who always helps when needed."
+  },
+  "sprites": {
+    "normal": "res://characters/classmate_junho/normal.png",
+    "focused": "res://characters/classmate_junho/focused.png",
+    "helpful": "res://characters/classmate_junho/helpful.png",
+    "shy": "res://characters/classmate_junho/shy.png"
+  },
+  "voice": {
+    "pitch": 0.8,
+    "speed": 0.85
+  },
+  "color": "#2E8B57"
+}

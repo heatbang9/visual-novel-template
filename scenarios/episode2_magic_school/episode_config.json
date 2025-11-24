@@ -1,0 +1,29 @@
+{
+  "episode_id": "episode2_magic_school", 
+  "title": {
+    "ko": "두 번째 이야기: 마법학교의 신비로운 하루",
+    "en": "Episode 2: A Mysterious Day at Magic School"
+  },
+  "description": {
+    "ko": "마법학교에서 만나는 신비로운 친구들과 함께하는 모험. 마법 수업과 흥미진진한 이야기가 기다립니다.",
+    "en": "Adventure with mysterious friends at magic school. Magic lessons and exciting stories await."
+  },
+  "main_scene": "scene1_magic_entrance.xml",
+  "characters": [
+    "wizard_player",
+    "witch_luna",
+    "professor_merlin", 
+    "familiar_felix",
+    "senior_wizard_alex",
+    "magical_creature_pip"
+  ],
+  "backgrounds": [
+    "magic_classroom",
+    "enchanted_library",
+    "potion_laboratory", 
+    "magic_garden",
+    "wizard_tower"
+  ],
+  "minigames_required": false,
+  "estimated_playtime": "12-15분"
+}

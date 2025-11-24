@@ -1,0 +1,22 @@
+{
+  "id": "magical_creature_pip",
+  "name": {
+    "ko": "핍",
+    "en": "Pip"
+  },
+  "description": {
+    "ko": "작고 귀여운 마법 생물. 학교 도서관에 살면서 책들을 정리해준다.",
+    "en": "A small and cute magical creature who lives in the school library and helps organize books."
+  },
+  "sprites": {
+    "normal": "res://characters/magical_creature_pip/normal.png",
+    "excited": "res://characters/magical_creature_pip/excited.png",
+    "shy": "res://characters/magical_creature_pip/shy.png",
+    "helpful": "res://characters/magical_creature_pip/helpful.png"
+  },
+  "voice": {
+    "pitch": 1.6,
+    "speed": 1.3
+  },
+  "color": "#FF69B4"
+}

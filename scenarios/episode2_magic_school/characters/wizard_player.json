@@ -1,0 +1,22 @@
+{
+  "id": "wizard_player",
+  "name": {
+    "ko": "견습 마법사",
+    "en": "Apprentice Wizard"
+  },
+  "description": {
+    "ko": "마법학교에 입학한 신입 마법사. 아직 서툴지만 열정이 가득하다.",
+    "en": "A new wizard who just enrolled in magic school. Still clumsy but full of enthusiasm."
+  },
+  "sprites": {
+    "normal": "res://characters/wizard_player/normal.png",
+    "casting": "res://characters/wizard_player/casting.png",
+    "confused": "res://characters/wizard_player/confused.png",
+    "determined": "res://characters/wizard_player/determined.png"
+  },
+  "voice": {
+    "pitch": 1.0,
+    "speed": 1.0
+  },
+  "color": "#4169E1"
+}

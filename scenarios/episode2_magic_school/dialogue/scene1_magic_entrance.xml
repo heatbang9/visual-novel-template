@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene id="scene1_magic_entrance" episode="episode2_magic_school">
+  <metadata>
+    <title>마법학교 입학</title>
+    <description>신비로운 마법학교에 입학한 첫날의 모험</description>
+  </metadata>
+  
+  <characters>
+    <character id="wizard_player" name="견습 마법사" position="center"/>
+    <character id="witch_luna" name="루나" position="right"/>
+    <character id="professor_merlin" name="멀린 교수" position="left"/>
+    <character id="familiar_felix" name="펠릭스" position="far_right"/>
+    <character id="senior_wizard_alex" name="알렉스 선배" position="far_left"/>
+    <character id="magical_creature_pip" name="핍" position="center_left"/>
+  </characters>
+  
+  <backgrounds>
+    <background id="magic_entrance" src="res://backgrounds/magic_entrance.png"/>
+    <background id="magic_classroom" src="res://backgrounds/magic_classroom.png"/>
+    <background id="enchanted_library" src="res://backgrounds/enchanted_library.png"/>
+    <background id="potion_laboratory" src="res://backgrounds/potion_laboratory.png"/>
+  </backgrounds>
+  
+  <dialogue>
+    <!-- 마법학교 입구 -->
+    <set_background id="magic_entrance"/>
+    
+    <message speaker="narrator">
+      <text>구름 위에 떠 있는 신비로운 마법학교. 오늘이 바로 입학하는 날이다.</text>
+    </message>
+    
+    <show_character id="wizard_player" emotion="confused"/>
+    
+    <message speaker="wizard_player">
+      <text>와... 정말 마법학교구나! 이런 곳에서 마법을 배우다니!</text>
+    </message>
+    
+    <show_character id="familiar_felix" emotion="playful" position="right"/>
+    
+    <message speaker="familiar_felix">
+      <text>냐옹~ 새로운 학생이구나! 나는 펠릭스야. 마법학교 안내를 도와줄게!</text>
+    </message>
+    
+    <show_character id="wizard_player" emotion="surprised"/>
+    
+    <message speaker="wizard_player">
+      <text>고양이가 말을 해?! 아, 맞다... 여긴 마법학교지!</text>
+    </message>
+    
+    <show_character id="senior_wizard_alex" emotion="helpful" position="left"/>
+    
+    <message speaker="senior_wizard_alex">
+      <text>하하, 처음이니까 놀랄 만하지! 나는 3학년 알렉스야. 학교 구경시켜줄게!</text>
+    </message>
+    
+    <!-- 마법 교실 -->
+    <set_background id="magic_classroom"/>
+    <hide_character id="familiar_felix"/>
+    
+    <show_character id="professor_merlin" emotion="wise" position="center"/>
+    
+    <message speaker="professor_merlin">
+      <text>어서 오거라, 새로운 마법사여. 나는 이 학교의 멀린 교수다.</text>
+    </message>
+    
+    <message speaker="professor_merlin">
+      <text>오늘은 특별히 마법의 기초에 대해 알아보자.</text>
+    </message>
+    
+    <show_character id="witch_luna" emotion="mysterious" position="right"/>
+    
+    <message speaker="witch_luna">
+      <text>안녕, 나는 루나야. 달빛 마법을 좋아해. 너는 어떤 마법에 관심있어?</text>
+    </message>
+    
+    <message speaker="wizard_player">
+      <text>아직 잘 모르겠어요. 모든 마법이 다 신기하고 재미있을 것 같아요!</text>
+    </message>
+    
+    <message speaker="professor_merlin">
+      <text>좋은 마음가짐이군. 그럼 오늘은 마법 생물들과 친해지는 법을 배워보자.</text>
+    </message>
+    
+    <!-- 마법 도서관 -->
+    <set_background id="enchanted_library"/>
+    <hide_character id="professor_merlin"/>
+    
+    <show_character id="magical_creature_pip" emotion="shy" position="center"/>
+    
+    <message speaker="magical_creature_pip">
+      <text>앗... 새로운 사람이다... 안녕... 나는 핍이야...</text>
+    </message>
+    
+    <message speaker="senior_wizard_alex">
+      <text>핍이는 조금 수줍어하지만 정말 친절한 친구야. 마법 책들을 아주 잘 아는걸?</text>
+    </message>
+    
+    <show_character id="magical_creature_pip" emotion="excited"/>
+    
+    <message speaker="magical_creature_pip">
+      <text>앗! 맞아맞아! 마법 책은 내가 제일 잘 알아! 어떤 책 찾는거야?</text>
+    </message>
+    
+    <message speaker="witch_luna">
+      <text>핍이가 추천해주는 책들은 정말 유용해. 나도 많이 도움받았어!</text>
+    </message>
+    
+    <!-- 마법 연구실 -->
+    <set_background id="potion_laboratory"/>
+    
+    <show_character id="professor_merlin" emotion="teaching" position="left"/>
+    
+    <message speaker="professor_merlin">
+      <text>자, 이제 간단한 마법 물약을 만들어보자. 친화의 물약이라고 하는데...</text>
+    </message>
+    
+    <message speaker="professor_merlin">
+      <text>이 물약을 마시면 마법 생물들과 더 쉽게 친해질 수 있단다.</text>
+    </message>
+    
+    <message speaker="wizard_player">
+      <text>와! 정말요? 어떻게 만드는 거예요?</text>
+    </message>
+    
+    <message speaker="witch_luna">
+      <text>나도 같이 도와줄게! 루나의 달빛 가루를 조금 넣으면 더 효과적이야!</text>
+    </message>
+    
+    <show_character id="familiar_felix" emotion="mischievous" position="far_right"/>
+    
+    <message speaker="familiar_felix">
+      <text>냐하하~ 그 물약 정말 맛있어! 나도 한 번 마셔봤는걸?</text>
+    </message>
+    
+    <message speaker="magical_creature_pip">
+      <text>어어! 펠릭스는 그거 마시고 3일 동안 계속 웃었잖아!</text>
+    </message>
+    
+    <message speaker="senior_wizard_alex">
+      <text>하하! 그때가 기억나네. 정말 재미있었어!</text>
+    </message>
+    
+    <message speaker="professor_merlin">
+      <text>자, 모두들 함께 물약을 완성해보자. 마법은 혼자보다 함께할 때 더 강해진다.</text>
+    </message>
+    
+    <message speaker="wizard_player">
+      <text>네! 모두와 함께라면 무엇이든 할 수 있을 것 같아요!</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>이렇게 마법학교에서의 첫날이 즐겁게 마무리되었다. 새로운 친구들과 함께하는 마법 같은 나날들이 시작되었다.</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>【에피소드 2 완료】 진정한 마법은 함께하는 마음에서 나온다는 걸 배웠습니다.</text>
+    </message>
+    
+    <end_scene/>
+  </dialogue>
+</scene>

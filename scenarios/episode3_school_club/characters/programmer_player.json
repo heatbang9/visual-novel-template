@@ -1,0 +1,22 @@
+{
+  "id": "programmer_player",
+  "name": {
+    "ko": "나 (프로그래머)",
+    "en": "Me (Programmer)"
+  },
+  "description": {
+    "ko": "게임 개발에 관심이 많은 학생. 프로그래밍을 배우고 싶어한다.",
+    "en": "A student interested in game development who wants to learn programming."
+  },
+  "sprites": {
+    "normal": "res://characters/programmer_player/normal.png",
+    "focused": "res://characters/programmer_player/focused.png",
+    "excited": "res://characters/programmer_player/excited.png",
+    "thinking": "res://characters/programmer_player/thinking.png"
+  },
+  "voice": {
+    "pitch": 1.0,
+    "speed": 1.0
+  },
+  "color": "#20B2AA"
+}

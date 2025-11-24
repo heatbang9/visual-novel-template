@@ -1,0 +1,22 @@
+{
+  "id": "designer_kai",
+  "name": {
+    "ko": "카이",
+    "en": "Kai"
+  },
+  "description": {
+    "ko": "게임 메커니즘을 설계하는 게임 디자이너. 재미있는 아이디어가 넘쳐난다.",
+    "en": "A game designer who creates game mechanics. Overflowing with fun ideas."
+  },
+  "sprites": {
+    "normal": "res://characters/designer_kai/normal.png",
+    "brainstorming": "res://characters/designer_kai/brainstorming.png",
+    "explaining": "res://characters/designer_kai/explaining.png",
+    "enthusiastic": "res://characters/designer_kai/enthusiastic.png"
+  },
+  "voice": {
+    "pitch": 0.95,
+    "speed": 1.1
+  },
+  "color": "#32CD32"
+}

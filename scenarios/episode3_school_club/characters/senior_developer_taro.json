@@ -1,0 +1,22 @@
+{
+  "id": "senior_developer_taro",
+  "name": {
+    "ko": "타로 선배",
+    "en": "Senior Taro"
+  },
+  "description": {
+    "ko": "게임 개발 경험이 풍부한 3학년 선배. 후배들에게 많은 조언을 해준다.",
+    "en": "A 3rd year senior with rich game development experience who gives lots of advice to juniors."
+  },
+  "sprites": {
+    "normal": "res://characters/senior_developer_taro/normal.png",
+    "mentoring": "res://characters/senior_developer_taro/mentoring.png",
+    "proud": "res://characters/senior_developer_taro/proud.png",
+    "experienced": "res://characters/senior_developer_taro/experienced.png"
+  },
+  "voice": {
+    "pitch": 0.85,
+    "speed": 0.95
+  },
+  "color": "#4682B4"
+}

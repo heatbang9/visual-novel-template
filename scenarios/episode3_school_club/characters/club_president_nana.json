@@ -1,0 +1,22 @@
+{
+  "id": "club_president_nana",
+  "name": {
+    "ko": "나나 회장",
+    "en": "President Nana"
+  },
+  "description": {
+    "ko": "게임 개발 동아리의 카리스마 있는 회장. 팀을 이끄는 리더십이 뛰어나다.",
+    "en": "The charismatic president of the game development club with excellent leadership."
+  },
+  "sprites": {
+    "normal": "res://characters/club_president_nana/normal.png",
+    "leadership": "res://characters/club_president_nana/leadership.png",
+    "encouraging": "res://characters/club_president_nana/encouraging.png",
+    "determined": "res://characters/club_president_nana/determined.png"
+  },
+  "voice": {
+    "pitch": 1.1,
+    "speed": 1.0
+  },
+  "color": "#DA70D6"
+}

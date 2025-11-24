@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene id="scene2_encouragement" episode="episode1_school_life">
+  <metadata>
+    <title>따뜻한 격려</title>
+    <description>실패해도 괜찮다는 친구들의 따뜻한 마음</description>
+  </metadata>
+  
+  <dialogue>
+    <set_background id="classroom"/>
+    
+    <show_character id="student_player" emotion="worried"/>
+    <show_character id="friend_mina" emotion="happy" position="right"/>
+    <show_character id="classmate_junho" emotion="shy" position="far_right"/>
+    <show_character id="teacher_kim" emotion="kind" position="center"/>
+    
+    <message speaker="teacher_kim">
+      <text>괜찮아. 오늘은 여기까지 하자. 수학은 하루아침에 늘지 않거든.</text>
+    </message>
+    
+    <message speaker="friend_mina">
+      <text>맞아! 중요한 건 포기하지 않는 거야. 우리가 계속 도와줄게!</text>
+    </message>
+    
+    <message speaker="classmate_junho">
+      <text>나... 나도 처음엔 정말 못했어. 근데 계속 하니까 늘더라. 걱정하지 마.</text>
+    </message>
+    
+    <show_character id="student_council_sora" emotion="encouraging" position="left"/>
+    
+    <message speaker="student_council_sora">
+      <text>학교생활에서 중요한 건 성적이 아니라 함께하는 친구들이야!</text>
+    </message>
+    
+    <message speaker="student_player">
+      <text>모두들... 정말 고마워요. 이런 친구들이 있어서 정말 행복해요!</text>
+    </message>
+    
+    <message speaker="friend_mina">
+      <text>당연하지! 우린 이제 진짜 친구니까! 앞으로 재밌게 지내자!</text>
+    </message>
+    
+    <message speaker="teacher_kim">
+      <text>훌륭한 친구들이구나. 여러분 모두 오늘 정말 잘했어요.</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>비록 수학 게임은 통과하지 못했지만, 진짜 소중한 것을 얻었다. 바로 따뜻한 친구들이다.</text>
+    </message>
+    
+    <message speaker="narrator">
+      <text>【에피소드 완료】 때로는 성공보다 더 소중한 것들이 있습니다.</text>
+    </message>
+    
+    <end_scene/>
+  </dialogue>
+</scene>

@@ -1,0 +1,22 @@
+{
+  "id": "familiar_felix",
+  "name": {
+    "ko": "펠릭스",
+    "en": "Felix"
+  },
+  "description": {
+    "ko": "장난기 많은 마법 고양이. 학생들의 마법 수행을 도와준다.",
+    "en": "A playful magic cat who helps students with their magical practices."
+  },
+  "sprites": {
+    "normal": "res://characters/familiar_felix/normal.png",
+    "playful": "res://characters/familiar_felix/playful.png",
+    "wise": "res://characters/familiar_felix/wise.png",
+    "mischievous": "res://characters/familiar_felix/mischievous.png"
+  },
+  "voice": {
+    "pitch": 1.4,
+    "speed": 1.2
+  },
+  "color": "#FF4500"
+}

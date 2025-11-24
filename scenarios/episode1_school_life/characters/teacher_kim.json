@@ -1,0 +1,22 @@
+{
+  "id": "teacher_kim",
+  "name": {
+    "ko": "김선생님",
+    "en": "Teacher Kim"
+  },
+  "description": {
+    "ko": "친절하지만 엄격한 수학 선생님. 학생들을 진심으로 아낀다.",
+    "en": "A kind but strict math teacher who genuinely cares for students."
+  },
+  "sprites": {
+    "normal": "res://characters/teacher_kim/normal.png",
+    "serious": "res://characters/teacher_kim/serious.png",
+    "kind": "res://characters/teacher_kim/kind.png",
+    "explaining": "res://characters/teacher_kim/explaining.png"
+  },
+  "voice": {
+    "pitch": 0.9,
+    "speed": 0.9
+  },
+  "color": "#8B4513"
+}
