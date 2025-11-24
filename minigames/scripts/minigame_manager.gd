@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func register_minigames() -> void:
 	minigame_scenes = {
+		# 기존 미니게임들
 		"reaction": "res://minigames/scenes/reaction_game.tscn",
 		"color_match": "res://minigames/scenes/color_match_game.tscn",
 		"puzzle": "res://minigames/scenes/puzzle_game.tscn",
@@ -30,7 +31,29 @@ func register_minigames() -> void:
 		"cleaning": "res://minigames/scenes/cleaning_game.tscn",
 		"cooking": "res://minigames/scenes/cooking_game.tscn",
 		"plant": "res://minigames/scenes/plant_game.tscn",
-		"tower": "res://minigames/scenes/tower_game.tscn"
+		"tower": "res://minigames/scenes/tower_game.tscn",
+		
+		# 새로운 미니게임들 (v2)
+		"card_battle": "res://minigames_v2/scenes/card_battle_game.tscn",
+		"dungeon_crawler": "res://minigames_v2/scenes/dungeon_crawler_game.tscn",
+		"tower_defense": "res://minigames_v2/scenes/tower_defense_game.tscn",
+		"log_adventure": "res://minigames_v2/scenes/log_adventure_game.tscn",
+		"stack_management": "res://minigames_v2/scenes/stack_management_game.tscn",
+		"pattern_breaker": "res://minigames_v2/scenes/pattern_breaker_game.tscn",
+		"route_finder": "res://minigames_v2/scenes/route_finder_game.tscn",
+		"chain_reaction": "res://minigames_v2/scenes/chain_reaction_game.tscn",
+		"grid_control": "res://minigames_v2/scenes/grid_control_game.tscn",
+		"sequence_master": "res://minigames_v2/scenes/sequence_master_game.tscn",
+		"matrix_hacker": "res://minigames_v2/scenes/matrix_hacker_game.tscn",
+		"particle_collector": "res://minigames_v2/scenes/particle_collector_game.tscn",
+		"wave_survivor": "res://minigames_v2/scenes/wave_survivor_game.tscn",
+		"node_connector": "res://minigames_v2/scenes/node_connector_game.tscn",
+		"puzzle_maker": "res://minigames_v2/scenes/puzzle_maker_game.tscn",
+		"spell_caster": "res://minigames_v2/scenes/spell_caster_game.tscn",
+		"tetris_variant": "res://minigames_v2/scenes/tetris_variant_game.tscn",
+		"line_defender": "res://minigames_v2/scenes/line_defender_game.tscn",
+		"color_flow": "res://minigames_v2/scenes/color_flow_game.tscn",
+		"time_manager": "res://minigames_v2/scenes/time_manager_game.tscn"
 	}
 
 func start_minigame(game_name: String, difficulty: int = 1) -> bool:
