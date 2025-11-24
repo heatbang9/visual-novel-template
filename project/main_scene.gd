@@ -11,12 +11,18 @@ extends Node
 @onready var options_container = $UI/DialogueBox/MarginContainer/VBoxContainer/ChoiceContainer/Options
 
 var current_scene: Node = null
+var minigame_manager: MinigameManager
 
 func _ready() -> void:
     dialogue_scene_loader.configure_character_system(character_manager, character_layer)
     dialogue_scene_loader.set_background_target(background_sprite)
     dialogue_scene_loader.dialogue_started.connect(_on_dialogue_started)
     dialogue_scene_loader.dialogue_ended.connect(_on_dialogue_ended)
+    
+    minigame_manager = MinigameManager.new()
+    minigame_manager.minigame_completed.connect(_on_minigame_completed)
+    add_child(minigame_manager)
+    
     load_first_scene()
 
 func load_first_scene() -> void:
@@ -99,8 +105,28 @@ func _on_dialogue_started(scene_name: String) -> void:
 func _on_dialogue_ended(scene_name: String) -> void:
     print("Dialogue ended: ", scene_name)
 
+func start_minigame(game_name: String, difficulty: int = 1) -> void:
+    minigame_manager.start_minigame(game_name, difficulty)
+
+func _on_minigame_completed(game_name: String, success: bool, score: int) -> void:
+    print("미니게임 완료: %s, 성공: %s, 점수: %d" % [game_name, success, score])
+    show_next_dialogue()
+
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton:
         if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
             if not choice_container.visible:
                 show_next_dialogue()
+    
+    if event is InputEventKey and event.pressed:
+        match event.keycode:
+            KEY_1:
+                start_minigame("reaction", 1)
+            KEY_2:
+                start_minigame("color_match", 1)
+            KEY_3:
+                start_minigame("puzzle", 1)
+            KEY_4:
+                start_minigame("memory", 1)
+            KEY_5:
+                start_minigame("math", 1)
