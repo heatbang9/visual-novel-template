@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="mystery_novel" default_route="main">
+    <!-- 메인 루트: 미스터리 조사 -->
+    <route id="main" name="시간 캡슐의 비밀">
+        <!-- 프롤로그: 도서관 발견 -->
+        <scene id="prologue_discovery" path="res://scenes/dialogue/mystery/prologue_discovery.xml">
+            <condition type="variable" variable="game_start" value="true"/>
+            <set_variable name="prologue_complete" value="true"/>
+            <set_variable name="time_capsule_discovered" value="true"/>
+            
+            <choice id="investigate_immediately" text="즉시 조사해보자">
+                <effect variable="curiosity_level" modifier="add" value="3"/>
+                <effect variable="investigation_approach" modifier="set" value="aggressive"/>
+            </choice>
+            
+            <choice id="gather_friends" text="친구들과 함께 조사하자">
+                <effect variable="teamwork_level" modifier="add" value="2"/>
+                <effect variable="investigation_approach" modifier="set" value="collaborative"/>
+            </choice>
+            
+            <choice id="report_to_teacher" text="선생님께 신고하자">
+                <effect variable="authority_trust" modifier="add" value="2"/>
+                <effect variable="investigation_approach" modifier="set" value="official"/>
+            </choice>
+        </scene>
+        
+        <!-- 1장: 시간 캡슐 내용 확인 -->
+        <scene id="chapter1_contents" path="res://scenes/dialogue/mystery/chapter1_contents.xml">
+            <condition type="variable" variable="prologue_complete" value="true"/>
+            <set_variable name="chapter1_complete" value="true"/>
+            <set_variable name="contents_examined" value="true"/>
+            
+            <choice id="focus_on_photos" text="사진들을 자세히 살펴본다">
+                <effect variable="photo_clues" modifier="add" value="2"/>
+                <effect variable="observation_skill" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="decode_message" text="암호 메시지를 해독한다">
+                <requirement variable="curiosity_level" operator=">=" value="3"/>
+                <effect variable="cipher_clues" modifier="add" value="3"/>
+                <effect variable="logic_skill" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="research_documents" text="오래된 문서들을 조사한다">
+                <effect variable="document_clues" modifier="add" value="2"/>
+                <effect variable="research_skill" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <!-- 2장: 50년 전 진실 추적 -->
+        <scene id="chapter2_investigation" path="res://scenes/dialogue/mystery/chapter2_investigation.xml">
+            <condition type="variable" variable="chapter1_complete" value="true"/>
+            <condition type="variable" variable="total_clues" value=">=3"/>
+            <set_variable name="chapter2_complete" value="true"/>
+            
+            <choice id="interview_librarian" text="사서와 대화한다">
+                <effect variable="librarian_info" modifier="add" value="2"/>
+                <effect variable="social_skill" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="search_archives" text="학교 기록보관소를 뒤진다">
+                <requirement variable="research_skill" operator=">=" value="2"/>
+                <effect variable="archive_clues" modifier="add" value="3"/>
+                <effect variable="historical_evidence" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="contact_graduates" text="졸업생들에게 문의한다">
+                <requirement variable="social_skill" operator=">=" value="2"/>
+                <effect variable="witness_testimony" modifier="add" value="2"/>
+                <effect variable="old_secrets" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <!-- 3장: 현재 위험 감지 -->
+        <scene id="chapter3_danger" path="res://scenes/dialogue/mystery/chapter3_danger.xml">
+            <condition type="variable" variable="chapter2_complete" value="true"/>
+            <condition type="variable" variable="investigation_progress" value=">=5"/>
+            <set_variable name="chapter3_complete" value="true"/>
+            <set_variable name="danger_level" value="high"/>
+            
+            <choice id="confront_board" text="이사진과 직접 대결한다">
+                <requirement variable="evidence_strength" operator=">=" value="5"/>
+                <requirement variable="courage_level" operator=">=" value="4"/>
+                <effect variable="confrontation_route" modifier="set" value="direct"/>
+            </choice>
+            
+            <choice id="gather_more_evidence" text="더 많은 증거를 수집한다">
+                <effect variable="evidence_strength" modifier="add" value="3"/>
+                <effect variable="investigation_depth" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="seek_adult_help" text="신뢰할 만한 어른의 도움을 구한다">
+                <requirement variable="authority_trust" operator=">=" value="3"/>
+                <effect variable="adult_support" modifier="add" value="3"/>
+                <effect variable="safety_level" modifier="add" value="2"/>
+            </choice>
+        </scene>
+        
+        <!-- 클라이맥스: 진실 폭로 -->
+        <scene id="climax_revelation" path="res://scenes/dialogue/mystery/climax_revelation.xml">
+            <condition type="variable" variable="chapter3_complete" value="true"/>
+            <condition type="variable" variable="evidence_strength" value=">=7"/>
+            <set_variable name="climax_complete" value="true"/>
+            
+            <choice id="expose_publicly" text="모든 진실을 공개한다">
+                <requirement variable="evidence_strength" operator=">=" value="10"/>
+                <requirement variable="courage_level" operator=">=" value="5"/>
+                <effect variable="ending_type" modifier="set" value="full_truth"/>
+                <effect variable="justice_served" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="private_resolution" text="조용히 해결한다">
+                <requirement variable="adult_support" operator=">=" value="3"/>
+                <effect variable="ending_type" modifier="set" value="quiet_justice"/>
+                <effect variable="compromise_made" modifier="set" value="true"/>
+            </choice>
+            
+            <choice id="partial_reveal" text="부분적으로만 밝힌다">
+                <effect variable="ending_type" modifier="set" value="partial_truth"/>
+                <effect variable="incomplete_justice" modifier="set" value="true"/>
+            </choice>
+        </scene>
+        
+        <!-- 에pilogue: 결말 -->
+        <scene id="epilogue_resolution" path="res://scenes/dialogue/mystery/epilogue_resolution.xml">
+            <condition type="variable" variable="climax_complete" value="true"/>
+            <set_variable name="story_complete" value="true"/>
+        </scene>
+    </route>
+    
+    <!-- 우정 심화 루트 -->
+    <route id="friendship_route" name="동료들과의 유대">
+        <scene id="friend_bonding" path="res://scenes/dialogue/mystery/friend_bonding.xml">
+            <condition type="variable" variable="teamwork_level" value=">=3"/>
+            <condition type="variable" variable="investigation_approach" value="collaborative"/>
+            
+            <choice id="share_burden" text="무거운 진실을 친구들과 나눈다">
+                <effect variable="friendship_strength" modifier="add" value="3"/>
+                <effect variable="emotional_support" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="protect_friends" text="친구들을 위험으로부터 보호한다">
+                <effect variable="protective_instinct" modifier="add" value="2"/>
+                <effect variable="isolation_level" modifier="add" value="1"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 글로벌 변수 정의 -->
+    <global_variables>
+        <!-- 게임 진행 상태 -->
+        <variable name="game_start" type="bool" default="true"/>
+        <variable name="prologue_complete" type="bool" default="false"/>
+        <variable name="chapter1_complete" type="bool" default="false"/>
+        <variable name="chapter2_complete" type="bool" default="false"/>
+        <variable name="chapter3_complete" type="bool" default="false"/>
+        <variable name="climax_complete" type="bool" default="false"/>
+        <variable name="story_complete" type="bool" default="false"/>
+        
+        <!-- 발견 및 조사 진행 -->
+        <variable name="time_capsule_discovered" type="bool" default="false"/>
+        <variable name="contents_examined" type="bool" default="false"/>
+        <variable name="investigation_progress" type="int" default="0"/>
+        <variable name="evidence_strength" type="int" default="0"/>
+        <variable name="danger_level" type="string" default="low"/>
+        
+        <!-- 캐릭터 능력치 -->
+        <variable name="curiosity_level" type="int" default="2"/>
+        <variable name="observation_skill" type="int" default="1"/>
+        <variable name="logic_skill" type="int" default="1"/>
+        <variable name="research_skill" type="int" default="1"/>
+        <variable name="social_skill" type="int" default="1"/>
+        <variable name="courage_level" type="int" default="2"/>
+        <variable name="teamwork_level" type="int" default="0"/>
+        <variable name="authority_trust" type="int" default="1"/>
+        
+        <!-- 단서 수집 상태 -->
+        <variable name="photo_clues" type="int" default="0"/>
+        <variable name="cipher_clues" type="int" default="0"/>
+        <variable name="document_clues" type="int" default="0"/>
+        <variable name="librarian_info" type="int" default="0"/>
+        <variable name="archive_clues" type="int" default="0"/>
+        <variable name="witness_testimony" type="int" default="0"/>
+        <variable name="historical_evidence" type="int" default="0"/>
+        <variable name="total_clues" type="int" default="0"/>
+        
+        <!-- 인물 관계 -->
+        <variable name="friendship_strength" type="int" default="0"/>
+        <variable name="emotional_support" type="int" default="0"/>
+        <variable name="adult_support" type="int" default="0"/>
+        <variable name="safety_level" type="int" default="2"/>
+        
+        <!-- 조사 방식 및 결과 -->
+        <variable name="investigation_approach" type="string" default="neutral"/>
+        <variable name="confrontation_route" type="string" default="none"/>
+        <variable name="ending_type" type="string" default="normal"/>
+        
+        <!-- 플래그들 -->
+        <variable name="justice_served" type="bool" default="false"/>
+        <variable name="compromise_made" type="bool" default="false"/>
+        <variable name="incomplete_justice" type="bool" default="false"/>
+        <variable name="protective_instinct" type="int" default="0"/>
+        <variable name="isolation_level" type="int" default="0"/>
+        <variable name="old_secrets" type="int" default="0"/>
+        <variable name="investigation_depth" type="int" default="0"/>
+    </global_variables>
+</scenario>
