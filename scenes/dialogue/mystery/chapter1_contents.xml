@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="chapter1_contents" localization_key="scenes.mystery.chapter1.title">
+    
+    <!-- 배경: 빈 교실 (비밀스러운 분위기) -->
+    <background type="image" 
+                path="res://scenes/background/empty_classroom.png" 
+                transition="slide_right" 
+                duration="1.5"/>
+    
+    <!-- 긴장감 있는 BGM으로 변경 -->
+    <action type="play_bgm" duration="1.5" wait="false">
+        <parameters audio_path="res://audio/bgm/investigation_theme.ogg" 
+                   fade_in="true" 
+                   loop="true"/>
+    </action>
+    
+    <!-- 이미 정의된 캐릭터들 재사용 -->
+    <character id="junho" name="이준호" default_position="center">
+        <portrait emotion="focused" path="res://characters/junho/focused.png"/>
+        <portrait emotion="surprised" path="res://characters/junho/surprised.png"/>
+        <portrait emotion="analytical" path="res://characters/junho/analytical.png"/>
+    </character>
+    
+    <character id="seoyon" name="김서연" default_position="right">
+        <portrait emotion="concerned" path="res://characters/seoyon/concerned.png"/>
+        <portrait emotion="thoughtful" path="res://characters/seoyon/thoughtful.png"/>
+    </character>
+    
+    <character id="haneul" name="최하늘" default_position="left">
+        <portrait emotion="normal" path="res://characters/haneul/normal.png"/>
+        <portrait emotion="serious" path="res://characters/haneul/serious.png"/>
+        <voice pitch="1.1" speed="1.0" volume="0.85"/>
+    </character>
+    
+    <!-- 대화 시작 -->
+    <message speaker="narrator" localization_key="scenes.mystery.chapter1.narrator_01">
+        방과 후, 네 명은 비어있는 교실에서 시간 캡슐의 내용물을 자세히 조사하기 시작했다.
+    </message>
+    
+    <!-- 캐릭터들 등장 -->
+    <action type="character_enter" target="junho" duration="0.8" wait="false">
+        <parameters animation="fade_in" position="center"/>
+    </action>
+    
+    <action type="character_enter" target="seoyon" duration="0.8" wait="false">
+        <parameters animation="slide_right" position="right"/>
+    </action>
+    
+    <action type="character_enter" target="haneul" duration="0.8" wait="true">
+        <parameters animation="slide_left" position="left"/>
+    </action>
+    
+    <message speaker="junho" emotion="focused" auto_voice="true" localization_key="scenes.mystery.chapter1.junho_01">
+        자, 이제 차근차근 살펴보자. 첫 번째로 이 사진들부터...
+    </message>
+    
+    <!-- 사진을 보는 효과 -->
+    <action type="screen_effect" duration="0.3" wait="true">
+        <parameters effect="soft_glow"/>
+    </action>
+    
+    <message speaker="seoyon" emotion="concerned" auto_voice="true" localization_key="scenes.mystery.chapter1.seoyon_01">
+        이 사진 속 사람들... 우리 학교 교복을 입고 있는데, 스타일이 최근 것 같아.
+    </message>
+    
+    <action type="change_emotion" target="haneul" duration="0.5" wait="true">
+        <parameters emotion="serious"/>
+    </action>
+    
+    <message speaker="haneul" emotion="serious" auto_voice="true" localization_key="scenes.mystery.chapter1.haneul_01">
+        여기 뒷면에 날짜가... 2022년이라고 적혀 있네요. 2년 전이에요.
+    </message>
+    
+    <!-- 충격적인 발견을 위한 효과음 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://audio/sfx/revelation.ogg" volume="0.6"/>
+    </action>
+    
+    <action type="change_emotion" target="junho" duration="0.5" wait="true">
+        <parameters emotion="surprised"/>
+    </action>
+    
+    <message speaker="junho" emotion="surprised" auto_voice="true" localization_key="scenes.mystery.chapter1.junho_02">
+        잠깐! 그럼 이건 50년 전 캡슐이 아니라 누군가 2년 전에 넣은 거야!
+    </message>
+    
+    <!-- 다음으로 USB 조사 -->
+    <message speaker="narrator" localization_key="scenes.mystery.chapter1.narrator_02">
+        USB를 컴퓨터에 연결해보니, 여러 개의 암호화된 파일들과 함께 하나의 읽을 수 있는 텍스트 파일이 있었다.
+    </message>
+    
+    <action type="change_emotion" target="seoyon" duration="0.5" wait="true">
+        <parameters emotion="thoughtful"/>
+    </action>
+    
+    <message speaker="seoyon" emotion="thoughtful" auto_voice="true" localization_key="scenes.mystery.chapter1.seoyon_02">
+        "진실이 밝혀지면 우리 모두 위험하다. 하지만 김영수의 죽음은 절대 잊혀져서는 안 된다." ...김영수가 누구지?
+    </message>
+    
+    <!-- 암호 메시지 조사 -->
+    <message speaker="junho" emotion="analytical" auto_voice="true" localization_key="scenes.mystery.chapter1.junho_03">
+        이 암호 메시지를 봐. 숫자와 한글이 조합되어 있어. 뭔가 패턴이 있는 것 같은데...
+    </message>
+    
+    <!-- 카메라 줌인으로 긴장감 조성 -->
+    <action type="camera_zoom" target="camera" duration="1.5" wait="true">
+        <parameters zoom_level="1.4" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="narrator" localization_key="scenes.mystery.chapter1.narrator_03">
+        마지막으로 발견한 것은 오래된 신문 기사 스크랩이었다. 1974년, "세인트 아카데미아 학생 김영수 군 의문사"라는 제목이 눈에 띄었다.
+    </message>
+    
+    <!-- 모든 캐릭터가 충격받는 연출 -->
+    <action type="screen_effect" duration="0.2" wait="false">
+        <parameters effect="flash_white"/>
+    </action>
+    
+    <action type="change_emotion" target="junho" duration="0.5" wait="false">
+        <parameters emotion="shocked"/>
+    </action>
+    
+    <action type="change_emotion" target="seoyon" duration="0.5" wait="false">
+        <parameters emotion="worried"/>
+    </action>
+    
+    <action type="change_emotion" target="haneul" duration="0.5" wait="true">
+        <parameters emotion="serious"/>
+    </action>
+    
+    <message speaker="haneul" emotion="serious" auto_voice="true" localization_key="scenes.mystery.chapter1.haneul_02">
+        50년 전... 그럼 이 시간 캡슐은 그 사건과 관련이 있다는 건가요?
+    </message>
+    
+    <message speaker="junho" emotion="analytical" auto_voice="true" localization_key="scenes.mystery.chapter1.junho_04">
+        이제 알겠어. 2년 전에 누군가 이 50년 전 사건의 증거를 발견하고 시간 캡슐에 숨긴 거야. 하지만 왜?
+    </message>
+    
+    <!-- 위험의 전조를 암시하는 연출 -->
+    <action type="screen_effect" duration="1.0" wait="true">
+        <parameters effect="fade_black"/>
+    </action>
+    
+    <message speaker="narrator" localization_key="scenes.mystery.chapter1.narrator_04">
+        그 순간, 복도에서 발걸음 소리가 들렸다. 누군가 이쪽으로 오고 있었다.
+    </message>
+    
+    <!-- 긴장감을 위한 효과음 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://audio/sfx/footsteps.ogg" volume="0.8"/>
+    </action>
+    
+    <action type="screen_effect" duration="1.0" wait="true">
+        <parameters effect="fade_from_black"/>
+    </action>
+    
+    <message speaker="seoyon" emotion="worried" auto_voice="true" localization_key="scenes.mystery.chapter1.seoyon_03">
+        빨리 치워! 누가 오는 것 같아!
+    </message>
+    
+    <message speaker="narrator" localization_key="scenes.mystery.chapter1.narrator_05">
+        네 명은 서둘러 증거들을 감추고 각자의 선택을 해야 했다. 이 미스터리는 예상보다 훨씬 복잡하고 위험해 보였다.
+    </message>
+    
+    <!-- 선택지 포인트 -->
+    <choice_point id="investigation_method"/>
+    
+</scene>

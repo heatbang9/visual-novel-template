@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="prologue_discovery" localization_key="scenes.mystery.prologue.title">
+    
+    <!-- 배경 설정: 도서관 지하실 -->
+    <background type="image" 
+                path="res://scenes/background/library_basement.png" 
+                transition="fade" 
+                duration="2.0"/>
+    
+    <!-- BGM 시작 -->
+    <action type="play_bgm" duration="2.0" wait="false">
+        <parameters audio_path="res://audio/bgm/mystery_theme.ogg" 
+                   fade_in="true" 
+                   loop="true"/>
+    </action>
+    
+    <!-- 캐릭터 정의 -->
+    <character id="junho" name="이준호" default_position="center">
+        <portrait emotion="curious" path="res://characters/junho/curious.png"/>
+        <portrait emotion="shocked" path="res://characters/junho/shocked.png"/>
+        <portrait emotion="determined" path="res://characters/junho/determined.png"/>
+        <voice pitch="1.0" speed="1.0" volume="0.9"/>
+    </character>
+    
+    <character id="seoyon" name="김서연" default_position="right">
+        <portrait emotion="normal" path="res://characters/seoyon/normal.png"/>
+        <portrait emotion="worried" path="res://characters/seoyon/worried.png"/>
+        <portrait emotion="excited" path="res://characters/seoyon/excited.png"/>
+        <voice pitch="1.3" speed="1.1" volume="0.8"/>
+    </character>
+    
+    <character id="minsu" name="박민수" default_position="left">
+        <portrait emotion="normal" path="res://characters/minsu/normal.png"/>
+        <portrait emotion="nervous" path="res://characters/minsu/nervous.png"/>
+        <voice pitch="0.9" speed="0.95" volume="0.9"/>
+    </character>
+    
+    <!-- 대화 시작 -->
+    <message speaker="narrator" localization_key="scenes.mystery.prologue.narrator_01">
+        2024년 4월, 세인트 아카데미아 고등학교 1학년 이준호는 도서관 리모델링 작업을 구경하고 있었다.
+    </message>
+    
+    <!-- 캐릭터들 등장 -->
+    <action type="character_enter" target="junho" duration="1.0" wait="true">
+        <parameters animation="fade_in" position="center"/>
+    </action>
+    
+    <message speaker="junho" emotion="curious" auto_voice="true" localization_key="scenes.mystery.prologue.junho_01">
+        도서관 지하실을 리모델링한다더니, 정말 오래된 느낌이네...
+    </message>
+    
+    <!-- 효과음: 무언가 떨어지는 소리 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://audio/sfx/object_fall.ogg" volume="0.7"/>
+    </action>
+    
+    <action type="character_enter" target="seoyon" duration="1.0" wait="true">
+        <parameters animation="slide_right" position="right"/>
+    </action>
+    
+    <message speaker="seoyon" emotion="excited" auto_voice="true" localization_key="scenes.mystery.prologue.seoyon_01">
+        준호야! 저기 봐! 뭔가 나왔어!
+    </message>
+    
+    <action type="character_enter" target="minsu" duration="1.0" wait="true">
+        <parameters animation="slide_left" position="left"/>
+    </action>
+    
+    <message speaker="minsu" emotion="nervous" auto_voice="true" localization_key="scenes.mystery.prologue.minsu_01">
+        어? 저건... 시간 캡슐인가요? 50년 전이라고 적혀 있는데...
+    </message>
+    
+    <!-- 카메라 줌인 효과 -->
+    <action type="camera_zoom" target="camera" duration="2.0" wait="true">
+        <parameters zoom_level="1.3" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="narrator" localization_key="scenes.mystery.prologue.narrator_02">
+        세 명은 먼지투성이의 금속 상자를 발견했다. 50년 전에 묻힌 시간 캡슐이었지만, 이상하게도 자물쇠가 새것처럼 보였다.
+    </message>
+    
+    <action type="change_emotion" target="junho" duration="0.5" wait="true">
+        <parameters emotion="shocked"/>
+    </action>
+    
+    <message speaker="junho" emotion="shocked" auto_voice="true" localization_key="scenes.mystery.prologue.junho_02">
+        잠깐... 이상해. 50년 전 캡슐이라면서 자물쇠가 너무 새것 같지 않아?
+    </message>
+    
+    <action type="change_emotion" target="seoyon" duration="0.5" wait="true">
+        <parameters emotion="worried"/>
+    </action>
+    
+    <message speaker="seoyon" emotion="worried" auto_voice="true" localization_key="scenes.mystery.prologue.seoyon_02">
+        그러게... 뭔가 이상하다. 그리고 안에서 무슨 소리가 나는 것 같은데?
+    </message>
+    
+    <!-- 긴장감 조성을 위한 음향 효과 -->
+    <action type="play_sfx" wait="false">
+        <parameters audio_path="res://audio/sfx/metal_rattle.ogg" volume="0.5"/>
+    </action>
+    
+    <message speaker="narrator" localization_key="scenes.mystery.prologue.narrator_03">
+        캡슐을 조심스럽게 열어보니, 예상과는 전혀 다른 것들이 들어있었다. 최근에 찍힌 것 같은 사진들과 현대적인 USB, 그리고 암호처럼 보이는 메모가...
+    </message>
+    
+    <action type="change_emotion" target="junho" duration="0.5" wait="true">
+        <parameters emotion="determined"/>
+    </action>
+    
+    <message speaker="junho" emotion="determined" auto_voice="true" localization_key="scenes.mystery.prologue.junho_03">
+        이건 단순한 시간 캡슐이 아니야. 누군가 의도적으로 이걸 숨긴 거 같아.
+    </message>
+    
+    <message speaker="narrator" localization_key="scenes.mystery.prologue.narrator_04">
+        이 순간부터, 준호의 첫 번째 미스터리 사건이 시작되었다. 하지만 그는 아직 이 발견이 얼마나 위험한 비밀을 담고 있는지 몰랐다.
+    </message>
+    
+    <!-- 선택지 포인트 -->
+    <choice_point id="investigation_start"/>
+    
+</scene>
