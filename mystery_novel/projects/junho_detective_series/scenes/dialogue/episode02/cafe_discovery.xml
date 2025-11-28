@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene name="cafe_discovery" localization_key="episode02.cafe_discovery">
+    
+    <!-- 배경: 세인트 아카데미아 정문 앞 -->
+    <background type="image" 
+                path="res://scenes/background/school_gate.png" 
+                transition="fade" 
+                duration="2.0"/>
+    
+    <!-- 배경음악 -->
+    <action type="play_bgm" duration="2.0" wait="false">
+        <parameters audio_path="res://audio/bgm/daily_life_theme.ogg" 
+                   fade_in="true" 
+                   loop="true"/>
+    </action>
+    
+    <!-- 캐릭터 정의 -->
+    <character id="junho" name="이준호" default_position="center">
+        <portrait emotion="curious" path="res://characters/junho/curious.png"/>
+        <portrait emotion="thoughtful" path="res://characters/junho/thoughtful.png"/>
+        <portrait emotion="determined" path="res://characters/junho/determined.png"/>
+        <voice pitch="1.0" speed="1.0" volume="0.9"/>
+    </character>
+    
+    <!-- 나레이션 시작 -->
+    <message speaker="narrator" localization_key="episode02.cafe_discovery.narrator_01">
+        방과 후, 이준호는 평소와 다른 광경을 목격했다. 학교 정문 건너편에 있는 작은 카페 '드림 스페이스' 앞에 경찰차가 서있는 것이었다.
+    </message>
+    
+    <!-- 준호 등장 -->
+    <action type="character_enter" target="junho" duration="1.0" wait="true">
+        <parameters animation="fade_in" position="center"/>
+    </action>
+    
+    <message speaker="junho" emotion="curious" auto_voice="true" localization_key="episode02.cafe_discovery.junho_01">
+        (속마음) 저 카페 앞에 경찰차가? 며칠째 보이는 것 같은데... 무슨 일이 있는 건가?
+    </message>
+    
+    <action type="change_emotion" target="junho" duration="0.5" wait="true">
+        <parameters emotion="thoughtful"/>
+    </action>
+    
+    <message speaker="junho" emotion="thoughtful" auto_voice="true" localization_key="episode02.cafe_discovery.junho_02">
+        (속마음) 그냥 지나칠까? 아니면... 시간 캡슐 사건 이후로 이런 일에 더 민감해진 것 같은데.
+    </message>
+    
+    <!-- 카메라 줌인 -->
+    <action type="camera_zoom" target="camera" duration="1.5" wait="true">
+        <parameters zoom_level="1.2" animation="ease_in_out"/>
+    </action>
+    
+    <message speaker="narrator" localization_key="episode02.cafe_discovery.narrator_02">
+        첫 번째 미스터리를 해결한 경험이 준호를 더욱 예민하게 만들었다. 평범해 보이는 일상 속에서도 숨겨진 이야기를 찾으려는 본능이 꿈틀거리고 있었다.
+    </message>
+    
+    <action type="change_emotion" target="junho" duration="0.5" wait="true">
+        <parameters emotion="determined"/>
+    </action>
+    
+    <message speaker="junho" emotion="determined" auto_voice="true" localization_key="episode02.cafe_discovery.junho_03">
+        (마음을 다잡으며) 좋아, 한번 알아보자. 혹시 도움이 필요한 사람이 있을지도 모르니까.
+    </message>
+    
+    <!-- 선택지 포인트 -->
+    <choice_point id="investigation_start"/>
+    
+    <!-- 배경음악 페이드아웃 -->
+    <action type="stop_bgm" duration="1.0" wait="false">
+        <parameters fade_out="true"/>
+    </action>
+    
+</scene>

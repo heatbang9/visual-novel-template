@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario name="episode02_cafe_mystery" default_route="main">
+    <!-- Episode 2: 카페의 실종된 메뉴판 -->
+    
+    <route id="main" name="카페 미스터리 메인 루트">
+        <!-- 프롤로그: 카페 발견 -->
+        <scene id="cafe_discovery" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/cafe_discovery.xml">
+            <condition type="variable" variable="episode01_complete" value="true"/>
+            <set_variable name="episode02_started" value="true"/>
+            
+            <choice id="enter_cafe" text="카페에 들어가본다">
+                <effect variable="curiosity_level" modifier="add" value="1"/>
+                <effect variable="investigation_approach" modifier="set" value="direct"/>
+            </choice>
+            
+            <choice id="observe_first" text="먼저 주변을 관찰한다">
+                <effect variable="observation_skill" modifier="add" value="1"/>
+                <effect variable="investigation_approach" modifier="set" value="cautious"/>
+            </choice>
+            
+            <choice id="ask_friends" text="친구들에게 물어본다">
+                <effect variable="social_skill" modifier="add" value="1"/>
+                <effect variable="investigation_approach" modifier="set" value="collaborative"/>
+            </choice>
+        </scene>
+        
+        <!-- 박영수와의 첫 만남 -->
+        <scene id="meet_park_youngsu" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/meet_park_youngsu.xml">
+            <condition type="variable" variable="cafe_entered" value="true"/>
+            <set_variable name="park_youngsu_met" value="true"/>
+            
+            <choice id="direct_question" text="사장님 표정이 안 좋아 보여서...">
+                <effect variable="empathy_level" modifier="add" value="1"/>
+                <effect variable="park_youngsu_trust" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="indirect_approach" text="요즘 카페 손님이 적나요?">
+                <effect variable="social_skill" modifier="add" value="1"/>
+                <effect variable="information_gathering" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="observational_approach" text="저기 빈 메뉴판은 뭔가요?">
+                <requirement variable="observation_skill" operator=">=" value="2"/>
+                <effect variable="clue_discovery" modifier="add" value="2"/>
+                <effect variable="park_youngsu_trust" modifier="add" value="3"/>
+            </choice>
+        </scene>
+        
+        <!-- 소연의 암호 메시지 발견 -->
+        <scene id="discover_cipher" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/discover_cipher.xml">
+            <condition type="variable" variable="park_youngsu_trust" value=">=3"/>
+            <set_variable name="cipher_discovered" value="true"/>
+            
+            <choice id="analyze_cipher" text="이건 암호인 것 같은데요">
+                <effect variable="logic_skill" modifier="add" value="2"/>
+                <effect variable="cipher_progress" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="ask_about_recipe" text="Mom's recipe가 뭔가요?">
+                <effect variable="information_gathering" modifier="add" value="1"/>
+                <effect variable="family_bond_understanding" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="psychological_analysis" text="딸분이 평소에 이런 글 자주 쓰나요?">
+                <effect variable="psychology_skill" modifier="add" value="1"/>
+                <effect variable="character_analysis" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <!-- 강민호 등장 -->
+        <scene id="kang_minho_appears" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/kang_minho_appears.xml">
+            <condition type="variable" variable="cipher_discovered" value="true"/>
+            <set_variable name="kang_minho_met" value="true"/>
+            
+            <choice id="listen_quietly" text="조용히 대화를 듣는다">
+                <effect variable="information_gathering" modifier="add" value="2"/>
+                <effect variable="stealth_skill" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="approach_minho" text="강민호에게 말을 건다">
+                <requirement variable="social_skill" operator=">=" value="3"/>
+                <effect variable="kang_minho_trust" modifier="add" value="1"/>
+                <effect variable="team_formation" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="focus_on_owner" text="박영수에게 더 자세히 묻는다">
+                <effect variable="park_youngsu_trust" modifier="add" value="1"/>
+                <effect variable="investigation_depth" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <!-- 암호 해독 -->
+        <scene id="decode_moms_recipe" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/decode_moms_recipe.xml">
+            <condition type="variable" variable="cipher_progress" value=">=1"/>
+            <set_variable name="recipe_decoded" value="true"/>
+            
+            <choice id="direct_deduction" text="달콤한 꿈, 쓴 현실과 관련된 레시피가 있나요?">
+                <effect variable="logic_skill" modifier="add" value="2"/>
+                <effect variable="deduction_success" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="investigative_approach" text="최근에 누가 이 노트를 봤을까요?">
+                <effect variable="investigation_skill" modifier="add" value="1"/>
+                <effect variable="timeline_analysis" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="observational_deduction" text="소연 씨가 이 노트에 뭔가 추가로 쓴 건 있나요?">
+                <requirement variable="observation_skill" operator=">=" value="3"/>
+                <effect variable="hidden_message_found" modifier="add" value="3"/>
+                <effect variable="breakthrough" modifier="set" value="true"/>
+            </choice>
+        </scene>
+        
+        <!-- 학원 조사 -->
+        <scene id="academy_investigation" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/academy_investigation.xml">
+            <condition type="variable" variable="breakthrough" value="true"/>
+            <set_variable name="academy_discovered" value="true"/>
+            
+            <choice id="careful_approach" text="조심스럽게 접근한다">
+                <effect variable="caution_level" modifier="add" value="2"/>
+                <effect variable="safety_priority" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="direct_approach" text="바로 문을 두드린다">
+                <effect variable="courage_level" modifier="add" value="1"/>
+                <effect variable="risk_taken" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="observe_surroundings" text="먼저 주변을 살펴본다">
+                <requirement variable="observation_skill" operator=">=" value="4"/>
+                <effect variable="evidence_collection" modifier="add" value="2"/>
+                <effect variable="tactical_advantage" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <!-- 범죄 현장 발견 -->
+        <scene id="crime_scene_discovery" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/crime_scene_discovery.xml">
+            <condition type="variable" variable="academy_discovered" value="true"/>
+            <set_variable name="crime_evidence_found" value="true"/>
+            
+            <choice id="calm_park_youngsu" text="박영수를 진정시킨다">
+                <effect variable="emotional_intelligence" modifier="add" value="2"/>
+                <effect variable="leadership_skill" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="collect_evidence" text="증거를 더 수집한다">
+                <effect variable="evidence_collection" modifier="add" value="3"/>
+                <effect variable="methodical_approach" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="call_police" text="즉시 경찰에 신고한다">
+                <effect variable="legal_awareness" modifier="add" value="2"/>
+                <effect variable="adult_cooperation" modifier="add" value="1"/>
+            </choice>
+        </scene>
+        
+        <!-- 소연 구출 -->
+        <scene id="soyeon_rescue" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/soyeon_rescue.xml">
+            <condition type="variable" variable="crime_evidence_found" value="true"/>
+            <set_variable name="soyeon_rescued" value="true"/>
+            <set_variable name="episode02_complete" value="true"/>
+            
+            <choice id="praise_courage" text="소연 누나의 용기를 칭찬한다">
+                <effect variable="empathy_level" modifier="add" value="2"/>
+                <effect variable="soyeon_gratitude" modifier="add" value="3"/>
+            </choice>
+            
+            <choice id="romantic_hint" text="강민호 형, 소연 누나 좋아하시죠?">
+                <requirement variable="social_skill" operator=">=" value="5"/>
+                <effect variable="romance_catalyst" modifier="set" value="true"/>
+                <effect variable="matchmaking_skill" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="detective_resolution" text="다음에도 도움이 필요하면 언제든 말씀하세요">
+                <effect variable="reputation_boost" modifier="add" value="2"/>
+                <effect variable="detective_confidence" modifier="add" value="2"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 협력 루트 -->
+    <route id="collaborative" name="팀워크 중심 루트">
+        <scene id="team_investigation" path="res://mystery_novel/projects/junho_detective_series/scenes/dialogue/episode02/team_investigation.xml">
+            <condition type="variable" variable="investigation_approach" value="collaborative"/>
+            <condition type="variable" variable="kang_minho_trust" value=">=3"/>
+            
+            <choice id="divide_tasks" text="역할을 나누어 조사한다">
+                <effect variable="teamwork_efficiency" modifier="add" value="3"/>
+                <effect variable="time_saved" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="combined_analysis" text="함께 단서를 분석한다">
+                <effect variable="collective_intelligence" modifier="add" value="2"/>
+                <effect variable="breakthrough_speed" modifier="add" value="1"/>
+            </choice>
+        </scene>
+    </route>
+    
+    <!-- 글로벌 변수 정의 -->
+    <global_variables>
+        <!-- 에피소드 진행 상태 -->
+        <variable name="episode01_complete" type="bool" default="true"/>
+        <variable name="episode02_started" type="bool" default="false"/>
+        <variable name="episode02_complete" type="bool" default="false"/>
+        
+        <!-- 주요 이벤트 플래그 -->
+        <variable name="cafe_entered" type="bool" default="false"/>
+        <variable name="cipher_discovered" type="bool" default="false"/>
+        <variable name="recipe_decoded" type="bool" default="false"/>
+        <variable name="academy_discovered" type="bool" default="false"/>
+        <variable name="crime_evidence_found" type="bool" default="false"/>
+        <variable name="soyeon_rescued" type="bool" default="false"/>
+        
+        <!-- 캐릭터 관계도 -->
+        <variable name="park_youngsu_met" type="bool" default="false"/>
+        <variable name="park_youngsu_trust" type="int" default="0"/>
+        <variable name="kang_minho_met" type="bool" default="false"/>
+        <variable name="kang_minho_trust" type="int" default="0"/>
+        <variable name="soyeon_gratitude" type="int" default="0"/>
+        
+        <!-- 주인공 능력치 -->
+        <variable name="curiosity_level" type="int" default="3"/>
+        <variable name="observation_skill" type="int" default="2"/>
+        <variable name="logic_skill" type="int" default="2"/>
+        <variable name="social_skill" type="int" default="1"/>
+        <variable name="empathy_level" type="int" default="2"/>
+        <variable name="courage_level" type="int" default="2"/>
+        <variable name="caution_level" type="int" default="1"/>
+        
+        <!-- 수사 스킬 -->
+        <variable name="information_gathering" type="int" default="0"/>
+        <variable name="evidence_collection" type="int" default="0"/>
+        <variable name="investigation_skill" type="int" default="0"/>
+        <variable name="deduction_success" type="int" default="0"/>
+        
+        <!-- 특수 능력 -->
+        <variable name="emotional_intelligence" type="int" default="0"/>
+        <variable name="leadership_skill" type="int" default="0"/>
+        <variable name="teamwork_efficiency" type="int" default="0"/>
+        <variable name="matchmaking_skill" type="int" default="0"/>
+        
+        <!-- 진행 방식 -->
+        <variable name="investigation_approach" type="string" default="neutral"/>
+        <variable name="breakthrough" type="bool" default="false"/>
+        <variable name="romance_catalyst" type="bool" default="false"/>
+        
+        <!-- 프로그레스 추적 -->
+        <variable name="cipher_progress" type="int" default="0"/>
+        <variable name="clue_discovery" type="int" default="0"/>
+        <variable name="hidden_message_found" type="int" default="0"/>
+        <variable name="timeline_analysis" type="int" default="0"/>
+        
+        <!-- 결과 지표 -->
+        <variable name="reputation_boost" type="int" default="0"/>
+        <variable name="detective_confidence" type="int" default="0"/>
+        <variable name="family_bond_understanding" type="int" default="0"/>
+        <variable name="legal_awareness" type="int" default="0"/>
+        <variable name="adult_cooperation" type="int" default="0"/>
+    </global_variables>
+</scenario>
