@@ -18,7 +18,7 @@ func _init(character_id: String, character_name: String):
 func get_id() -> String:
     return _id
 
-func get_name() -> String:
+func get_character_name() -> String:
     return _name
 
 func get_state() -> String:

@@ -11,12 +11,13 @@ extends Node
 @onready var options_container = $UI/DialogueBox/MarginContainer/VBoxContainer/ChoiceContainer/Options
 
 var current_scene: Node = null
-var minigame_manager: MinigameManager
-var scenario_manager: ScenarioManager
+var minigame_manager: Node
+var scenario_manager: Node
 
 func _ready() -> void:
     # 시나리오 매니저 초기화
-    scenario_manager = ScenarioManager.new()
+    var scenario_script = load("res://scripts/scenario_manager.gd")
+    scenario_manager = scenario_script.new()
     add_child(scenario_manager)
     scenario_manager.configure(dialogue_scene_loader, character_manager)
     scenario_manager.minigame_required.connect(_on_minigame_required)
@@ -27,7 +28,8 @@ func _ready() -> void:
     dialogue_scene_loader.dialogue_started.connect(_on_dialogue_started)
     dialogue_scene_loader.dialogue_ended.connect(_on_dialogue_ended)
     
-    minigame_manager = MinigameManager.new()
+    var minigame_script = load("res://minigames/scripts/minigame_manager.gd")
+    minigame_manager = minigame_script.new()
     minigame_manager.minigame_completed.connect(_on_minigame_completed)
     add_child(minigame_manager)
     
