@@ -39,6 +39,13 @@ var settings: Dictionary = {
 # 실적 데이터
 var achievements: Dictionary = {}
 
+# 자동 저장 설정
+var auto_save_enabled: bool = false
+var auto_save_interval: float = 300.0  # 5분
+var auto_save_timer: Timer
+var last_auto_save_time: float = 0.0
+
+
 # 초기화
 func _ready():
     _initialize()
@@ -54,6 +61,16 @@ func _initialize():
     _load_achievements()
 
 # 게임 데이터 저장
+func save_game(slot: int) -> void: {
+    # 썸네일 추가
+    game_state["thumbnail"] = _capture_thumbnail()
+
+    # 자동 저장 데이터 추가
+    game_state["auto_save"] = {
+        "enabled": auto_save_enabled,
+        "last_save_time": last_auto_save_time
+    }
+
 func save_game(slot: int) -> void:
     # 현재 시간 추가
     game_state["save_time"] = Time.get_datetime_string_from_system()
@@ -197,3 +214,55 @@ func save_character_state(character_id: String, state: Dictionary) -> void:
 # 캐릭터 상태 로드
 func load_character_state(character_id: String) -> Dictionary:
     return game_state.character_states.get(character_id, {})
+
+# 자동 저장 시작
+func start_auto_save_timer() -> void:
+    auto_save_enabled = true
+    auto_save_timer = Timer.new()
+    auto_save_timer.wait_time = auto_save_interval
+    auto_save_timer.one_shot = false
+    auto_save_timer.timeout.connect(_on_auto_save_timeout)
+    add_child(auto_save_timer)
+    auto_save_timer.start()
+
+func _on_auto_save_timeout() -> void:
+    if auto_save_enabled:
+        auto_save(0)  # 슬롯 0번에 자동 저장
+        last_auto_save_time = Time.get_ticks_msec() / 1000.0
+        emit_signal("auto_save_triggered")
+
+# 자동 저장 정지
+func stop_auto_save_timer() -> void:
+    auto_save_enabled = false
+    if auto_save_timer:
+        auto_save_timer.stop()
+        auto_save_timer.queue_free()
+        auto_save_timer = null
+
+# 자동 저장 활성화/비활성화
+func enable_auto_save(enabled: bool) -> void:
+    if enabled and not auto_save_enabled:
+        start_auto_save_timer()
+    elif not enabled and auto_save_enabled:
+        stop_auto_save_timer()
+
+# 자동 저장 여부 확인
+func is_auto_save_enabled() -> bool:
+    return auto_save_enabled
+
+# 수동 자동 저장 트리거
+func trigger_auto_save() -> void:
+    if auto_save_enabled:
+        _on_auto_save_timeout()
+
+# 체크포인트 설정 (자동 저장 트리거용)
+func set_checkpoint(checkpoint_id: String) -> void:
+    set_flag("checkpoint_" + checkpoint_id, true)
+    if auto_save_enabled:
+        trigger_auto_save()
+
+# 썸네일 캡처 (플레이스홀더)
+func _capture_thumbnail() -> String:
+    # TODO: 실제 구현에서는 스크린샷 캡처
+    # 여기서는 빈 문자열 반환
+    return ""
