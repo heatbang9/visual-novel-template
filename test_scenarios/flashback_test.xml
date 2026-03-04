@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    플래시백 시스템 테스트 시나리오
+    
+    이 파일은 FlashbackManager의 모든 기능을 테스트하기 위한 시나리오입니다.
+    - 기본 플래시백 시작/종료
+    - 중첩 플래시백 (최대 3개)
+    - 조건 기반 트리거
+    - 페이드 효과
+    - BGM 변경
+    - 스킵 기능
+    - 자동 트리거
+-->
+<scenario name="플래시백 테스트 시나리오" default_route="main">
+    
+    <!-- ========================================== -->
+    <!-- 메인 루트 -->
+    <!-- ========================================== -->
+    <route id="main" name="메인 스토리">
+        
+        <!-- 씬 1: 게임 시작 -->
+        <scene id="scene_01" path="res://scenes/main/intro.tscn">
+            <set_variable name="game_started" value="true"/>
+            <set_variable name="player_age" value="25"/>
+        </scene>
+        
+        <!-- 씬 2: 플래시백 트리거 테스트 -->
+        <scene id="scene_02" path="res://scenes/main/trigger_test.tscn">
+            <!-- 수동 플래시백 트리거 -->
+            <trigger_flashback id="childhood_memory"/>
+        </scene>
+        
+        <!-- 씬 3: 플래시백 복귀 후 -->
+        <scene id="after_flashback" path="res://scenes/main/after_flashback.tscn">
+            <set_variable name="flashback_complete" value="true"/>
+        </scene>
+        
+        <!-- 씬 4: 중첩 플래시백 테스트 -->
+        <scene id="scene_04" path="res://scenes/main/nested_test.tscn">
+            <trigger_flashback id="parent_flashback"/>
+        </scene>
+        
+        <!-- 씬 5: 조건 기반 자동 트리거 테스트 -->
+        <scene id="scene_05" path="res://scenes/main/auto_trigger_test.tscn">
+            <!-- 이 변수가 변경되면 auto_trigger가 설정된 플래시백이 자동 시작 -->
+            <set_variable name="trigger_flag" value="true"/>
+        </scene>
+        
+        <!-- 씬 6: 선택지 테스트 (플래시백 중 비활성화 확인) -->
+        <scene id="scene_06" path="res://scenes/main/choice_test.tscn">
+            <choice id="choice_01" text="플래시백 시작" target_route="flashback_route">
+                <effect variable="flashback_choice" value="true"/>
+            </choice>
+            <choice id="choice_02" text="계속 진행">
+                <requirement variable="flashback_complete" operator="==" value="true"/>
+                <effect variable="continued" value="true"/>
+            </choice>
+        </scene>
+        
+    </route>
+    
+    <!-- ========================================== -->
+    <!-- 플래시백 루트 (플래시백 씬들) -->
+    <!-- ========================================== -->
+    <route id="flashback_route" name="플래시백">
+        <scene id="flashback_scene_01" path="res://scenes/flashback/childhood.tscn"/>
+        <scene id="flashback_scene_02" path="res://scenes/flashback/school.tscn"/>
+    </route>
+    
+    <!-- ========================================== -->
+    <!-- 플래시백 정의 -->
+    <!-- ========================================== -->
+    
+    <!-- 기본 플래시백 -->
+    <flashback id="childhood_memory" 
+               trigger_variable="player_age" 
+               trigger_value="25"
+               trigger_operator="=="
+               bgm="res://audio/flashback/nostalgic.mp3"
+               fade_duration="0.5"
+               timeout="300"
+               skippable="true"
+               auto_trigger="false">
+        
+        <!-- 플래시백 씬 -->
+        <scene id="flashback_scene_01" path="res://scenes/flashback/childhood.tscn"/>
+        
+        <!-- 플래시백 효과 (종료 시 적용) -->
+        <effect variable="childhood_memory_seen" value="true"/>
+        <effect variable="memory_count" value="1"/>
+        
+        <!-- 복귀 씬 -->
+        <return_to_scene id="after_flashback"/>
+    </flashback>
+    
+    <!-- 중첩 플래시백 테스트 (부모) -->
+    <flashback id="parent_flashback"
+               trigger_variable="game_started"
+               trigger_value="true"
+               bgm="res://audio/flashback/parent_theme.mp3"
+               fade_duration="0.8"
+               skippable="true">
+        
+        <scene id="parent_scene" path="res://scenes/flashback/parent.tscn"/>
+        <effect variable="parent_flashback_seen" value="true"/>
+        <return_to_scene id="after_parent_flashback"/>
+    </flashback>
+    
+    <!-- 중첩 플래시백 테스트 (자식 - 부모 플래시백 내에서 트리거) -->
+    <flashback id="child_flashback"
+               trigger_variable="parent_flashback_seen"
+               trigger_value="true"
+               bgm="res://audio/flashback/child_theme.mp3"
+               fade_duration="0.6"
+               skippable="true">
+        
+        <scene id="child_scene" path="res://scenes/flashback/child.tscn"/>
+        <effect variable="child_flashback_seen" value="true"/>
+        <return_to_scene id="parent_scene"/>
+    </flashback>
+    
+    <!-- 중첩 플래시백 테스트 (손자 - 3단계 깊이) -->
+    <flashback id="grandchild_flashback"
+               trigger_variable="child_flashback_seen"
+               trigger_value="true"
+               bgm="res://audio/flashback/grandchild_theme.mp3"
+               fade_duration="0.4"
+               skippable="false">
+        
+        <scene id="grandchild_scene" path="res://scenes/flashback/grandchild.tscn"/>
+        <effect variable="grandchild_flashback_seen" value="true"/>
+        <return_to_scene id="child_scene"/>
+    </flashback>
+    
+    <!-- 자동 트리거 플래시백 -->
+    <flashback id="auto_trigger_flashback"
+               trigger_variable="trigger_flag"
+               trigger_value="true"
+               auto_trigger="true"
+               bgm="res://audio/flashback/auto.mp3"
+               skippable="true">
+        
+        <scene id="auto_scene" path="res://scenes/flashback/auto_triggered.tscn"/>
+        <effect variable="auto_flashback_seen" value="true"/>
+        <return_to_scene id="scene_06"/>
+    </flashback>
+    
+    <!-- 조건 기반 플래시백 (나이 >= 30) -->
+    <flashback id="adult_memory"
+               trigger_variable="player_age"
+               trigger_value="30"
+               trigger_operator=">="
+               skippable="true">
+        
+        <scene id="adult_scene" path="res://scenes/flashback/adult.tscn"/>
+        <effect variable="adult_memory_seen" value="true"/>
+        <return_to_scene id="scene_06"/>
+    </flashback>
+    
+    <!-- 스킵 불가능한 플래시백 -->
+    <flashback id="critical_memory"
+               trigger_variable="critical_flag"
+               trigger_value="true"
+               skippable="false"
+               timeout="600">
+        
+        <scene id="critical_scene" path="res://scenes/flashback/critical.tscn"/>
+        <effect variable="critical_memory_seen" value="true"/>
+        <return_to_scene id="scene_06"/>
+    </flashback>
+    
+    <!-- ========================================== -->
+    <!-- 테스트용 업적 -->
+    <!-- ========================================== -->
+    <achievement id="flashback_master" 
+                 name="기억의 여행자" 
+                 description="모든 플래시백을 완료했습니다"
+                 hidden="false">
+        <achievement_condition type="variable" variable="childhood_memory_seen" operator="==" value="true"/>
+        <achievement_condition type="variable" variable="parent_flashback_seen" operator="==" value="true"/>
+        <achievement_condition type="variable" variable="child_flashback_seen" operator="==" value="true"/>
+    </achievement>
+    
+    <achievement id="nested_flashback"
+                 name="기억 속의 기억"
+                 description="중첩된 플래시백을 경험했습니다"
+                 hidden="false">
+        <achievement_condition type="variable" variable="grandchild_flashback_seen" operator="==" value="true"/>
+    </achievement>
+    
+</scenario>

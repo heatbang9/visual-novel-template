@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  업적 시스템 테스트 시나리오
+  AchievementManager와 <achievement> 태그 파싱을 테스트합니다.
+-->
+<scenario name="업적 테스트 시나리오" default_route="main">
+    
+    <!-- ============ 업적 정의 ============ -->
+    
+    <!-- 첫사랑 업적: 키스 횟수 1회 이상 -->
+    <achievement id="first_love" name="첫사랑" description="첫 키스 장면 완료" icon="res://assets/icons/heart.png">
+        <achievement_condition type="variable" variable="kiss_count" operator=">=" value="1"/>
+        <reward type="unlock" target="secret_ending"/>
+    </achievement>
+    
+    <!-- 인기인 업적: 호감도 10 이상 -->
+    <achievement id="popular" name="인기인" description="호감도 10 이상 달성" icon="res://assets/icons/star.png">
+        <achievement_condition type="variable" variable="affection_level" operator=">=" value="10"/>
+        <reward type="variable" target="popularity_bonus" value="5"/>
+    </achievement>
+    
+    <!-- 완벽한 친구 업적: 우정 레벨 5 이상 -->
+    <achievement id="perfect_friend" name="완벽한 친구" description="우정 레벨 5 이상 달성">
+        <achievement_condition type="variable" variable="friendship_level" operator=">=" value="5"/>
+        <reward type="unlock" target="friend_ending"/>
+    </achievement>
+    
+    <!-- 비밀 업적: 숨겨진 업적 -->
+    <achievement id="secret_finder" name="비밀 탐험가" description="숨겨진 루트 발견" hidden="true">
+        <achievement_condition type="flag" flag="secret_route_discovered"/>
+        <reward type="unlock" target="hidden_gallery"/>
+    </achievement>
+    
+    <!-- 마스터 업적: 모든 루트 완료 -->
+    <achievement id="route_master" name="루트 마스터" description="모든 루트 완료">
+        <achievement_condition type="route_complete" route="main"/>
+        <achievement_condition type="route_complete" route="secret"/>
+        <achievement_condition type="route_complete" route="friend"/>
+        <reward type="achievement" target="completionist"/>
+    </achievement>
+    
+    <!-- ============ 메인 루트 ============ -->
+    <route id="main" name="메인 스토리">
+        
+        <!-- 첫 만남 씬 -->
+        <scene id="first_meeting" path="res://scenes/dialogue/first_meeting.tscn">
+            <set_variable name="first_meeting_complete" value="true"/>
+            
+            <!-- 선택지: 인사 방식 -->
+            <choice id="greet_friendly" text="친근하게 인사하기" target_route="">
+                <effect variable="affection_level" modifier="add" value="2"/>
+                <effect variable="friendship_level" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="greet_shy" text="수줍게 인사하기" target_route="">
+                <effect variable="affection_level" modifier="add" value="1"/>
+            </choice>
+            
+            <choice id="greet_cool" text="쿨하게 인사하기" target_route="">
+                <effect variable="affection_level" modifier="add" value="1"/>
+                <effect variable="friendship_level" modifier="add" value="2"/>
+            </choice>
+        </scene>
+        
+        <!-- 점심 시간 씬 -->
+        <scene id="lunch_time" path="res://scenes/dialogue/lunch_time.tscn">
+            <condition type="variable" variable="first_meeting_complete" value="true"/>
+            <set_variable name="lunch_time_complete" value="true"/>
+            
+            <choice id="share_lunch" text="점심 같이 먹자" target_route="">
+                <effect variable="affection_level" modifier="add" value="3"/>
+                <effect variable="friendship_level" modifier="add" value="2"/>
+            </choice>
+            
+            <choice id="eat_alone" text="혼자 먹을래" target_route="">
+                <effect variable="friendship_level" modifier="add" value="-1"/>
+            </choice>
+        </scene>
+        
+        <!-- 키스 씬 (업적 트리거) -->
+        <scene id="kiss_scene" path="res://scenes/dialogue/kiss_scene.tscn">
+            <condition type="variable" variable="affection_level" value="5"/>
+            <set_variable name="kiss_count" value="1"/>
+            
+            <!-- 수동 업적 트리거 예시 -->
+            <trigger_achievement id="first_love"/>
+            
+            <choice id="kiss_passionate" text="열정적으로 키스하기" target_route="romance">
+                <effect variable="affection_level" modifier="add" value="5"/>
+            </choice>
+            
+            <choice id="kiss_gentle" text="부드럽게 키스하기" target_route="romance">
+                <effect variable="affection_level" modifier="add" value="3"/>
+                <effect variable="friendship_level" modifier="add" value="2"/>
+            </choice>
+        </scene>
+        
+    </route>
+    
+    <!-- ============ 비밀 루트 ============ -->
+    <route id="secret" name="비밀 루트">
+        <scene id="secret_discovery" path="res://scenes/dialogue/secret_discovery.tscn">
+            <set_variable name="secret_route_discovered" value="true"/>
+            <set_variable name="secret_complete" value="true"/>
+        </scene>
+    </route>
+    
+    <!-- ============ 친구 루트 ============ -->
+    <route id="friend" name="친구 루트">
+        <scene id="friend_ending_scene" path="res://scenes/dialogue/friend_ending.tscn">
+            <condition type="variable" variable="friendship_level" value="5"/>
+            <set_variable name="friend_complete" value="true"/>
+        </scene>
+    </route>
+    
+    <!-- ============ 로맨스 루트 ============ -->
+    <route id="romance" name="로맨스 루트">
+        <scene id="romance_ending" path="res://scenes/dialogue/romance_ending.tscn">
+            <set_variable name="romance_complete" value="true"/>
+        </scene>
+    </route>
+    
+</scenario>

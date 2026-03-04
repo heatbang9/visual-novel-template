@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 플래시백 시스템 테스트 시나리오 -->
+<scenario name="flashback_test_scenario" default_route="main">
+	
+	<!-- 전역 변수 -->
+	<global_variables>
+		<variable name="age" value="25"/>
+		<variable name="childhood_unlocked" value="false"/>
+		<variable name="highschool_unlocked" value="false"/>
+		<variable name="memory_fragments" value="0"/>
+	</global_variables>
+	
+	<!-- ===================================================== -->
+	<!-- 메인 루트 -->
+	<!-- ===================================================== -->
+	<route id="main" name="메인 스토리">
+		
+		<!-- 씬 1: 게임 시작 -->
+		<scene id="scene_01_start" path="res://scenes/main/start.tscn">
+			<set_variable name="game_started" value="true"/>
+		</scene>
+		
+		<!-- 씬 2: 첫 번째 플래시백 트리거 -->
+		<scene id="scene_02_trigger" path="res://scenes/main/trigger_flashback.tscn">
+			<set_variable name="age" value="5"/>
+			<trigger_flashback id="childhood_memory"/>
+		</scene>
+		
+		<!-- 씬 3: 플래시백 후 복귀 -->
+		<scene id="after_flashback" path="res://scenes/main/after_flashback.tscn">
+			<set_variable name="childhood_unlocked" value="true"/>
+		</scene>
+		
+		<!-- 씬 4: 조건부 플래시백 테스트 -->
+		<scene id="scene_04_conditional" path="res://scenes/main/conditional.tscn">
+			<condition type="variable" variable="memory_fragments" value="3"/>
+			<trigger_flashback id="hidden_memory"/>
+		</scene>
+		
+		<!-- 씬 5: 중첩 플래시백 테스트 -->
+		<scene id="scene_05_nested" path="res://scenes/main/nested_test.tscn">
+			<set_variable name="flashback_level" value="1"/>
+			<trigger_flashback id="level1_flashback"/>
+		</scene>
+		
+		<!-- 씬 6: 선택지 테스트 -->
+		<scene id="scene_06_choices" path="res://scenes/main/choices.tscn">
+			<choice id="choice_flashback" text="과거를 회상한다" target_route="memory_route">
+				<effect variable="affection_level" modifier="add" value="5"/>
+			</choice>
+			<choice id="choice_ignore" text="무시한다">
+				<effect variable="affection_level" modifier="subtract" value="2"/>
+			</choice>
+		</scene>
+		
+	</route>
+	
+	<!-- ===================================================== -->
+	<!-- 기억 루트 -->
+	<!-- ===================================================== -->
+	<route id="memory_route" name="기억의 길">
+		<scene id="memory_01" path="res://scenes/memory/memory_01.tscn">
+			<trigger_flashback id="highschool_memory"/>
+		</scene>
+		<scene id="memory_02" path="res://scenes/memory/memory_02.tscn">
+			<set_variable name="highschool_unlocked" value="true"/>
+		</scene>
+	</route>
+	
+	<!-- ===================================================== -->
+	<!-- 플래시백 정의 -->
+	<!-- ===================================================== -->
+	
+	<!-- 플래시백 1: 어린 시절 기억 -->
+	<flashback id="childhood_memory" 
+	           trigger_variable="age" 
+	           trigger_value="5"
+	           trigger_operator="=="
+	           bgm="res://audio/bgm/flashback_childhood.ogg"
+	           fade_duration="0.8"
+	           timeout="180"
+	           skippable="true"
+	           auto_trigger="false">
+		
+		<!-- 플래시백 씬 -->
+		<scene id="flashback_scene_01" path="res://scenes/flashback/childhood.tscn"/>
+		
+		<!-- 플래시백 효과 -->
+		<effect variable="flashback_unlocked" value="true"/>
+		<effect variable="memory_fragments" value="1"/>
+		
+		<!-- 복귀 씬 -->
+		<return_to_scene id="after_flashback"/>
+	</flashback>
+	
+	<!-- 플래시백 2: 고등학교 기억 -->
+	<flashback id="highschool_memory"
+	           trigger_variable="highschool_unlocked"
+	           trigger_value="false"
+	           trigger_operator="=="
+	           bgm="res://audio/bgm/flashback_highschool.ogg"
+	           fade_duration="0.6"
+	           timeout="240"
+	           skippable="true"
+	           auto_trigger="false">
+		
+		<scene id="flashback_scene_02" path="res://scenes/flashback/highschool.tscn"/>
+		<effect variable="highschool_unlocked" value="true"/>
+		<effect variable="memory_fragments" value="2"/>
+		<return_to_scene id="memory_02"/>
+	</flashback>
+	
+	<!-- 플래시백 3: 숨겨진 기억 (조건부) -->
+	<flashback id="hidden_memory"
+	           trigger_variable="memory_fragments"
+	           trigger_value="3"
+	           trigger_operator=">="
+	           bgm="res://audio/bgm/flashback_hidden.ogg"
+	           fade_duration="1.0"
+	           timeout="300"
+	           skippable="false"
+	           auto_trigger="true">
+		
+		<scene id="flashback_scene_03" path="res://scenes/flashback/hidden.tscn"/>
+		<effect variable="secret_ending_unlocked" value="true"/>
+		<return_to_scene id="scene_06_choices"/>
+	</flashback>
+	
+	<!-- 플래시백 4: 중첩 테스트용 레벨 1 -->
+	<flashback id="level1_flashback"
+	           trigger_variable="flashback_level"
+	           trigger_value="1"
+	           bgm="res://audio/bgm/flashback_level1.ogg"
+	           fade_duration="0.5"
+	           timeout="120"
+	           skippable="true">
+		
+		<scene id="flashback_level1_scene" path="res://scenes/flashback/level1.tscn"/>
+		<effect variable="flashback_level" value="2"/>
+		<trigger_flashback id="level2_flashback"/>
+		<return_to_scene id="after_nested"/>
+	</flashback>
+	
+	<!-- 플래시백 5: 중첩 테스트용 레벨 2 -->
+	<flashback id="level2_flashback"
+	           trigger_variable="flashback_level"
+	           trigger_value="2"
+	           bgm="res://audio/bgm/flashback_level2.ogg"
+	           fade_duration="0.5"
+	           timeout="120"
+	           skippable="true">
+		
+		<scene id="flashback_level2_scene" path="res://scenes/flashback/level2.tscn"/>
+		<effect variable="flashback_level" value="3"/>
+		<!-- 주의: level3는 최대 깊이 제한으로 테스트 불가 -->
+		<return_to_scene id="after_level1"/>
+	</flashback>
+	
+	<!-- ===================================================== -->
+	<!-- 업적 정의 -->
+	<!-- ===================================================== -->
+	<achievement id="first_flashback" name="첫 번째 기억" description="처음으로 플래시백을 경험했습니다" icon="res://icons/flashback.png">
+		<achievement_condition type="variable" variable="flashback_unlocked" operator="==" value="true"/>
+	</achievement>
+	
+	<achievement id="memory_collector" name="기억 수집가" description="모든 플래시백을 완료했습니다" icon="res://icons/memories.png">
+		<achievement_condition type="variable" variable="memory_fragments" operator=">=" value="3"/>
+	</achievement>
+	
+	<achievement id="nested_flashback" name="깊은 기억" description="중첩된 플래시백을 경험했습니다" icon="res://icons/deep_memory.png">
+		<achievement_condition type="variable" variable="flashback_level" operator=">=" value="2"/>
+	</achievement>
+	
+</scenario>

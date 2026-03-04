@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    분기 통계 시스템 테스트 시나리오
+    BranchStatsManager와 UI 요소 테스트용
+-->
+<scenario name="branch_stats_test" default_route="main">
+    
+    <!-- 분기 통계 정의 -->
+    <branch_stats id="story_analysis" track_route_changes="true">
+        <stat variable="hero_reputation" operator=">" value="50" label="영웅"/>
+        <stat variable="villain_reputation" operator=">" value="50" label="악당"/>
+        <stat variable="neutral_reputation" operator=">" value="50" label="중립"/>
+        <branch_prediction based_on="hero_reputation" route="hero_ending" threshold="50" operator=">"/>
+        <branch_prediction based_on="villain_reputation" route="villain_ending" threshold="50" operator=">"/>
+        <branch_prediction based_on="neutral_reputation" route="neutral_ending" threshold="50" operator=">"/>
+    </branch_stats>
+    
+    <!-- 메인 루트 -->
+    <route id="main" name="메인 스토리">
+        
+        <!-- 첫 번째 선택지: 영웅 vs 악당 -->
+        <scene id="choice_1" path="res://scenes/choice_1.tscn">
+            <choice id="help_villager" text="마을 사람을 돕는다" target_route="">
+                <effect variable="hero_reputation" modifier="add" value="10"/>
+                <effect variable="villain_reputation" modifier="subtract" value="5"/>
+            </choice>
+            
+            <choice id="ignore_villager" text="무시하고 지나간다" target_route="">
+                <effect variable="neutral_reputation" modifier="add" value="5"/>
+            </choice>
+            
+            <choice id="rob_villager" text="마을 사람을 위협한다" target_route="">
+                <effect variable="villain_reputation" modifier="add" value="10"/>
+                <effect variable="hero_reputation" modifier="subtract" value="5"/>
+            </choice>
+        </scene>
+        
+        <!-- 두 번째 선택지 -->
+        <scene id="choice_2" path="res://scenes/choice_2.tscn">
+            <choice id="save_princess" text="공주를 구하러 간다" target_route="hero_route">
+                <effect variable="hero_reputation" modifier="add" value="20"/>
+            </choice>
+            
+            <choice id="join_dark_lord" text="마왕군에 합류한다" target_route="villain_route">
+                <effect variable="villain_reputation" modifier="add" value="20"/>
+            </choice>
+            
+            <choice id="stay_neutral" text="중립을 유지한다" target_route="neutral_route">
+                <effect variable="neutral_reputation" modifier="add" value="20"/>
+            </choice>
+        </scene>
+        
+    </route>
+    
+    <!-- 영웅 루트 -->
+    <route id="hero_route" name="영웅의 길">
+        <scene id="hero_1" path="res://scenes/hero_1.tscn">
+            <choice id="show_mercy" text="적을 용서한다">
+                <effect variable="hero_reputation" modifier="add" value="15"/>
+            </choice>
+            
+            <choice id="defeat_enemy" text="적을 처치한다">
+                <effect variable="hero_reputation" modifier="add" value="10"/>
+                <effect variable="villain_reputation" modifier="add" value="5"/>
+            </choice>
+        </scene>
+        
+        <scene id="hero_ending" path="res://scenes/hero_ending.tscn">
+            <condition type="variable" variable="hero_reputation" value="&gt;50"/>
+        </scene>
+    </route>
+    
+    <!-- 악당 루트 -->
+    <route id="villain_route" name="악당의 길">
+        <scene id="villain_1" path="res://scenes/villain_1.tscn">
+            <choice id="betray_allies" text="동료를 배신한다">
+                <effect variable="villain_reputation" modifier="add" value="20"/>
+            </choice>
+            
+            <choice id="show_honor" text="동료를 지킨다">
+                <effect variable="villain_reputation" modifier="subtract" value="5"/>
+                <effect variable="hero_reputation" modifier="add" value="10"/>
+            </choice>
+        </scene>
+        
+        <scene id="villain_ending" path="res://scenes/villain_ending.tscn">
+            <condition type="variable" variable="villain_reputation" value="&gt;50"/>
+        </scene>
+    </route>
+    
+    <!-- 중립 루트 -->
+    <route id="neutral_route" name="중립의 길">
+        <scene id="neutral_1" path="res://scenes/neutral_1.tscn">
+            <choice id="observe" text="상황을 지켜본다">
+                <effect variable="neutral_reputation" modifier="add" value="10"/>
+            </choice>
+            
+            <choice id="mediate" text="중재를 시도한다">
+                <effect variable="neutral_reputation" modifier="add" value="15"/>
+                <effect variable="hero_reputation" modifier="add" value="5"/>
+                <effect variable="villain_reputation" modifier="add" value="5"/>
+            </choice>
+        </scene>
+        
+        <scene id="neutral_ending" path="res://scenes/neutral_ending.tscn">
+            <condition type="variable" variable="neutral_reputation" value="&gt;50"/>
+        </scene>
+    </route>
+    
+</scenario>

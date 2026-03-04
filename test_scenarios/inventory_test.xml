@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  인벤토리 시스템 테스트 시나리오
+  Phase 3: <inventory> 태그 테스트
+-->
+<scenario name="인벤토리 테스트" default_route="main">
+    
+    <!-- ============ 아이템 정의 ============ -->
+    <inventory id="love_letter" name="사랑의 편지" description="그녀에게 받은 첫 편지. 조심스럽게 보관해야 한다.">
+        <icon>res://assets/items/letter.png</icon>
+        <stackable>false</stackable>
+        <max_count>1</max_count>
+        <consumable>false</consumable>
+        <on_use>
+            <on_use_effect type="variable" variable="romance_points" modifier="add" value="5"/>
+        </on_use>
+    </inventory>
+    
+    <inventory id="potion_hp" name="체력 포션" description="체력을 50 회복시킨다.">
+        <icon>res://assets/items/potion_red.png</icon>
+        <stackable>true</stackable>
+        <max_count>99</max_count>
+        <consumable>true</consumable>
+        <tag value="consumable"/>
+        <tag value="healing"/>
+        <on_use>
+            <on_use_effect type="variable" variable="hp" modifier="add" value="50"/>
+        </on_use>
+    </inventory>
+    
+    <inventory id="key_silver" name="은색 열쇠" description="오래된 은색 열쇠. 어디에 쓰는 것일까?">
+        <icon>res://assets/items/key_silver.png</icon>
+        <stackable>false</stackable>
+        <max_count>1</max_max>
+        <consumable>false</consumable>
+        <tag value="key"/>
+        <tag value="quest_item"/>
+    </inventory>
+    
+    <inventory id="coin_gold" name="금화" description="빛나는 금화. 귀중한 화폐다.">
+        <icon>res://assets/items/coin_gold.png</icon>
+        <stackable>true</stackable>
+        <max_count>9999</max_count>
+        <consumable>false</consumable>
+        <tag value="currency"/>
+    </inventory>
+    
+    <inventory id="chocolate" name="초콜릿" description="달콤한 초콜릿. 호감도를 높일 수 있다.">
+        <icon>res://assets/items/chocolate.png</icon>
+        <stackable>true</stackable>
+        <max_count>10</max_count>
+        <consumable>true</consumable>
+        <tag value="gift"/>
+        <tag value="consumable"/>
+        <on_use>
+            <on_use_effect type="variable" variable="affection_level" modifier="add" value="10"/>
+        </on_use>
+    </inventory>
+    
+    <inventory id="mystery_box" name="미스터리 상자" description="열어보면 무엇이 나올지 모른다.">
+        <icon>res://assets/items/box.png</icon>
+        <stackable>true</stackable>
+        <max_count>5</max_count>
+        <consumable>true</consumable>
+        <on_use>
+            <on_use_effect type="variable" variable="luck" modifier="add" value="1"/>
+            <on_use_effect type="give_item" item_id="coin_gold" count="10"/>
+        </on_use>
+    </inventory>
+    
+    <!-- ============ 메인 루트 ============ -->
+    <route id="main" name="메인 스토리">
+        
+        <!-- 씬 1: 게임 시작 및 아이템 지급 -->
+        <scene id="intro" path="res://scenes/intro.tscn">
+            <set_variable name="game_started" value="true"/>
+            <set_variable name="hp" value="100"/>
+            <set_variable name="romance_points" value="0"/>
+            <set_variable name="luck" value="0"/>
+            
+            <!-- 시작 아이템 지급 -->
+            <give_item id="potion_hp" count="3"/>
+            <give_item id="coin_gold" count="100"/>
+            
+            <choice id="accept_gift" text="선물을 받는다" target_route="gift_route">
+                <effect variable="romance_points" modifier="add" value="5"/>
+            </choice>
+            
+            <choice id="decline_gift" text="정중히 거절한다" target_route="normal_route">
+                <effect variable="friendship_level" modifier="add" value="3"/>
+            </choice>
+        </scene>
+        
+    </route>
+    
+    <!-- ============ 선물 루트 ============ -->
+    <route id="gift_route" name="선물 루트">
+        
+        <scene id="gift_scene" path="res://scenes/gift.tscn">
+            <!-- 사랑의 편지 획득 -->
+            <give_item id="love_letter" count="1"/>
+            <give_item id="chocolate" count="3"/>
+            
+            <choice id="read_letter" text="편지를 읽는다">
+                <effect variable="romance_points" modifier="add" value="10"/>
+                <requirement variable="love_letter" operator="has_item"/>
+            </choice>
+            
+            <choice id="continue_main" text="계속 진행한다" target_route="normal_route"/>
+        </scene>
+        
+    </route>
+    
+    <!-- ============ 일반 루트 ============ -->
+    <route id="normal_route" name="일반 루트">
+        
+        <scene id="explore" path="res://scenes/explore.tscn">
+            <!-- 탐색 중 아이템 발견 -->
+            <give_item id="key_silver" count="1"/>
+            <give_item id="mystery_box" count="2"/>
+            
+            <choice id="use_key" text="은색 열쇠를 사용한다">
+                <requirement variable="key_silver" operator="has_item"/>
+                <effect variable="secret_unlocked" value="true"/>
+            </choice>
+            
+            <choice id="save_items" text="아이템을 아껴둔다"/>
+        </scene>
+        
+        <scene id="shop" path="res://scenes/shop.tscn">
+            <!-- 상점에서 포션 구매 가능 -->
+            <choice id="buy_potion" text="체력 포션 구매 (50금화)">
+                <requirement variable="coin_gold" operator=">=" value="50"/>
+                <effect variable="coin_gold" modifier="subtract" value="50"/>
+            </choice>
+            
+            <choice id="leave_shop" text="상점을 떠난다"/>
+        </scene>
+        
+        <scene id="final" path="res://scenes/final.tscn">
+            <set_variable name="game_complete" value="true"/>
+        </scene>
+        
+    </route>
+    
+    <!-- ============ 업적 정의 (인벤토리 관련) ============ -->
+    <achievement id="collector" name="수집가" description="5종류 이상의 아이템을 획득했다" icon="res://assets/achievements/collector.png">
+        <achievement_condition type="variable" variable="unique_items_collected" operator=">=" value="5"/>
+    </achievement>
+    
+    <achievement id="first_love" name="첫사랑" description="사랑의 편지를 획득했다" icon="res://assets/achievements/heart.png">
+        <achievement_condition type="variable" variable="got_love_letter" value="true"/>
+    </achievement>
+    
+</scenario>
