@@ -118,23 +118,40 @@ func set_language(language: String) -> Error:
 	emit_signal("language_changed", old_language, language)
 	return OK
 
-# 번역 가져오기
+# 번역 가져오기 (중첩 키 지원)
 func get_text(key: String, category: String = "general", fallback: String = "") -> String:
 	if not translations.has(current_language):
 		return fallback if not fallback.is_empty() else key
 	
 	var language_data = translations[current_language]
 	if not language_data.has(category):
-		return fallback if not fallback.is_empty() else key
+		return _get_fallback_text(key, category, fallback)
 	
 	var category_data = language_data[category]
-	if not category_data.has(key):
+	var value = _get_nested_value(category_data, key)
+	
+	if value == null:
 		# 기본 언어에서 찾기
 		if current_language != default_language:
 			return _get_fallback_text(key, category, fallback)
 		return fallback if not fallback.is_empty() else key
 	
-	return category_data[key]
+	return value
+
+# 중첩 키로 값 가져오기 (예: "scenes.first_meeting.title")
+func _get_nested_value(data: Dictionary, key: String) -> Variant:
+	if not key.contains("."):
+		return data.get(key, null)
+	
+	var keys = key.split(".")
+	var current = data
+	
+	for k in keys:
+		if not current is Dictionary or not current.has(k):
+			return null
+		current = current[k]
+	
+	return current
 
 func _get_fallback_text(key: String, category: String, fallback: String) -> String:
 	if not translations.has(default_language):
@@ -145,10 +162,44 @@ func _get_fallback_text(key: String, category: String, fallback: String) -> Stri
 		return fallback if not fallback.is_empty() else key
 	
 	var category_data = default_data[category]
-	if not category_data.has(key):
+	var value = _get_nested_value(category_data, key)
+	
+	if value == null:
 		return fallback if not fallback.is_empty() else key
 	
-	return category_data[key]
+	return value
+
+# 텍스트 보간 - {{key}} 패턴 치환
+func interpolate_text(text: String, category: String = "scenarios") -> String:
+	# {{key}} 패턴 찾기
+	var regex = RegEx.new()
+	regex.compile("\\{\\{([^}]+)\\}\\}")
+	
+	var result = text
+	var matches = regex.search_all(result)
+	
+	# 뒤에서부터 치환하여 인덱스 변화 방지
+	for i in range(matches.size() - 1, -1, -1):
+		var match = matches[i]
+		var key = match.get_string(1).strip_edges()
+		
+		# 카테고리.키 형식인지 확인 (예: "scenes.first_meeting.title")
+		var translated: String
+		if key.contains("."):
+			# 전체 키에서 카테고리 추출
+			var parts = key.split(".")
+			if parts.size() >= 2:
+				var key_category = parts[0]
+				var remaining_key = ".".join(parts.slice(1))
+				translated = get_text(remaining_key, key_category, "{{" + key + "}}")
+			else:
+				translated = get_text(key, category, "{{" + key + "}}")
+		else:
+			translated = get_text(key, category, "{{" + key + "}}")
+		
+		result = result.left(match.get_start()) + translated + result.substr(match.get_end())
+	
+	return result
 
 # 시나리오 번역
 func get_scenario_text(scenario_id: String, scene_id: String, message_id: String) -> String:
@@ -174,9 +225,9 @@ func process_localized_message(message_element: Dictionary, language: String = "
 	if translations_data.has(language):
 		return translations_data[language]
 	
-	# 기본 텍스트 반환
-	return message_element.get("text", "")
-
+	# 기본 텍스트에서 {{key}} 패턴 처리
+	var base_text = message_element.get("text", "")
+	return interpolate_text(base_text, "scenarios")
 # 폰트 관리
 func get_current_font() -> Font:
 	if font_cache.has(current_language):

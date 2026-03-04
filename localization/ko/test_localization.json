@@ -1,0 +1,17 @@
+{
+  "test": {
+    "welcome": "다국어 시스템 테스트에 오신 것을 환영합니다!",
+    "nested": {
+      "level1": {
+        "level2": {
+          "message": "중첩된 키도 잘 작동합니다!"
+        }
+      }
+    },
+    "fallback_test": "이 키는 한국어에만 있습니다."
+  },
+  "interpolation": {
+    "greeting": "안녕하세요, {name}님!",
+    "item_count": "당신은 {count}개의 아이템을 가지고 있습니다."
+  }
+}

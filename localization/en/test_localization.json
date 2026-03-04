@@ -1,0 +1,16 @@
+{
+  "test": {
+    "welcome": "Welcome to the localization system test!",
+    "nested": {
+      "level1": {
+        "level2": {
+          "message": "Nested keys work correctly!"
+        }
+      }
+    }
+  },
+  "interpolation": {
+    "greeting": "Hello, {name}!",
+    "item_count": "You have {count} items."
+  }
+}

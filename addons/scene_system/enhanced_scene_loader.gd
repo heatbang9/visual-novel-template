@@ -346,15 +346,16 @@ func get_next_enhanced_message() -> Dictionary:
 	current_message_index += 1
 	
 	# 다국어 텍스트 적용 (전역 LocalizationManager 싱글톤 사용)
-	if message.has("localization_key"):
-		var localized_text = LocalizationManager.get_text(message.localization_key, "scenarios", message.get("text", ""))
-		message.text = localized_text
+	if message.has("localization_key") and not message.localization_key.is_empty():
+		message.text = LocalizationManager.get_text(message.localization_key, "scenarios", message.text)
 	elif message.has("translations"):
+		# 직접 번역 텍스트 사용
 		var current_lang = LocalizationManager.get_current_language()
 		if message.translations.has(current_lang):
 			message.text = message.translations[current_lang]
 	
-	return message
+	# 텍스트에서 {{key}} 패턴 치환
+	message.text = LocalizationManager.interpolate_text(message.text, "scenarios")
 
 # 액션 실행
 func _execute_action(action: Dictionary) -> void:
