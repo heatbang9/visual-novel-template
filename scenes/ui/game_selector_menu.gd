@@ -6,9 +6,6 @@ signal game_selected(game_id: String)
 signal settings_requested()
 signal admin_panel_requested()
 
-@export var game_manager: GameProjectManager
-@export var localization_manager: LocalizationManager
-
 # UI 노드들
 @onready var title_label: Label = $VBoxContainer/TitleLabel
 @onready var featured_games_container: HBoxContainer = $VBoxContainer/FeaturedSection/FeaturedGamesContainer
@@ -49,9 +46,9 @@ func _setup_ui() -> void:
 	_setup_genre_filter()
 
 func _setup_signals() -> void:
-	if game_manager:
-		game_manager.games_list_updated.connect(_on_games_list_updated)
-		game_manager.game_loaded.connect(_on_game_loaded)
+	# 전역 GameProjectManager 싱글톤 시그널 연결
+	GameProjectManager.games_list_updated.connect(_on_games_list_updated)
+	GameProjectManager.game_loaded.connect(_on_game_loaded)
 	
 	if search_bar:
 		search_bar.text_changed.connect(_on_search_text_changed)
@@ -80,19 +77,15 @@ func _setup_admin_mode() -> void:
 	if not admin_button:
 		return
 	
-	# 개발 모드에서만 관리자 버튼 표시
-	if game_manager and game_manager.is_development_mode():
+	# 개발 모드에서만 관리자 버튼 표시 (전역 GameProjectManager 싱글톤 사용)
+	if GameProjectManager.is_development_mode():
 		admin_button.visible = true
 	else:
 		admin_button.visible = false
 
 func _load_games() -> void:
-	if not game_manager:
-		push_error("GameProjectManager not found")
-		return
-	
 	current_games = []
-	var games_dict = game_manager.get_available_games()
+	var games_dict = GameProjectManager.get_available_games()
 	
 	for game_id in games_dict:
 		current_games.append(games_dict[game_id])
@@ -111,7 +104,7 @@ func _display_featured_games() -> void:
 	for child in featured_games_container.get_children():
 		child.queue_free()
 	
-	var featured_games = game_manager.get_featured_games()
+	var featured_games = GameProjectManager.get_featured_games()
 	
 	for game_data in featured_games:
 		var card = _create_featured_game_card(game_data)
@@ -239,10 +232,10 @@ func _create_default_game_card() -> Control:
 func _setup_game_card(card: Control, game_data: Dictionary, is_featured: bool) -> void:
 	var game_id = game_data.get("id", "")
 	
-	# 제목 설정
+	# 제목 설정 (전역 GameProjectManager 싱글톤 사용)
 	var title_label = card.get_node_or_null("TitleLabel")
 	if title_label:
-		title_label.text = game_manager.get_game_title(game_id, current_language)
+		title_label.text = GameProjectManager.get_game_title(game_id, current_language)
 	
 	# 이미지 설정
 	if is_featured:
@@ -258,7 +251,7 @@ func _setup_game_card(card: Control, game_data: Dictionary, is_featured: bool) -
 	if is_featured:
 		var desc_label = card.get_node_or_null("DescriptionLabel")
 		if desc_label:
-			desc_label.text = game_manager.get_game_description(game_id, current_language)
+			desc_label.text = GameProjectManager.get_game_description(game_id, current_language)
 	
 	# 장르 설정 (일반 카드만)
 	if not is_featured:
@@ -304,8 +297,8 @@ func _get_filtered_games() -> Array:
 	var search_text = search_bar.text.strip_edges().to_lower() if search_bar else ""
 	if not search_text.is_empty():
 		filtered = filtered.filter(func(game): 
-			var title = game_manager.get_game_title(game.get("id", ""), current_language).to_lower()
-			var desc = game_manager.get_game_description(game.get("id", ""), current_language).to_lower()
+			var title = GameProjectManager.get_game_title(game.get("id", ""), current_language).to_lower()
+			var desc = GameProjectManager.get_game_description(game.get("id", ""), current_language).to_lower()
 			return title.contains(search_text) or desc.contains(search_text)
 		)
 	
@@ -328,10 +321,9 @@ func _on_game_loaded(game_data: Dictionary) -> void:
 	get_tree().change_scene_to_file("res://project/MainScene.tscn")
 
 func _on_play_button_pressed(game_id: String) -> void:
-	if game_manager:
-		var error = game_manager.select_game(game_id)
-		if error == OK:
-			emit_signal("game_selected", game_id)
+	var error = GameProjectManager.select_game(game_id)
+	if error == OK:
+		emit_signal("game_selected", game_id)
 
 func _on_search_text_changed(new_text: String) -> void:
 	_display_all_games()
@@ -352,41 +344,39 @@ func set_language(language: String) -> void:
 	_update_game_display()
 
 func _update_ui_text() -> void:
-	if localization_manager:
-		if title_label:
-			title_label.text = localization_manager.get_text("ui.main_menu.title", "general", "Visual Novel Collection")
-		
-		if search_bar:
-			search_bar.placeholder_text = localization_manager.get_text("ui.main_menu.search_placeholder", "general", "게임 검색...")
-		
-		if settings_button:
-			settings_button.text = localization_manager.get_text("ui.main_menu.settings", "general", "설정")
-		
-		if admin_button:
-			admin_button.text = localization_manager.get_text("ui.main_menu.admin", "general", "관리자")
+	# 전역 LocalizationManager 싱글톤 사용
+	if title_label:
+		title_label.text = LocalizationManager.get_text("ui.main_menu.title", "general", "Visual Novel Collection")
+	
+	if search_bar:
+		search_bar.placeholder_text = LocalizationManager.get_text("ui.main_menu.search_placeholder", "general", "게임 검색...")
+	
+	if settings_button:
+		settings_button.text = LocalizationManager.get_text("ui.main_menu.settings", "general", "설정")
+	
+	if admin_button:
+		admin_button.text = LocalizationManager.get_text("ui.main_menu.admin", "general", "관리자")
 
 # 키보드 입력 처리
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
 			KEY_F12:
-				if game_manager and game_manager.is_development_mode():
+				if GameProjectManager.is_development_mode():
 					_on_admin_button_pressed()
 			KEY_ESCAPE:
 				get_tree().quit()
 
 # 관리자 기능
 func refresh_games_list() -> void:
-	if game_manager:
-		game_manager.load_games_configuration()
+	GameProjectManager.load_games_configuration()
 
 func show_game_statistics() -> void:
-	if game_manager:
-		var stats = game_manager.get_games_statistics()
-		print("=== 게임 통계 ===")
-		print("총 게임 수: ", stats.total_games)
-		print("활성 게임 수: ", stats.enabled_games)
-		print("추천 게임 수: ", stats.featured_games)
-		print("총 플레이타임: ", stats.total_playtime, "분")
-		print("장르별 분포: ", stats.genres)
-		print("등급별 분포: ", stats.ratings)
+	var stats = GameProjectManager.get_games_statistics()
+	print("=== 게임 통계 ===")
+	print("총 게임 수: ", stats.total_games)
+	print("활성 게임 수: ", stats.enabled_games)
+	print("추천 게임 수: ", stats.featured_games)
+	print("총 플레이타임: ", stats.total_playtime, "분")
+	print("장르별 분포: ", stats.genres)
+	print("등급별 분포: ", stats.ratings)

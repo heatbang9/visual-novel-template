@@ -46,3 +46,17 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 environment/defaults/default_environment="res://default_env.tres"
+
+[autoload]
+
+LocalizationManager="*res://addons/localization_system/localization_manager.gd"
+AudioManager="*res://addons/audio_system/audio_manager.gd"
+ScenarioManager="*res://addons/scenario_system/scenario_manager.gd"
+GameProjectManager="*res://addons/game_manager/game_project_manager.gd"
+MinigameLoader="*res://addons/minigames/minigame_loader.gd"
+AchievementManager="*res://addons/scenario_system/achievement_manager.gd"
+InventoryManager="*res://addons/scenario_system/inventory_manager.gd"
+FlashbackManager="*res://addons/scenario_system/flashback_manager.gd"
+BranchStatsManager="*res://addons/scenario_system/branch_stats_manager.gd"
+CharacterRelationshipManager="*res://scripts/character/character_relationship_manager.gd"
+AdvancedDialogueManager="*res://scripts/dialogue/advanced_dialogue_manager.gd"

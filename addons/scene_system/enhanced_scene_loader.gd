@@ -7,8 +7,6 @@ signal scene_action_completed(action_type: String, action_data: Dictionary)
 signal scene_fully_loaded(scene_name: String)
 
 @export var visual_director: VisualDirector
-@export var audio_manager: AudioManager
-@export var localization_manager: LocalizationManager
 
 var current_scene_data: Dictionary = {}
 var current_message_index: int = 0
@@ -22,13 +20,8 @@ func _ready() -> void:
 		visual_director = VisualDirector.new()
 		add_child(visual_director)
 	
-	if not audio_manager:
-		audio_manager = AudioManager.new()
-		add_child(audio_manager)
-	
-	if not localization_manager:
-		localization_manager = LocalizationManager.new()
-		add_child(localization_manager)
+	# 전역 싱글톤 사용 (AudioManager, LocalizationManager)
+	# 새 인스턴스 생성 대신 Autoload 싱글톤 참조
 
 # 확장된 XML 씬 로딩
 func load_enhanced_scene(xml_path: String) -> Error:
@@ -278,9 +271,8 @@ func _setup_background(bg_data: Dictionary) -> void:
 	
 	var texture_path = bg_data.get("path", "")
 	if not texture_path.is_empty():
-		# 다국어 지원 배경
-		if localization_manager:
-			texture_path = localization_manager.get_localized_audio_path(texture_path)
+		# 다국어 지원 배경 (전역 LocalizationManager 싱글톨 사용)
+		texture_path = LocalizationManager.get_localized_audio_path(texture_path)
 		
 		var texture = load(texture_path)
 		if texture:
@@ -324,8 +316,8 @@ func _setup_character(character_id: String, char_data: Dictionary) -> void:
 		var portrait_data = portraits[first_emotion]
 		var texture_path = portrait_data.get("path", "")
 		
-		if localization_manager:
-			texture_path = localization_manager.get_localized_audio_path(texture_path)
+		# 전역 LocalizationManager 싱글톤 사용
+		texture_path = LocalizationManager.get_localized_audio_path(texture_path)
 		
 		var texture = load(texture_path)
 		if texture:
@@ -353,12 +345,12 @@ func get_next_enhanced_message() -> Dictionary:
 	var message = current_scene_data.messages[current_message_index]
 	current_message_index += 1
 	
-	# 다국어 텍스트 적용
-	if localization_manager and message.has("localization_key"):
-		var localized_text = localization_manager.get_text(message.localization_key, "scenarios", message.get("text", ""))
+	# 다국어 텍스트 적용 (전역 LocalizationManager 싱글톤 사용)
+	if message.has("localization_key"):
+		var localized_text = LocalizationManager.get_text(message.localization_key, "scenarios", message.get("text", ""))
 		message.text = localized_text
-	elif message.has("translations") and localization_manager:
-		var current_lang = localization_manager.get_current_language()
+	elif message.has("translations"):
+		var current_lang = LocalizationManager.get_current_language()
 		if message.translations.has(current_lang):
 			message.text = message.translations[current_lang]
 	
@@ -430,28 +422,28 @@ func _execute_action(action: Dictionary) -> void:
 					visual_director.screen_transition(effect, duration)
 		
 		"play_sfx":
-			if audio_manager:
-				var audio_path = parameters.get("audio_path", "")
-				var volume = parameters.get("volume", 1.0)
-				var pitch = parameters.get("pitch", 1.0)
-				
-				if localization_manager:
-					audio_path = localization_manager.get_localized_audio_path(audio_path)
-				
-				audio_manager.play_sfx(audio_path, pitch, volume)
+			# 전역 AudioManager 싱글톤 사용
+			var audio_path = parameters.get("audio_path", "")
+			var volume = parameters.get("volume", 1.0)
+			var pitch = parameters.get("pitch", 1.0)
+			
+			# 전역 LocalizationManager 싱글톤 사용
+			audio_path = LocalizationManager.get_localized_audio_path(audio_path)
+			
+			AudioManager.play_sfx(audio_path, pitch, volume)
 		
 		"play_bgm":
-			if audio_manager:
-				var audio_path = parameters.get("audio_path", "")
-				var fade_in = parameters.get("fade_in", true)
-				
-				if localization_manager:
-					audio_path = localization_manager.get_localized_audio_path(audio_path)
-				
-				if should_wait:
-					await audio_manager.play_bgm(audio_path, fade_in, duration)
-				else:
-					audio_manager.play_bgm(audio_path, fade_in, duration)
+			# 전역 AudioManager 싱글톤 사용
+			var audio_path = parameters.get("audio_path", "")
+			var fade_in = parameters.get("fade_in", true)
+			
+			# 전역 LocalizationManager 싱글톤 사용
+			audio_path = LocalizationManager.get_localized_audio_path(audio_path)
+			
+			if should_wait:
+				await AudioManager.play_bgm(audio_path, fade_in, duration)
+			else:
+				AudioManager.play_bgm(audio_path, fade_in, duration)
 		
 		"wait":
 			await get_tree().create_timer(duration).timeout
@@ -475,8 +467,8 @@ func _change_character_emotion(character_id: String, emotion: String) -> void:
 		var portrait_data = portraits[emotion]
 		var texture_path = portrait_data.get("path", "")
 		
-		if localization_manager:
-			texture_path = localization_manager.get_localized_audio_path(texture_path)
+		# 전역 LocalizationManager 싱글톤 사용
+		texture_path = LocalizationManager.get_localized_audio_path(texture_path)
 		
 		var texture = load(texture_path)
 		if texture:
