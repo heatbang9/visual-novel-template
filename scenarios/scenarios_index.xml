@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Master Scenario Index - 비주얼 노벨 시나리오 메타데이터 관리
+  
+  이 파일은 모든 시나리오의 진입점이며, 다음을 관리합니다:
+  - 시나리오 메타데이터 (제목, 설명, 썸네일)
+  - 시나리오 순서/분기 구조
+  - 공유 리소스 정의
+  - 전역 변수/플래그 정의
+-->
+<master_index version="2.0" game_title="Visual Novel Template">
+  
+  <!-- 게임 메타데이터 -->
+  <metadata>
+    <title lang="ko">비주얼 노벨 템플릿</title>
+    <title lang="en">Visual Novel Template</title>
+    <title lang="ja">ビジュアルノベルテンプレート</title>
+    
+    <description lang="ko">Godot 4.5 기반 비주얼 노벨 템플릿</description>
+    <description lang="en">Godot 4.5 Based Visual Novel Template</description>
+    <description lang="ja">Godot 4.5 ベースのビジュアルノベルテンプレート</description>
+    
+    <author>Visual Novel Studio</author>
+    <version>2.0.0</version>
+    <thumbnail>res://assets/ui/default_thumbnail.png</thumbnail>
+  </metadata>
+  
+  <!-- 전역 설정 -->
+  <global_settings>
+    <resolution width="1280" height="720"/>
+    <text_speed default="30" fast_forward="100"/>
+    <auto_advance default_delay="3.0"/>
+    <save_slots max="20"/>
+    <audio master_volume="1.0" bgm_volume="0.7" sfx_volume="0.8" voice_volume="0.9"/>
+  </global_settings>
+  
+  <!-- 전역 변수 정의 -->
+  <global_variables>
+    <!-- 플레이어 정보 -->
+    <variable name="player_name" type="string" default="플레이어"/>
+    <variable name="play_time" type="float" default="0.0"/>
+    <variable name="total_choices" type="int" default="0"/>
+    
+    <!-- 진행 상태 -->
+    <variable name="current_chapter" type="int" default="1"/>
+    <variable name="current_scene" type="string" default=""/>
+    <variable name="game_phase" type="string" default="intro"/>
+    
+    <!-- 관계도 -->
+    <variable name="affection_yuki" type="int" default="0"/>
+    <variable name="affection_hana" type="int" default="0"/>
+    <variable name="trust_detective" type="int" default="0"/>
+    
+    <!-- 플래그 -->
+    <variable name="tutorial_completed" type="bool" default="false"/>
+    <variable name="first_meeting_done" type="bool" default="false"/>
+    <variable name="secret_route_unlocked" type="bool" default="false"/>
+    
+    <!-- 통계 -->
+    <variable name="endings_seen" type="int" default="0"/>
+    <variable name="cg_unlocked" type="int" default="0"/>
+    <variable name="achievements_earned" type="int" default="0"/>
+  </global_variables>
+  
+  <!-- 공유 리소스 -->
+  <shared_resources>
+    <!-- 캐릭터 정의 -->
+    <characters path="res://scenarios/shared/characters/"/>
+    
+    <!-- 배경 이미지 -->
+    <backgrounds path="res://scenarios/shared/backgrounds/"/>
+    
+    <!-- 오디오 -->
+    <audio>
+      <bgm path="res://audio/bgm/"/>
+      <sfx path="res://audio/sfx/"/>
+      <voice path="res://audio/voice/"/>
+      <ambient path="res://audio/ambient/"/>
+    </audio>
+    
+    <!-- UI 테마 -->
+    <themes path="res://themes/"/>
+    
+    <!-- CG 갤러리 -->
+    <cg_gallery path="res://assets/cg/"/>
+  </shared_resources>
+  
+  <!-- 시나리오 목록 -->
+  <scenarios>
+    
+    <!-- 에피소드 1: 학교 생활 -->
+    <scenario id="episode1_school_life" 
+              path="res://scenarios/episode1_school_life/episode_config.json"
+              type="main"
+              order="1">
+      <metadata>
+        <title lang="ko">에피소드 1: 새로운 시작</title>
+        <title lang="en">Episode 1: New Beginning</title>
+        <title lang="ja">エピソード1: 新しい始まり</title>
+        
+        <description lang="ko">새 학기 첫날, 운명의 만남이 기다리고 있습니다.</description>
+        <description lang="en">On the first day of the new semester, a fateful encounter awaits.</description>
+        <description lang="ja">新学期の初日、運命の出会いが待っています。</description>
+        
+        <thumbnail>res://scenarios/episode1_school_life/thumbnail.png</thumbnail>
+        <estimated_playtime minutes="25"/>
+        <content_rating>teen</content_rating>
+      </metadata>
+      
+      <requirements>
+        <requirement type="none"/>
+      </requirements>
+      
+      <unlocks>
+        <unlock type="scenario" id="episode2_magic_school"/>
+        <unlock type="achievement" id="first_episode_complete"/>
+      </unlocks>
+      
+      <endings>
+        <ending id="good_ending" required_affection="5"/>
+        <ending id="normal_ending" required_affection="0"/>
+        <ending id="secret_ending" required_flag="secret_route_unlocked" required_affection="10"/>
+      </endings>
+    </scenario>
+    
+    <!-- 에피소드 2: 마법 학교 -->
+    <scenario id="episode2_magic_school"
+              path="res://scenarios/episode2_magic_school/episode_config.json"
+              type="main"
+              order="2">
+      <metadata>
+        <title lang="ko">에피소드 2: 마법의 세계</title>
+        <title lang="en">Episode 2: World of Magic</title>
+        <title lang="ja">エピソード2: 魔法の世界</title>
+        
+        <description lang="ko">숨겨진 마법 학교로의 초대장이 도착했습니다.</description>
+        <description lang="en">An invitation to a hidden magic school has arrived.</description>
+        <description lang="ja">隠された魔法学校への招待状が届きました。</description>
+        
+        <thumbnail>res://scenarios/episode2_magic_school/thumbnail.png</thumbnail>
+        <estimated_playtime minutes="30"/>
+        <content_rating>teen</content_rating>
+      </metadata>
+      
+      <requirements>
+        <requirement type="scenario_complete" id="episode1_school_life"/>
+      </requirements>
+      
+      <unlocks>
+        <unlock type="scenario" id="episode3_school_club"/>
+        <unlock type="character" id="magic_teacher"/>
+      </unlocks>
+    </scenario>
+    
+    <!-- 에피소드 3: 학교 동아리 -->
+    <scenario id="episode3_school_club"
+              path="res://scenarios/episode3_school_club/episode_config.json"
+              type="main"
+              order="3">
+      <metadata>
+        <title lang="ko">에피소드 3: 동아리 활동</title>
+        <title lang="en">Episode 3: Club Activities</title>
+        <title lang="ja">エピソード3: 部活</title>
+        
+        <thumbnail>res://scenarios/episode3_school_club/thumbnail.png</thumbnail>
+        <estimated_playtime minutes="20"/>
+      </metadata>
+      
+      <requirements>
+        <requirement type="scenario_complete" id="episode2_magic_school"/>
+      </requirements>
+    </scenario>
+    
+    <!-- 사이드 스토리: 추억 -->
+    <scenario id="side_story_memories"
+              path="res://scenarios/side_stories/memories/episode_config.json"
+              type="side"
+              order="100">
+      <metadata>
+        <title lang="ko">사이드 스토리: 추억</title>
+        <title lang="en">Side Story: Memories</title>
+        
+        <thumbnail>res://scenarios/side_stories/memories/thumbnail.png</thumbnail>
+        <estimated_playtime minutes="15"/>
+      </metadata>
+      
+      <requirements>
+        <requirement type="variable" name="affection_yuki" operator=">=" value="5"/>
+        <requirement type="scenario_complete" id="episode1_school_life"/>
+      </requirements>
+    </scenario>
+    
+    <!-- 히든 시나리오 -->
+    <scenario id="hidden_true_route"
+              path="res://scenarios/hidden/true_route/episode_config.json"
+              type="hidden"
+              order="999"
+              secret="true">
+      <metadata>
+        <title lang="ko">???: 진실의 길</title>
+        <title lang="en">???: Path of Truth</title>
+        
+        <thumbnail>res://assets/ui/locked_scenario.png</thumbnail>
+      </metadata>
+      
+      <requirements>
+        <requirement type="all_endings" count="3"/>
+        <requirement type="variable" name="secret_route_unlocked" value="true"/>
+      </requirements>
+    </scenario>
+    
+  </scenarios>
+  
+  <!-- 엔딩 정의 -->
+  <endings>
+    <ending id="true_ending" 
+            name="True Ending" 
+            scenario="hidden_true_route"
+            cg_reward="true_ending_cg">
+      <requirements>
+        <requirement type="all_endings" count="3"/>
+        <requirement type="variable" name="secret_route_unlocked" value="true"/>
+      </requirements>
+    </ending>
+    
+    <ending id="yuki_good" name="Yuki - Good Ending">
+      <requirements>
+        <requirement type="variable" name="affection_yuki" operator=">=" value="10"/>
+      </requirements>
+    </ending>
+    
+    <ending id="yuki_normal" name="Yuki - Normal Ending">
+      <requirements>
+        <requirement type="variable" name="affection_yuki" operator=">=" value="5"/>
+      </requirements>
+    </ending>
+    
+    <ending id="bad_ending" name="Bad Ending">
+      <requirements>
+        <requirement type="none"/>
+      </requirements>
+    </ending>
+  </endings>
+  
+  <!-- 도전 과제 -->
+  <achievements>
+    <achievement id="first_choice" 
+                 name="First Decision" 
+                 description="Make your first choice"
+                 icon="res://assets/achievements/first_choice.png"/>
+    
+    <achievement id="all_endings" 
+                 name="Completionist" 
+                 description="See all endings"
+                 icon="res://assets/achievements/all_endings.png">
+      <requirement type="endings_seen" value="4"/>
+    </achievement>
+    
+    <achievement id="speedrun" 
+                 name="Speed Runner" 
+                 description="Complete the game in under 2 hours"
+                 icon="res://assets/achievements/speedrun.png">
+      <requirement type="play_time" operator="<" value="7200"/>
+    </achievement>
+    
+    <achievement id="explorer" 
+                 name="Explorer" 
+                 description="Unlock all CG images"
+                 icon="res://assets/achievements/explorer.png">
+      <requirement type="cg_unlocked" value="10"/>
+    </achievement>
+  </achievements>
+  
+  <!-- CG 갤러리 정의 -->
+  <cg_gallery>
+    <cg id="cg_intro_01" 
+        path="res://assets/cg/intro_01.png"
+        unlock_condition="scenario_complete:episode1_school_life">
+      <title lang="ko">첫 만남</title>
+      <title lang="en">First Meeting</title>
+    </cg>
+    
+    <cg id="cg_yuki_01"
+        path="res://assets/cg/yuki_01.png"
+        unlock_condition="affection_yuki>=5">
+      <title lang="ko">유키와의 추억</title>
+      <title lang="en">Memory with Yuki</title>
+    </cg>
+  </cg_gallery>
+  
+</master_index>
