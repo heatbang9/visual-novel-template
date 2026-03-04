@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8inventory_panel"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory/inventory_panel.gd" id="1_inventory"]
+
+[node name="InventoryPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inventory")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "인벤토리"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 0
+same_column_width = true
+
+[node name="ItemInfo" type="RichTextLabel" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[color=gray]아이템을 선택하세요[/color]"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CountContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="PanelContainer/VBoxContainer/CountContainer"]
+layout_mode = 2
+text = "아이템: 0종류 / 총 0개"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="UseButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "사용"
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "닫기"
