@@ -1,6 +1,6 @@
 extends Node
 
-class_name AudioManager
+
 
 signal audio_started(audio_type: String, audio_name: String)
 signal audio_finished(audio_type: String, audio_name: String)

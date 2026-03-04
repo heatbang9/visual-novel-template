@@ -2,7 +2,7 @@ extends Node
 
 ## 갤러리 매니저
 ## CG, 이벤트 이미지, 배경화면 등의 갤러리 시스템 관리
-class_name GalleryManager
+
 
 signal cg_unlocked(cg_id: String)
 signal cg_viewed(cg_id: String)

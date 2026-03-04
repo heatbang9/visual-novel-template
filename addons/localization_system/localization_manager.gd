@@ -1,6 +1,6 @@
 extends Node
 
-class_name LocalizationManager
+
 
 signal language_changed(old_language: String, new_language: String)
 signal translation_loaded(language: String)

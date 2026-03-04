@@ -1,6 +1,6 @@
 extends Node
 
-class_name GameProjectManager
+
 
 signal game_selected(game_id: String)
 signal game_loaded(game_data: Dictionary)

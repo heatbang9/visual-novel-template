@@ -59,5 +59,6 @@ InventoryManager="*res://addons/scenario_system/inventory_manager.gd"
 FlashbackManager="*res://addons/scenario_system/flashback_manager.gd"
 BranchStatsManager="*res://addons/scenario_system/branch_stats_manager.gd"
 CharacterRelationshipManager="*res://scripts/character/character_relationship_manager.gd"
-GalleryManager="*res://addons/gallery_system/gallery_manager.gd
+GalleryManager="*res://addons/gallery_system/gallery_manager.gd"
 AdvancedDialogueManager="*res://scripts/dialogue/advanced_dialogue_manager.gd"
+EnhancedXMLParser="*res://addons/scene_system/enhanced_xml_parser.gd"

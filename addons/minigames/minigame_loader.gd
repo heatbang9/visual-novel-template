@@ -2,7 +2,7 @@
 ## 동적 미니게임 로딩 및 관리를 담당
 ## Godot 4.5 호환, 비동기 로딩 지원
 extends Node
-class_name MinigameLoader
+
 
 ## 미니게임 로드 완료 시그널
 signal minigame_loaded(game_id: String)
